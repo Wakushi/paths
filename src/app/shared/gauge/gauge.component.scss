@@ -1,19 +1,21 @@
 .gauge {
+  position: absolute;
+  top: 0;
   background-color: #be7575;
   gap: 2.5rem;
 
   .gauge-patron {
-    position: absolute;
-    top: 0;
+    position: relative;
+    z-index: 1;
     img {
       width: 100%;
     }
   }
 
   .gauge-icons__gauges {
+    position: absolute;
     height: 35px;
     width: 70%;
-    margin-top: 1.4rem;
 
     .gauge-box {
       background-color: #ffffff;

@@ -7,6 +7,7 @@ import { HomeComponent } from '../app/modules/home/home.component';
 import { ChoiceComponent } from '../app/modules/choice/choice.component';
 import { GaugeComponent } from '../app/shared/gauge/gauge.component';
 import { GameOverComponent } from '../app/modules/game-over/game-over.component';
+import { GameBarComponent } from './shared/game-bar/game-bar.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { GameOverComponent } from '../app/modules/game-over/game-over.component'
     ChoiceComponent,
     GaugeComponent,
     GameOverComponent,
+    GameBarComponent,
   ],
   imports: [
     BrowserModule,

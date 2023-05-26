@@ -1,7 +1,8 @@
+.game {
+    position: relative;
+}
+
 .game-background {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
     position: absolute;
 }
 
@@ -12,4 +13,28 @@
     margin: 0 auto;
     border: 1px solid white;
     height: 100vh;
+    padding-top: 78px;
+    background-color: rgb(174, 155, 216);
+
+    .event-box {        
+       
+        padding: 1.5rem 1rem;
+        gap: 1rem;
+
+        .event-box__text {
+            text-align: center;
+        }
+        
+        .event-box__image {
+            background-color: bisque;
+            border-radius: 1rem;
+            box-shadow: 1px 1px 8px #5e5e5e;
+        }
+
+        .event-box__name {
+            font-size: 1.2rem;
+            text-align: center;
+            color: #111;
+        }
+    }
 }

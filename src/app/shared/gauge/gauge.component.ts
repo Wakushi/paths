@@ -16,7 +16,7 @@ export class GaugeComponent implements OnInit {
     this.timeStability = 90
     this.dimensionnalEnergy = 60
     this.physicalIntegrity = 50
-    this.mentalIntegrity = 30
+    this.mentalIntegrity = 0
   }
 
 }
