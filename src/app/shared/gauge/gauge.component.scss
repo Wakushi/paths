@@ -1,0 +1,24 @@
+.gauge {
+  background-color: #be7575;
+  gap: 2.5rem;
+
+  .gauge-patron {
+    position: absolute;
+    top: 0;
+    img {
+      width: 100%;
+    }
+  }
+
+  .gauge-icons__gauges {
+    height: 35px;
+    width: 70%;
+    margin-top: 1.4rem;
+
+    .gauge-box {
+      background-color: #ffffff;
+      flex: 1;
+      align-self: flex-end;
+    }
+  }
+}

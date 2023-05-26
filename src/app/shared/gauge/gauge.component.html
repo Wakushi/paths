@@ -1,1 +1,17 @@
-<p>gauge works!</p>
+<div class="gauge flex--al flex--ctr">
+  <div class="gauge-patron">
+    <img src="../../../assets/images/pictos/icons.png" />
+  </div>
+  <div class="gauge-icons__gauges flex--ctr">
+    <div [ngStyle]="{ height: timeStability + '%' }" class="gauge-box"></div>
+    <div
+      [ngStyle]="{ height: dimensionnalEnergy + '%' }"
+      class="gauge-box"
+    ></div>
+    <div
+      [ngStyle]="{ height: physicalIntegrity + '%' }"
+      class="gauge-box"
+    ></div>
+    <div [ngStyle]="{ height: mentalIntegrity + '%' }" class="gauge-box"></div>
+  </div>
+</div>
