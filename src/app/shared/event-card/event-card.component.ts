@@ -1,12 +1,17 @@
-import { AfterViewInit, Component, ElementRef, Renderer2, ViewChild } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  Renderer2,
+  ViewChild,
+} from '@angular/core';
 
 @Component({
   selector: 'app-event-card',
   templateUrl: './event-card.component.html',
-  styleUrls: ['./event-card.component.scss']
+  styleUrls: ['./event-card.component.scss'],
 })
 export class EventCardComponent implements AfterViewInit {
-  
   @ViewChild('eventCard') eventCard!: ElementRef;
   xStart: number = 0;
   currentX: number = 0;
@@ -15,50 +20,73 @@ export class EventCardComponent implements AfterViewInit {
   constructor(private renderer: Renderer2) {}
 
   ngAfterViewInit() {
-    this.eventCard.nativeElement.addEventListener('mousedown', (e:any) => this.onStart(e));
-    this.eventCard.nativeElement.addEventListener('touchstart', (e:any) => this.onStart(e));
-    this.eventCard.nativeElement.addEventListener('mousemove', (e:any) => this.onMove(e));
-    this.eventCard.nativeElement.addEventListener('touchmove', (e:any) => this.onMove(e));
-    this.eventCard.nativeElement.addEventListener('mouseup', () => this.onEnd());
-    this.eventCard.nativeElement.addEventListener('touchend', () => this.onEnd());
-    this.eventCard.nativeElement.addEventListener('transitionend', () => this.onTransitionEnd());
+    this.eventCard.nativeElement.addEventListener('mousedown', (e: any) =>
+      this.onStart(e)
+    );
+    this.eventCard.nativeElement.addEventListener('touchstart', (e: any) =>
+      this.onStart(e)
+    );
+    this.eventCard.nativeElement.addEventListener('mousemove', (e: any) =>
+      this.onMove(e)
+    );
+    this.eventCard.nativeElement.addEventListener('touchmove', (e: any) =>
+      this.onMove(e)
+    );
+    this.eventCard.nativeElement.addEventListener('mouseup', () =>
+      this.onEnd()
+    );
+    this.eventCard.nativeElement.addEventListener('touchend', () =>
+      this.onEnd()
+    );
+    this.eventCard.nativeElement.addEventListener('transitionend', () =>
+      this.onTransitionEnd()
+    );
   }
-  
 
-  onStart(e:any) {
+  onStart(e: any) {
     this.isDraggingCard = true;
-
-    if (e.type === "touchstart") {
-        this.xStart = e.touches[0].clientX;
+    if (e.type === 'touchstart') {
+      this.xStart = e.touches[0].clientX;
     } else {
-        this.xStart = e.clientX;
+      this.xStart = e.clientX;
     }
   }
 
-  onMove(e:any) {
+  onMove(e: any) {
     if (!this.isDraggingCard) return;
-
-    if (e.type === "touchmove") {
-        this.currentX = e.touches[0].clientX - this.xStart;
+    if (e.type === 'touchmove') {
+      this.currentX = e.touches[0].clientX - this.xStart;
     } else {
-        this.currentX = e.clientX - this.xStart;
+      this.currentX = e.clientX - this.xStart;
     }
-
-    this.renderer.setStyle(this.eventCard.nativeElement, 'transform', `translateX(${this.currentX}px)`);
+    
+    this.renderer.setStyle(
+      this.eventCard.nativeElement,
+      'transform',
+      `translateX(${this.currentX}px)`
+    );
   }
 
   onEnd() {
     this.isDraggingCard = false;
-
     if (Math.abs(this.currentX) > window.innerWidth / 3) {
-        let direction = this.currentX > 0 ? 1 : -1;
-        this.currentX = direction * window.innerWidth;
+      const direction = this.currentX > 0 ? 1 : -1;
+      this.onChoice(direction)
+      this.currentX = direction * window.innerWidth;
     } else {
-        this.currentX = 0;
+      this.currentX = 0;
     }
 
-    this.renderer.setStyle(this.eventCard.nativeElement, 'transition', 'transform 0.5s');
-    this.renderer.setStyle(this.eventCard.nativeElement, 'transform', `translateX(${this.currentX}px)`);
+    this.renderer.setStyle(
+      this.eventCard.nativeElement,
+      'transition',
+      'transform 0.5s'
+    );
+    this.renderer.setStyle(
+      this.eventCard.nativeElement,
+      'transform',
+      `translateX(${this.currentX}px)`
+    );
   }
 
   onTransitionEnd() {
@@ -67,5 +95,11 @@ export class EventCardComponent implements AfterViewInit {
     this.currentX = 0;
   }
 
-
+  onChoice(direction:number):void {
+    if(direction === 1) {
+      console.log("right")
+    } else {
+      console.log("left")
+    }
+  }
 }
