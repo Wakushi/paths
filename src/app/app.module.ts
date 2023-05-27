@@ -8,6 +8,7 @@ import { ChoiceComponent } from '../app/modules/choice/choice.component';
 import { GaugeComponent } from '../app/shared/gauge/gauge.component';
 import { GameOverComponent } from '../app/modules/game-over/game-over.component';
 import { GameBarComponent } from './shared/game-bar/game-bar.component';
+import { EventCardComponent } from './shared/event-card/event-card.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { GameBarComponent } from './shared/game-bar/game-bar.component';
     GaugeComponent,
     GameOverComponent,
     GameBarComponent,
+    EventCardComponent,
   ],
   imports: [
     BrowserModule,
