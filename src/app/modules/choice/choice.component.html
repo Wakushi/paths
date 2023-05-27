@@ -5,15 +5,7 @@
   />
   <div class="game-content flex--col flex--ctr">
     <app-gauge></app-gauge>
-    <div class="event-box flex--col flex--ctr">
-      <p class="event-box__text">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos
-        doloremque pariatur temporibus natus fugiat molestias blanditiis dicta
-        suscipit ex laborum recusandae.
-      </p>
-      <app-event-card></app-event-card>
-      <h1 class="event-box__name">AI Rabbit</h1>
-    </div>
+    <app-event-card [event$]="currentEvent$"></app-event-card>
     <app-game-bar></app-game-bar>
   </div>
 </div>

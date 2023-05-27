@@ -13,10 +13,10 @@ export class GaugeComponent implements OnInit {
   mentalIntegrity!:number
 
   ngOnInit(): void {
-    this.timeStability = 90
-    this.dimensionnalEnergy = 60
+    this.timeStability = 50
+    this.dimensionnalEnergy = 50
     this.physicalIntegrity = 50
-    this.mentalIntegrity = 0
+    this.mentalIntegrity = 50
   }
 
 }

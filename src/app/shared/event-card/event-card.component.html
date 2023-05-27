@@ -1,3 +1,13 @@
-<div #eventCard class="event-box__image">
-  <img class="event-image" (dragstart)="false" src="../../../assets/images/png/rabbit.png" />
+<div *ngIf="event$ | async as event" class="event-box flex--col flex--ctr">
+  <p class="event-box__text">
+    {{ event.dialog }}
+  </p>
+  <div #eventCard class="event-box__image">
+    <img
+      class="event-image"
+      (dragstart)="(false)"
+      [src]=event.eventImage
+    />
+  </div>
+  <h1 class="event-box__name">{{ event.eventName }}</h1>
 </div>

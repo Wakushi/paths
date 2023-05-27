@@ -1,34 +1,17 @@
 .game {
-    position: relative;
+  position: relative;
 }
 
 .game-background {
-    position: absolute;
+  position: absolute;
 }
 
 .game-content {
-    position: relative;
-    z-index: 1;
-    max-width: 375px;
-    margin: 0 auto;
-    border: 1px solid white;
-    height: 100vh;
-    min-height: 650px;
-    background-color: rgb(174, 155, 216);
-
-    .event-box {        
-       overflow-x: hidden;
-        padding: 1.5rem 1rem;
-        gap: 1rem;
-
-        .event-box__text {
-            text-align: center;
-        }
-        
-        .event-box__name {
-            font-size: 1.2rem;
-            text-align: center;
-            color: #111;
-        }
-    }
+  position: relative;
+  z-index: 1;
+  max-width: 375px;
+  margin: 0 auto;
+  height: 100vh;
+  min-height: 650px;
+  background-color: rgb(174, 155, 216);
 }

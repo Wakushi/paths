@@ -4,7 +4,11 @@ import {
   ElementRef,
   Renderer2,
   ViewChild,
+  Input,
 } from '@angular/core';
+import { Observable } from 'rxjs';
+import { EventService } from 'src/app/core/services/events.service';
+import { EventModel } from 'src/app/models/event.model';
 
 @Component({
   selector: 'app-event-card',
@@ -12,12 +16,16 @@ import {
   styleUrls: ['./event-card.component.scss'],
 })
 export class EventCardComponent implements AfterViewInit {
+  @Input() event$!: Observable<EventModel>;
   @ViewChild('eventCard') eventCard!: ElementRef;
   xStart: number = 0;
   currentX: number = 0;
   isDraggingCard: boolean = false;
 
-  constructor(private renderer: Renderer2) {}
+  constructor(
+    private _eventService: EventService,
+    private renderer: Renderer2
+  ) {}
 
   ngAfterViewInit() {
     this.eventCard.nativeElement.addEventListener('mousedown', (e: any) =>
@@ -59,7 +67,7 @@ export class EventCardComponent implements AfterViewInit {
     } else {
       this.currentX = e.clientX - this.xStart;
     }
-    
+
     this.renderer.setStyle(
       this.eventCard.nativeElement,
       'transform',
@@ -71,7 +79,7 @@ export class EventCardComponent implements AfterViewInit {
     this.isDraggingCard = false;
     if (Math.abs(this.currentX) > window.innerWidth / 3) {
       const direction = this.currentX > 0 ? 1 : -1;
-      this.onChoice(direction)
+      this.onChoice(direction);
       this.currentX = direction * window.innerWidth;
     } else {
       this.currentX = 0;
@@ -95,11 +103,10 @@ export class EventCardComponent implements AfterViewInit {
     this.currentX = 0;
   }
 
-  onChoice(direction:number):void {
-    if(direction === 1) {
-      console.log("right")
+  onChoice(direction: number): void {
+    if (direction === 1) {
     } else {
-      console.log("left")
     }
+    this._eventService.onNextEvent();
   }
 }
