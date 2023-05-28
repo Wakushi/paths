@@ -1,6 +1,7 @@
 .event-box {
   padding: 0 1rem;
   gap: 1.5rem;
+  position: relative;
 
   img {
     border-radius: 1rem;
@@ -54,5 +55,32 @@
     max-width: 340px;
     box-shadow: 2px 2px 5px black;
     margin-top: 2rem;
+  }
+
+  .card__face__text {
+    position: absolute;
+    z-index: 2;
+    opacity: 0;
+    padding: 1rem 2rem;
+    font-size: 1.5rem;
+    transition: 0.3s;
+    color: white;
+  }
+
+  .card__face__text--left {
+    top: 70px;
+    left: 0;
+    background: linear-gradient(to right, #2c1241, transparent);
+  }
+
+  .card__face__text--right {
+    text-align: end;
+    background: linear-gradient(to left, #2c1241, transparent);
+    top: 70px;
+    right: 0;
+  }
+
+  .visible-choice {
+    opacity: 1;
   }
 }

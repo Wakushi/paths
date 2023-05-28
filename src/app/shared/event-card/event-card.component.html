@@ -18,10 +18,14 @@
       </div>
     </ng-container>
   </div>
-
+  <div #leftChoice class="card__face__text card__face__text--left">
+    {{ event.leftChoice.text }}
+  </div>
+  <div #rightChoice class="card__face__text card__face__text--right">
+    {{ event.rightChoice.text }}
+  </div>
   <div class="event-card-back">
     <img src="../../../assets/images/backgrounds/card-back.png" />
   </div>
   <h1 class="event-box__name">{{ event.eventName }}</h1>
 </div>
-

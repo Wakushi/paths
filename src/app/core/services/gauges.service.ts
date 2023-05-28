@@ -15,39 +15,50 @@ export class GaugesService {
       case 'time':
         const newTimeValue = this.timeGauge$.value + value;
         this.timeGauge$.next(newTimeValue);
-        console.log(this.timeGauge$.value)
-        if (this.timeGauge$.value >= 100){
-            this.onGameOver('time')
+        if (this.timeGauge$.value >= 100) {
+          this.onGameOver('time', 'max');
         } else if (this.timeGauge$.value <= 0) {
-            this.timeGauge$.next(0)
-            this.onGameOver('time')
+          this.timeGauge$.next(0);
+          this.onGameOver('time', 'min');
         }
-         break;
+        break;
       case 'energy':
         const newEnergyValue = this.energyGauge$.value + value;
         this.energyGauge$.next(newEnergyValue);
-        if (this.energyGauge$.value >= 100 || this.energyGauge$.value <= 0){
-            this.onGameOver('energy')
-        } break;
+        if (this.energyGauge$.value >= 100) {
+          this.onGameOver('energy', 'max');
+        } else if (this.energyGauge$.value <= 0) {
+          this.energyGauge$.next(0);
+          this.onGameOver('energy', 'min');
+        }
+        break;
       case 'health':
         const newHealthValue = this.healthGauge$.value + value;
         this.healthGauge$.next(newHealthValue);
-        if (this.healthGauge$.value >= 100 || this.healthGauge$.value <= 0){
-            this.onGameOver('health')
-        } break;
+        if (this.healthGauge$.value >= 100) {
+          this.onGameOver('health', 'max');
+        } else if (this.healthGauge$.value <= 0) {
+          this.healthGauge$.next(0);
+          this.onGameOver('health', 'min');
+        }
+        break;
       case 'mental':
         const newMentalValue = this.mentalGauge$.value + value;
         this.mentalGauge$.next(newMentalValue);
-        if (this.mentalGauge$.value >= 100 || this.mentalGauge$.value <= 0){
-            this.onGameOver('mental')
-        } break;
+        if (this.mentalGauge$.value >= 100) {
+          this.onGameOver('mental', 'max');
+        } else if (this.mentalGauge$.value <= 0) {
+          this.mentalGauge$.next(0);
+          this.onGameOver('mental', 'min');
+        }
+        break;
 
       default:
         break;
     }
   }
 
-  onGameOver(reason: string): void {
+  onGameOver(reason: string, reach: string): void {
     console.log(reason, ' killed you !');
   }
 }

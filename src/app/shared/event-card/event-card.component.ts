@@ -5,6 +5,7 @@ import {
   Renderer2,
   ViewChild,
   Input,
+  ChangeDetectorRef,
 } from '@angular/core';
 import { Observable, first, map } from 'rxjs';
 import { EventService } from 'src/app/core/services/events.service';
@@ -19,6 +20,8 @@ import { EventModel } from 'src/app/models/event.model';
 export class EventCardComponent implements AfterViewInit {
   @Input() event$!: Observable<EventModel>;
   @ViewChild('eventCard') eventCard!: ElementRef;
+  @ViewChild('leftChoice') leftChoice!: ElementRef;
+  @ViewChild('rightChoice') rightChoice!: ElementRef;
   xStart: number = 0;
   currentX: number = 0;
   isDraggingCard: boolean = false;
@@ -27,7 +30,8 @@ export class EventCardComponent implements AfterViewInit {
   constructor(
     private _eventService: EventService,
     private _gaugesService: GaugesService,
-    private renderer: Renderer2
+    private renderer: Renderer2,
+    private cdRef: ChangeDetectorRef
   ) {}
 
   ngAfterViewInit() {
@@ -70,12 +74,24 @@ export class EventCardComponent implements AfterViewInit {
     } else {
       this.currentX = e.clientX - this.xStart;
     }
-
     this.renderer.setStyle(
       this.eventCard.nativeElement,
       'transform',
       `translateX(${this.currentX}px)`
     );
+    if (this.currentX > 0) {
+      this.renderer.setStyle(
+        this.leftChoice.nativeElement,
+        'opacity',
+        this.currentX / 100
+      );
+    } else {
+      this.renderer.setStyle(
+        this.rightChoice.nativeElement,
+        'opacity',
+        Math.abs(this.currentX / 100)
+      );
+    }
   }
 
   onEnd() {
@@ -88,7 +104,8 @@ export class EventCardComponent implements AfterViewInit {
     } else {
       this.currentX = 0;
     }
-
+    this.renderer.setStyle(this.leftChoice.nativeElement, 'opacity', 0);
+    this.renderer.setStyle(this.rightChoice.nativeElement, 'opacity', 0);
     this.renderer.setStyle(
       this.eventCard.nativeElement,
       'transition',
