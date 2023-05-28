@@ -3,15 +3,21 @@
     <img src="../../../assets/images/pictos/icons.png" />
   </div>
   <div class="gauge-icons__gauges flex--ctr">
-    <div [ngStyle]="{ height: timeStability + '%' }" class="gauge-box"></div>
     <div
-      [ngStyle]="{ height: dimensionnalEnergy + '%' }"
+      [ngStyle]="{ height: (timeGauge$ | async) + '%' }"
       class="gauge-box"
     ></div>
     <div
-      [ngStyle]="{ height: physicalIntegrity + '%' }"
+      [ngStyle]="{ height: (energyGauge$ | async) + '%' }"
       class="gauge-box"
     ></div>
-    <div [ngStyle]="{ height: mentalIntegrity + '%' }" class="gauge-box"></div>
+    <div
+      [ngStyle]="{ height: (healthGauge$ | async) + '%' }"
+      class="gauge-box"
+    ></div>
+    <div
+      [ngStyle]="{ height: (mentalGauge$ | async) + '%' }"
+      class="gauge-box"
+    ></div>
   </div>
 </div>

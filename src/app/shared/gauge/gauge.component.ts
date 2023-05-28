@@ -1,22 +1,24 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { GaugesService } from 'src/app/core/services/gauges.service';
 
 @Component({
   selector: 'app-gauge',
   templateUrl: './gauge.component.html',
-  styleUrls: ['./gauge.component.scss']
+  styleUrls: ['./gauge.component.scss'],
 })
 export class GaugeComponent implements OnInit {
+  constructor(private _gaugesService: GaugesService) {}
 
-  timeStability!:number
-  dimensionnalEnergy!:number
-  physicalIntegrity!:number
-  mentalIntegrity!:number
+  timeGauge$!: Observable<number>;
+  energyGauge$!: Observable<number>;
+  healthGauge$!: Observable<number>;
+  mentalGauge$!: Observable<number>;
 
   ngOnInit(): void {
-    this.timeStability = 50
-    this.dimensionnalEnergy = 50
-    this.physicalIntegrity = 50
-    this.mentalIntegrity = 50
+    this.timeGauge$ = this._gaugesService.timeGauge$;
+    this.energyGauge$ = this._gaugesService.energyGauge$;
+    this.healthGauge$ = this._gaugesService.healthGauge$;
+    this.mentalGauge$ = this._gaugesService.mentalGauge$;
   }
-
 }

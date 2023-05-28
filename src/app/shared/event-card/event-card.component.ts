@@ -6,15 +6,9 @@ import {
   ViewChild,
   Input,
 } from '@angular/core';
-import {
-  trigger,
-  style,
-  transition,
-  animate,
-  keyframes,
-} from '@angular/animations';
-import { Observable } from 'rxjs';
+import { Observable, first, map } from 'rxjs';
 import { EventService } from 'src/app/core/services/events.service';
+import { GaugesService } from 'src/app/core/services/gauges.service';
 import { EventModel } from 'src/app/models/event.model';
 
 @Component({
@@ -32,6 +26,7 @@ export class EventCardComponent implements AfterViewInit {
 
   constructor(
     private _eventService: EventService,
+    private _gaugesService: GaugesService,
     private renderer: Renderer2
   ) {}
 
@@ -124,9 +119,16 @@ export class EventCardComponent implements AfterViewInit {
   }
 
   onChoice(direction: number): void {
-    if (direction === 1) {
-    } else {
-    }
+    const consequence =
+      direction === 1
+        ? this.event$.pipe(map((event) => event.rightChoice.consequence))
+        : this.event$.pipe(map((event) => event.leftChoice.consequence));
+
+    consequence.pipe(first()).subscribe((consequenceObj) => {
+      Object.entries(consequenceObj).forEach(([key, value]) => {
+        this._gaugesService.updateGauge(key, value);
+      });
+    });
     setTimeout(() => {
       this.animateCard = false;
     }, 500);

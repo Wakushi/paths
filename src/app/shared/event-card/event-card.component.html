@@ -1,5 +1,5 @@
 <div *ngIf="event$ | async as event" class="event-box flex--col flex--ctr">
-  <p class="event-box__text">
+  <p class="event-box__text flex--al flex--ctr">
     {{ event.dialog }}
   </p>
   <div #eventCard class="event-box__image">
@@ -24,3 +24,4 @@
   </div>
   <h1 class="event-box__name">{{ event.eventName }}</h1>
 </div>
+

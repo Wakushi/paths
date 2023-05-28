@@ -8,6 +8,7 @@
 
   .event-box__text {
     text-align: center;
+    min-height: 60px;
   }
 
   .event-box__name {
@@ -52,5 +53,6 @@
     overflow: hidden;
     max-width: 340px;
     box-shadow: 2px 2px 5px black;
+    margin-top: 2rem;
   }
 }

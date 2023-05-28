@@ -6,20 +6,22 @@ const CLOCKMAKER: string = '../../assets/images/pnj/clockmaker.png';
 export const events: EventModel[] = [
   {
     eventName: 'AI Rabbit',
-    dialog: 'hello traveler',
+    dialog:
+      'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis, veniam! Nemo a, placeat officia sunt minima maiores voluptatum.',
     eventImage: AI_RABBIT,
     rightChoice: {
       text: 'Red pill',
-      consequence: { time: 10, energy: -10 },
+      consequence: { time: 10, energy: 10 },
     },
     leftChoice: {
-      text: 'Red pill',
-      consequence: { time: 10, energy: -10 },
+      text: 'Blue pill',
+      consequence: { time: -10, energy: -10 },
     },
   },
   {
     eventName: 'Horloger',
-    dialog: 'Look at my shop',
+    dialog:
+      'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis, veniam! Nemo a, placeat officia sunt minima maiores voluptatum.',
     eventImage: CLOCKMAKER,
     rightChoice: {
       text: 'Gold watch',
@@ -27,25 +29,27 @@ export const events: EventModel[] = [
     },
     leftChoice: {
       text: 'Red pill',
-      consequence: { time: 10, energy: -10 },
+      consequence: { time: -20, health: -10 },
     },
   },
   {
     eventName: 'AI Rabbit',
-    dialog: 'hello traveler',
+    dialog:
+      'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis, veniam! Nemo a, placeat officia sunt minima maiores voluptatum.',
     eventImage: AI_RABBIT,
     rightChoice: {
       text: 'Red pill',
-      consequence: { time: 10, energy: -10 },
+      consequence: { time: 10, energy: 10 },
     },
     leftChoice: {
-      text: 'Red pill',
-      consequence: { time: 10, energy: -10 },
+      text: 'Blue pill',
+      consequence: { time: -10, energy: -10 },
     },
   },
   {
     eventName: 'Horloger',
-    dialog: 'Look at my shop',
+    dialog:
+      'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis, veniam! Nemo a, placeat officia sunt minima maiores voluptatum.',
     eventImage: CLOCKMAKER,
     rightChoice: {
       text: 'Gold watch',
@@ -53,25 +57,27 @@ export const events: EventModel[] = [
     },
     leftChoice: {
       text: 'Red pill',
-      consequence: { time: 10, energy: -10 },
+      consequence: { time: -20, health: -10 },
     },
   },
   {
     eventName: 'AI Rabbit',
-    dialog: 'hello traveler',
+    dialog:
+      'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis, veniam! Nemo a, placeat officia sunt minima maiores voluptatum.',
     eventImage: AI_RABBIT,
     rightChoice: {
       text: 'Red pill',
-      consequence: { time: 10, energy: -10 },
+      consequence: { time: 10, energy: 10 },
     },
     leftChoice: {
-      text: 'Red pill',
-      consequence: { time: 10, energy: -10 },
+      text: 'Blue pill',
+      consequence: { time: -10, energy: -10 },
     },
   },
   {
     eventName: 'Horloger',
-    dialog: 'Look at my shop',
+    dialog:
+      'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis, veniam! Nemo a, placeat officia sunt minima maiores voluptatum.',
     eventImage: CLOCKMAKER,
     rightChoice: {
       text: 'Gold watch',
@@ -79,33 +85,7 @@ export const events: EventModel[] = [
     },
     leftChoice: {
       text: 'Red pill',
-      consequence: { time: 10, energy: -10 },
-    },
-  },
-  {
-    eventName: 'AI Rabbit',
-    dialog: 'hello traveler',
-    eventImage: AI_RABBIT,
-    rightChoice: {
-      text: 'Red pill',
-      consequence: { time: 10, energy: -10 },
-    },
-    leftChoice: {
-      text: 'Red pill',
-      consequence: { time: 10, energy: -10 },
-    },
-  },
-  {
-    eventName: 'Horloger',
-    dialog: 'Look at my shop',
-    eventImage: CLOCKMAKER,
-    rightChoice: {
-      text: 'Gold watch',
-      consequence: { time: 20, mental: 30 },
-    },
-    leftChoice: {
-      text: 'Red pill',
-      consequence: { time: 10, energy: -10 },
+      consequence: { time: -20, health: -10 },
     },
   },
 ];
