@@ -9,7 +9,7 @@ export class EventService {
   AI_RABBIT: string = '../../assets/images/pnj/rabbit.png';
   CLOCKMAKER: string = '../../assets/images/pnj/clockmaker.png';
 
-  eventCounter:number = 0;
+  eventCounter: number = 0;
   currentEvent$: BehaviorSubject<EventModel> = new BehaviorSubject<EventModel>({
     eventName: 'AI Rabbit',
     dialog: 'hello traveler',
@@ -24,9 +24,11 @@ export class EventService {
     },
   });
 
-  onNextEvent():void {
-    this.eventCounter ++
-    this.currentEvent$.next(this.events[this.eventCounter])
+  onNextEvent(): void {
+    setTimeout(() => {
+      this.eventCounter++;
+      this.currentEvent$.next(this.events[this.eventCounter]);
+    }, 500);
   }
 
   events: EventModel[] = [

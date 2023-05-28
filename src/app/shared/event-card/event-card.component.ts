@@ -81,6 +81,7 @@ export class EventCardComponent implements AfterViewInit {
       const direction = this.currentX > 0 ? 1 : -1;
       this.onChoice(direction);
       this.currentX = direction * window.innerWidth;
+      this.renderer.setStyle(this.eventCard.nativeElement, 'opacity', '0');
     } else {
       this.currentX = 0;
     }
@@ -88,7 +89,7 @@ export class EventCardComponent implements AfterViewInit {
     this.renderer.setStyle(
       this.eventCard.nativeElement,
       'transition',
-      'transform 0.5s'
+      'transform 0.5s, opacity 0.5s'
     );
     this.renderer.setStyle(
       this.eventCard.nativeElement,
@@ -100,7 +101,18 @@ export class EventCardComponent implements AfterViewInit {
   onTransitionEnd() {
     this.renderer.setStyle(this.eventCard.nativeElement, 'transition', 'none');
     this.renderer.setStyle(this.eventCard.nativeElement, 'transform', 'none');
+    this.renderer.setStyle(this.eventCard.nativeElement, 'opacity', '1');
     this.currentX = 0;
+  }
+
+  fadeIn() {
+    this.renderer.setStyle(this.eventCard.nativeElement, 'opacity', '0');
+    this.renderer.setStyle(
+      this.eventCard.nativeElement,
+      'transition',
+      'opacity 0.5s'
+    );
+    this.renderer.setStyle(this.eventCard.nativeElement, 'opacity', '1');
   }
 
   onChoice(direction: number): void {
@@ -108,5 +120,6 @@ export class EventCardComponent implements AfterViewInit {
     } else {
     }
     this._eventService.onNextEvent();
+    this.fadeIn();
   }
 }
