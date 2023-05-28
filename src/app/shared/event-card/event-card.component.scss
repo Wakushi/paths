@@ -1,5 +1,5 @@
 .event-box {
-  overflow-x: hidden;
+  
   padding: 0 1rem;
   gap: 1.5rem;
 
@@ -15,6 +15,14 @@
   .event-box__image {
     background-color: bisque;
     border-radius: 1rem;
-    box-shadow: 1px 1px 8px #5e5e5e;
+    z-index: 2;
+    overflow: hidden;
+  }
+
+  .event-card-back {
+    position: absolute;
+    border-radius: 1rem;
+    overflow: hidden;
+    max-width: 340px;
   }
 }

@@ -55,21 +55,6 @@ h1 {
 
 // ANIMATION CLASSES
 
-.fade-in-bottom {
-  animation: fade-in-bottom 0.6s cubic-bezier(0.39, 0.575, 0.565, 1) forwards;
-}
-
 // KEYFRAMES
 
-@keyframes fade-in-bottom {
-  0% {
-    -webkit-transform: translateY(50px);
-    transform: translateY(50px);
-    opacity: 0;
-  }
-  100% {
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
+
