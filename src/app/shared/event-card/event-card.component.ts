@@ -5,7 +5,6 @@ import {
   Renderer2,
   ViewChild,
   Input,
-  ChangeDetectorRef,
 } from '@angular/core';
 import { Observable, first, map } from 'rxjs';
 import { EventService } from 'src/app/core/services/events.service';
@@ -30,8 +29,7 @@ export class EventCardComponent implements AfterViewInit {
   constructor(
     private _eventService: EventService,
     private _gaugesService: GaugesService,
-    private renderer: Renderer2,
-    private cdRef: ChangeDetectorRef
+    private renderer: Renderer2
   ) {}
 
   ngAfterViewInit() {
