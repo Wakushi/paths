@@ -1,7 +1,10 @@
 .event-box {
-  
   padding: 0 1rem;
   gap: 1.5rem;
+
+  img {
+    border-radius: 1rem;
+  }
 
   .event-box__text {
     text-align: center;
@@ -12,11 +15,35 @@
     text-align: center;
     color: #111;
   }
+
   .event-box__image {
-    background-color: bisque;
+    perspective: 1000px;
     border-radius: 1rem;
     z-index: 2;
-    overflow: hidden;
+    height: 343px;
+  }
+
+  .card {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+    animation: flip-vertical-right 1s cubic-bezier(0.455, 0.03, 0.515, 0.955)
+      both;
+    transition: opacity 2s;
+  }
+
+  .card__face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+  }
+
+  .card__face--back {
+    transform: rotateY(180deg);
   }
 
   .event-card-back {
@@ -24,5 +51,6 @@
     border-radius: 1rem;
     overflow: hidden;
     max-width: 340px;
+    box-shadow: 2px 2px 5px black;
   }
 }

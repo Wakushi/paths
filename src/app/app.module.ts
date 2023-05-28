@@ -9,6 +9,7 @@ import { GaugeComponent } from '../app/shared/gauge/gauge.component';
 import { GameOverComponent } from '../app/modules/game-over/game-over.component';
 import { GameBarComponent } from './shared/game-bar/game-bar.component';
 import { EventCardComponent } from './shared/event-card/event-card.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -20,11 +21,8 @@ import { EventCardComponent } from './shared/event-card/event-card.component';
     GameBarComponent,
     EventCardComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

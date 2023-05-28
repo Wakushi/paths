@@ -3,14 +3,24 @@
     {{ event.dialog }}
   </p>
   <div #eventCard class="event-box__image">
-    <img
-      class="event-image"
-      (dragstart)="(false)"
-      [src]=event.eventImage
-    />
+    <ng-container *ngIf="animateCard">
+      <div class="card">
+        <div class="card__face card__face--front">
+          <img
+            class="event-image"
+            (dragstart)="(false)"
+            src="../../../assets/images/backgrounds/card-back.png"
+          />
+        </div>
+        <div class="card__face card__face--back">
+          <img [src]="event.eventImage" />
+        </div>
+      </div>
+    </ng-container>
   </div>
+
   <div class="event-card-back">
-    <img src="../../../assets/images/backgrounds/card-back.png">
+    <img src="../../../assets/images/backgrounds/card-back.png" />
   </div>
   <h1 class="event-box__name">{{ event.eventName }}</h1>
 </div>

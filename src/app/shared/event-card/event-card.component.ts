@@ -6,6 +6,13 @@ import {
   ViewChild,
   Input,
 } from '@angular/core';
+import {
+  trigger,
+  style,
+  transition,
+  animate,
+  keyframes,
+} from '@angular/animations';
 import { Observable } from 'rxjs';
 import { EventService } from 'src/app/core/services/events.service';
 import { EventModel } from 'src/app/models/event.model';
@@ -21,6 +28,7 @@ export class EventCardComponent implements AfterViewInit {
   xStart: number = 0;
   currentX: number = 0;
   isDraggingCard: boolean = false;
+  animateCard: boolean = true;
 
   constructor(
     private _eventService: EventService,
@@ -119,7 +127,13 @@ export class EventCardComponent implements AfterViewInit {
     if (direction === 1) {
     } else {
     }
+    setTimeout(() => {
+      this.animateCard = false;
+    }, 500);
     this._eventService.onNextEvent();
     this.fadeIn();
+    setTimeout(() => {
+      this.animateCard = true;
+    }, 500);
   }
 }
