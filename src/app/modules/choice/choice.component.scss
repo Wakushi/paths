@@ -1,10 +1,16 @@
 .game {
   position: relative;
   overflow-x: hidden;
+  background-color: rgb(62, 53, 73);
 }
 
 .game-background {
   position: absolute;
+  display: none;
+
+  @media screen and (min-width:450px) {
+    display: block
+  }
 }
 
 .game-content {
@@ -15,4 +21,5 @@
   height: 100vh;
   min-height: 650px;
   background-color: rgb(174, 155, 216);
+  box-shadow: 1px 1px 21px #1111119a;
 }

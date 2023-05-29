@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { GameService } from './game.service';
 
 @Injectable({
   providedIn: 'root',
@@ -9,6 +10,8 @@ export class GaugesService {
   energyGauge$: BehaviorSubject<number> = new BehaviorSubject<number>(50);
   healthGauge$: BehaviorSubject<number> = new BehaviorSubject<number>(50);
   mentalGauge$: BehaviorSubject<number> = new BehaviorSubject<number>(50);
+
+  constructor(private _gameService: GameService) {}
 
   updateGauge(gauge: string, value: number): void {
     switch (gauge) {
@@ -60,5 +63,13 @@ export class GaugesService {
 
   onGameOver(reason: string, reach: string): void {
     console.log(reason, ' killed you !');
+    this._gameService.isGameOver$.next(true);
+  }
+
+  resetGauges(): void {
+    this.timeGauge$.next(50);
+    this.energyGauge$.next(50);
+    this.healthGauge$.next(50);
+    this.mentalGauge$.next(50);
   }
 }

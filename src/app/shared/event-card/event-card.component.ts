@@ -79,13 +79,13 @@ export class EventCardComponent implements AfterViewInit {
     );
     if (this.currentX > 0) {
       this.renderer.setStyle(
-        this.leftChoice.nativeElement,
+        this.rightChoice.nativeElement,
         'opacity',
-        this.currentX / 100
+        Math.abs(this.currentX / 100)
       );
     } else {
       this.renderer.setStyle(
-        this.rightChoice.nativeElement,
+        this.leftChoice.nativeElement,
         'opacity',
         Math.abs(this.currentX / 100)
       );
