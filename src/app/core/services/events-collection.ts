@@ -1,23 +1,23 @@
 import { EventModel } from 'src/app/models/event.model';
 
-const AI_RABBIT_IMAGE: string = '../../assets/images/pnj/rabbit.png';
-const CLOCKMAKER_IMAGE: string = '../../assets/images/pnj/clockmaker.png';
-const TEMPORAL_MAYOR_IMAGE: string = '../../assets/images/pnj/mayor.png';
+const AI_RABBIT_IMAGE: string = '../../assets/images/pnj/rabbit.webp';
+const CLOCKMAKER_IMAGE: string = '../../assets/images/pnj/clockmaker.webp';
+const TEMPORAL_MAYOR_IMAGE: string = '../../assets/images/pnj/mayor.webp';
 const TEMPORAL_ANARCHIST_IMAGE: string =
-  '../../assets/images/pnj/anarchist.png';
-const GATEKEEPER_IMAGE: string = '../../assets/images/pnj/gatekeeper.png';
+  '../../assets/images/pnj/anarchist.webp';
+const GATEKEEPER_IMAGE: string = '../../assets/images/pnj/gatekeeper.webp';
 const RESEARCH_SCIENTIST_IMAGE: string =
-  '../../assets/images/pnj/scientist.png';
-const DIMENSIONAL_THIEF_IMAGE: string = '../../assets/images/pnj/thief.png';
-const SPACE_CLINIC_DOCTOR_IMAGE: string = '../../assets/images/pnj/doctor.png';
-const LIBRARY_SAGE_IMAGE: string = '../../assets/images/pnj/library-sage.png';
+  '../../assets/images/pnj/scientist.webp';
+const DIMENSIONAL_THIEF_IMAGE: string = '../../assets/images/pnj/thief.webp';
+const SPACE_CLINIC_DOCTOR_IMAGE: string = '../../assets/images/pnj/doctor.webp';
+const LIBRARY_SAGE_IMAGE: string = '../../assets/images/pnj/library-sage.webp';
 const BIO_PROTECTION_ENGINEER_IMAGE: string =
-  '../../assets/images/pnj/bio-engineer.png';
-const SEWER_CREATURE_IMAGE: string = '../../assets/images/pnj/creature.png';
+  '../../assets/images/pnj/bio-engineer.webp';
+const SEWER_CREATURE_IMAGE: string = '../../assets/images/pnj/creature.webp';
 const ILLUSIONIST_ARTIST_IMAGE: string =
-  '../../assets/images/pnj/illusionist.png';
-const COSMIC_PROFESSOR_IMAGE: string = '../../assets/images/pnj/professor.png';
-const TIMEKEEPER_IMAGE: string = '../../assets/images/pnj/clockmaker.png';
+  '../../assets/images/pnj/illusionist.webp';
+const COSMIC_PROFESSOR_IMAGE: string = '../../assets/images/pnj/professor.webp';
+const TIMEKEEPER_IMAGE: string = '../../assets/images/pnj/clockmaker.webp';
 
 export const events: EventModel[] = [
   {
