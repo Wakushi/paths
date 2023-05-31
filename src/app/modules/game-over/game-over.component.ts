@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs'
+import { EventService } from 'src/app/core/services/events.service'
 import { GameService } from 'src/app/core/services/game.service';
 import { GaugesService } from 'src/app/core/services/gauges.service';
 
@@ -11,7 +12,8 @@ import { GaugesService } from 'src/app/core/services/gauges.service';
 export class GameOverComponent implements OnInit {
   constructor(
     private _gameService: GameService,
-    private _gaugeService: GaugesService
+    private _gaugeService: GaugesService,
+    private _eventService: EventService
   ) {}
 
   deathMessage$!: Observable<string>
@@ -22,6 +24,7 @@ export class GameOverComponent implements OnInit {
 
   onTryAgain(): void {
     this._gameService.isGameOver$.next(false);
+    this._eventService.refillDiscardedEvents()
     this._gaugeService.resetGauges()
   }
 }

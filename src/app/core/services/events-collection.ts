@@ -14,7 +14,7 @@ const DOCTEUR_PROXIMA_IMAGE: string = "../../assets/images/pnj/doctor.webp"
 const INGENIEUR_ENERGIE_ZOLTAN_IMAGE: string =
   "../../assets/images/pnj/engineer.webp"
 
-export const basicEvents: EventModel[] = [
+export const basicEventsCollection: EventModel[] = [
   {
     eventName: "Commandant Thalia",
     dialog: "An asteroid is coming toward us, can I teleport us outta here?",
