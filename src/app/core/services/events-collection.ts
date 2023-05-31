@@ -1,450 +1,241 @@
-import { EventModel } from 'src/app/models/event.model';
+import { EventModel } from "src/app/models/event.model"
 
-const AI_RABBIT_IMAGE: string = '../../assets/images/pnj/rabbit.webp';
-const CLOCKMAKER_IMAGE: string = '../../assets/images/pnj/clockmaker.webp';
-const TEMPORAL_MAYOR_IMAGE: string = '../../assets/images/pnj/mayor.webp';
-const TEMPORAL_ANARCHIST_IMAGE: string =
-  '../../assets/images/pnj/anarchist.webp';
-const GATEKEEPER_IMAGE: string = '../../assets/images/pnj/gatekeeper.webp';
-const RESEARCH_SCIENTIST_IMAGE: string =
-  '../../assets/images/pnj/scientist.webp';
-const DIMENSIONAL_THIEF_IMAGE: string = '../../assets/images/pnj/thief.webp';
-const SPACE_CLINIC_DOCTOR_IMAGE: string = '../../assets/images/pnj/doctor.webp';
-const LIBRARY_SAGE_IMAGE: string = '../../assets/images/pnj/library-sage.webp';
-const BIO_PROTECTION_ENGINEER_IMAGE: string =
-  '../../assets/images/pnj/bio-engineer.webp';
-const SEWER_CREATURE_IMAGE: string = '../../assets/images/pnj/creature.webp';
-const ILLUSIONIST_ARTIST_IMAGE: string =
-  '../../assets/images/pnj/illusionist.webp';
-const COSMIC_PROFESSOR_IMAGE: string = '../../assets/images/pnj/professor.webp';
-const TIMEKEEPER_IMAGE: string = '../../assets/images/pnj/clockmaker.webp';
+const IA_MERIDIANA_IMAGE: string = "../../assets/images/pnj/rabbit.webp"
+const COMMANDANT_THALIA_IMAGE: string = "../../assets/images/pnj/thalia.webp"
+const CHRONOMECANICIEN_GRIGGS_IMAGE: string =
+  "../../assets/images/pnj/mechanic.webp"
+const NAVIGATOR_KASSIOPEIA_IMAGE: string =
+  "../../assets/images/pnj/navigator.webp"
+const ARCHITECTE_STELLAIRE_ORION_IMAGE: string =
+  "../../assets/images/pnj/architect.webp"
+const DATA_ARCHIVISTE_ALTAIR_IMAGE: string =
+  "../../assets/images/pnj/archivist.webp"
+const DOCTEUR_PROXIMA_IMAGE: string = "../../assets/images/pnj/doctor.webp"
+const INGENIEUR_ENERGIE_ZOLTAN_IMAGE: string =
+  "../../assets/images/pnj/engineer.webp"
 
 export const events: EventModel[] = [
   {
-    eventName: 'AI Rabbit',
-    dialog: 'We probably should help the computing sect ! What do you think ?',
-    eventImage: AI_RABBIT_IMAGE,
+    eventName: "Commandant Thalia",
+    dialog: "An asteroid is coming toward us, can I teleport us outta here?",
+    eventImage: COMMANDANT_THALIA_IMAGE,
     rightChoice: {
-      text: "Let's do this !",
-      consequence: { time: -20, energy: 10 },
+      text: "Sure, let's be safe !",
+      consequence: { time: -10, energy: -20 },
     },
     leftChoice: {
-      text: 'Absolutely not..',
-      consequence: { time: 10, energy: -20 },
+      text: "We could waste energy..",
+      consequence: { health: -20 },
     },
   },
   {
-    eventName: 'The Temporal Mayor',
+    eventName: "IA Méridiana",
     dialog:
-      'We need to establish strict time regulations in the city. Should we enforce them?',
-    eventImage: TEMPORAL_MAYOR_IMAGE,
+      "Zoltan is fixing the energy condensator, flux is currently low. What do you want to prioritize ?",
+    eventImage: IA_MERIDIANA_IMAGE,
     rightChoice: {
-      text: "Absolutely, let's regulate time!",
-      consequence: { time: -20, energy: 5 },
+      text: "Time stabilizator !",
+      consequence: { time: 10, health: -10, mental: -5 },
     },
     leftChoice: {
-      text: 'No, let time flow freely.',
-      consequence: { time: 10, energy: -10 },
+      text: "Everything left on the shields !",
+      consequence: { health: 10, time: -10, mental: -5 },
     },
   },
   {
-    eventName: 'The Municipal Clockmaker',
+    eventName: "Chronomécanicien Griggs",
     dialog:
-      "I've discovered a way to optimize the central clock. Should we implement the changes?",
-    eventImage: CLOCKMAKER_IMAGE,
+      "I've been working on some upgrades, which system should I focus on?",
+    eventImage: CHRONOMECANICIEN_GRIGGS_IMAGE,
     rightChoice: {
-      text: 'Yes, optimize the clock!',
-      consequence: { time: -10, energy: 5 },
+      text: "Upgrade the temporal engine!",
+      consequence: { time: 20, energy: -15 },
     },
     leftChoice: {
-      text: 'No, keep the clock as it is.',
-      consequence: { time: 10, energy: -5 },
+      text: "Let's reinforce the structural integrity!",
+      consequence: { health: 20, mental: -10 },
     },
   },
   {
-    eventName: 'The Temporal Anarchist',
+    eventName: "Commandant Thalia",
     dialog:
-      'The time regulations are oppressive! Should we support their cause?',
-    eventImage: TEMPORAL_ANARCHIST_IMAGE,
+      "We've picked up a distress signal. It might be a trap, what's our next move?",
+    eventImage: COMMANDANT_THALIA_IMAGE,
     rightChoice: {
-      text: "Yes, let's support the cause!",
-      consequence: { time: 10, energy: -15 },
+      text: "Rescue mission is a go!",
+      consequence: { time: -15, energy: -10 },
     },
     leftChoice: {
-      text: 'No, we must maintain order.',
-      consequence: { time: -10, energy: 5 },
+      text: "Ignore it, can't risk it.",
+      consequence: { mental: -10 },
     },
   },
   {
-    eventName: 'AI Rabbit',
+    eventName: "IA Méridiana",
     dialog:
-      'The computing sect needs our support to solve a complex algorithm. Shall we lend a hand?',
-    eventImage: AI_RABBIT_IMAGE,
+      "Data overload detected. Reallocate resources to prevent a system crash?",
+    eventImage: IA_MERIDIANA_IMAGE,
     rightChoice: {
-      text: "We're on it!",
-      consequence: { time: -30, energy: 20 },
+      text: "Divert energy to the shields!",
+      consequence: { health: 10, energy: -15, mental: 5 },
     },
     leftChoice: {
-      text: 'Let them solve it themselves.',
-      consequence: { time: 20, energy: -30 },
+      text: "Boost the temporal stabilizers!",
+      consequence: { time: 10, energy: -15, mental: 5 },
     },
   },
   {
-    eventName: 'Horloger',
+    eventName: "Chronomécanicien Griggs",
     dialog:
-      'I have a question for you. Should I continue working on my exquisite silver pocket watch or focus on my grand copper wall clock project?',
-    eventImage: CLOCKMAKER_IMAGE,
+      "The time engine is acting up. I have two potential fixes, which one should I apply?",
+    eventImage: CHRONOMECANICIEN_GRIGGS_IMAGE,
     rightChoice: {
-      text: 'Continue with the silver pocket watch',
-      consequence: { time: 30, mental: 40 },
+      text: "Use the emergency chronal adjuster!",
+      consequence: { time: 15, health: -10 },
     },
     leftChoice: {
-      text: 'Focus on the copper wall clock project',
-      consequence: { time: -30, health: -15 },
+      text: "Try the temporal resonance compensator!",
+      consequence: { time: 15, energy: -10 },
     },
   },
   {
-    eventName: 'The Temporal Mayor',
+    eventName: "Navigator Kassiopeia",
     dialog:
-      'We have an opportunity to synchronize our city time with the universal time. Shall we proceed?',
-    eventImage: TEMPORAL_MAYOR_IMAGE,
+      "There's a shortcut through the nebula, but it's risky. Your orders, captain?",
+    eventImage: NAVIGATOR_KASSIOPEIA_IMAGE,
     rightChoice: {
-      text: "Yes, let's synchronize!",
-      consequence: { time: -10, energy: 10 },
+      text: "Let's take the risk, full speed ahead!",
+      consequence: { energy: 20, health: -15, time: 10 },
     },
     leftChoice: {
-      text: 'No, we should have our own time.',
-      consequence: { time: 20, energy: -5 },
+      text: "No, stay on the current path.",
+      consequence: { time: -20 },
     },
   },
   {
-    eventName: 'The Municipal Clockmaker',
+    eventName: "Architecte Stellaire Orion",
     dialog:
-      "I've been thinking about altering the clock tower's chime. Shall we change the chime?",
-    eventImage: CLOCKMAKER_IMAGE,
+      "Hull breach detected, but I can only seal it from the outside. Shall I proceed?",
+    eventImage: ARCHITECTE_STELLAIRE_ORION_IMAGE,
     rightChoice: {
-      text: 'Yes, change the chime!',
-      consequence: { time: -5, energy: 10 },
+      text: "Yes, we can't lose pressure.",
+      consequence: { health: 20, time: -15, energy: -10 },
     },
     leftChoice: {
-      text: 'No, keep the current chime.',
-      consequence: { time: 15, energy: -5 },
+      text: "No, find an internal solution.",
+      consequence: { health: -15 },
     },
   },
   {
-    eventName: 'The Temporal Anarchist',
+    eventName: "Data Archiviste Altair",
     dialog:
-      'I propose to abolish all time rules for one day. Do you support the idea?',
-    eventImage: TEMPORAL_ANARCHIST_IMAGE,
+      "I've found a data anomaly, it could either be a glitch or crucial info. What's the protocol?",
+    eventImage: DATA_ARCHIVISTE_ALTAIR_IMAGE,
     rightChoice: {
-      text: "Yes, let's live freely for one day!",
-      consequence: { time: 15, energy: -20 },
+      text: "Investigate, it might be important.",
+      consequence: { mental: 10, energy: -5 },
     },
     leftChoice: {
-      text: 'No, we need time rules.',
-      consequence: { time: -15, energy: 10 },
+      text: "Ignore, it's probably a glitch.",
+      consequence: { mental: -5 },
     },
   },
   {
-    eventName: 'The Gatekeeper',
+    eventName: "Docteur Proxima",
     dialog:
-      'We have an opportunity to channel surplus dimensional energy to improve city infrastructure. What do you think?',
-    eventImage: GATEKEEPER_IMAGE,
+      "Crew's morale is low due to extended isolation. Suggest throwing a small party to boost morale.",
+    eventImage: DOCTEUR_PROXIMA_IMAGE,
     rightChoice: {
-      text: 'Channel the energy!',
-      consequence: { energy: -15, health: 10 },
+      text: "Sounds fun, let's do it!",
+      consequence: { mental: 20, time: -10, energy: -10 },
     },
     leftChoice: {
-      text: 'Save it for the future.',
-      consequence: { energy: 10 },
+      text: "We can't afford that, carry on as usual.",
+      consequence: { mental: -15 },
     },
   },
   {
-    eventName: 'The Gatekeeper',
+    eventName: "Ingénieur en Énergie Zoltan",
     dialog:
-      'We have a surplus of dimensional energy. How should we utilize it?',
-    eventImage: GATEKEEPER_IMAGE,
+      "Energy levels are falling rapidly, do you want me to reroute auxiliary power?",
+    eventImage: INGENIEUR_ENERGIE_ZOLTAN_IMAGE,
     rightChoice: {
-      text: 'Invest in dimensional exploration!',
-      consequence: { energy: -10, health: 5 },
+      text: "Yes, divert power to main systems.",
+      consequence: { energy: 15, mental: -5, health: -5 },
     },
     leftChoice: {
-      text: 'Store it for emergencies.',
-      consequence: { energy: 5 },
+      text: "No, conserve power for now.",
+      consequence: { energy: -10 },
     },
   },
   {
-    eventName: 'The Research Scientist',
+    eventName: "Navigator Kassiopeia",
     dialog:
-      "I've made a breakthrough in dimensional energy extraction. Should we implement the new method?",
-    eventImage: RESEARCH_SCIENTIST_IMAGE,
+      "There's a dimensional storm ahead. Should we navigate through it or wait it out?",
+    eventImage: NAVIGATOR_KASSIOPEIA_IMAGE,
     rightChoice: {
-      text: 'Yes, implement the new method!',
-      consequence: { energy: -10, health: 5 },
+      text: "Let's navigate through it carefully!",
+      consequence: { energy: 15, time: -10, health: -10 },
     },
     leftChoice: {
-      text: 'No, stick to the current method.',
-      consequence: { energy: 5 },
+      text: "Better safe than sorry, wait it out.",
+      consequence: { time: -20 },
     },
   },
   {
-    eventName: 'The Dimensional Thief',
+    eventName: "Architecte Stellaire Orion",
     dialog:
-      "I've discovered a source of dimensional energy. Should we steal it?",
-    eventImage: DIMENSIONAL_THIEF_IMAGE,
+      "I've found some weak points in our structure, do we have time for repairs?",
+    eventImage: ARCHITECTE_STELLAIRE_ORION_IMAGE,
     rightChoice: {
-      text: 'No, stealing is wrong.',
-      consequence: { energy: 10, health: -10 },
+      text: "Start the repairs immediately!",
+      consequence: { health: 20, time: -15 },
     },
     leftChoice: {
-      text: "Yes, let's take advantage of it!",
-      consequence: { energy: -10, health: 5 },
+      text: "We can't afford any downtime, keep going.",
+      consequence: { health: -15 },
     },
   },
   {
-    eventName: 'The Space Clinic Doctor',
+    eventName: "Data Archiviste Altair",
     dialog:
-      'We have new medical treatments available. Should we offer them to the citizens?',
-    eventImage: SPACE_CLINIC_DOCTOR_IMAGE,
+      "I have been analyzing some interesting data, should I continue or assist Meridiana?",
+    eventImage: DATA_ARCHIVISTE_ALTAIR_IMAGE,
     rightChoice: {
-      text: 'Yes, provide the new treatments!',
-      consequence: { health: -10, mental: 5 },
+      text: "Continue your research, we could use the knowledge.",
+      consequence: { mental: 15, energy: -10 },
     },
     leftChoice: {
-      text: 'No, stick to traditional treatments.',
-      consequence: { health: 5 },
+      text: "Help Meridiana, we need to maintain our coherence.",
+      consequence: { mental: 10, time: -5 },
     },
   },
   {
-    eventName: 'The Bio-Protection Engineer',
+    eventName: "Docteur Proxima",
     dialog:
-      "I've developed advanced protective gear. Should we distribute it to the citizens?",
-    eventImage: BIO_PROTECTION_ENGINEER_IMAGE,
+      "There are signs of a viral infection in the crew, should we go into quarantine?",
+    eventImage: DOCTEUR_PROXIMA_IMAGE,
     rightChoice: {
-      text: 'Yes, distribute the protective gear!',
-      consequence: { health: -5, mental: 5 },
+      text: "Yes, health is our top priority.",
+      consequence: { health: 20, energy: -10, time: -10 },
     },
     leftChoice: {
-      text: "No, it's unnecessary.",
-      consequence: { health: 5 },
+      text: "No, we can't afford to slow down. Distribute the antivirals.",
+      consequence: { health: -10 },
     },
   },
   {
-    eventName: 'The Sewer Creature',
-    dialog: "I'm emitting dangerous radiation. Should we contain me?",
-    eventImage: SEWER_CREATURE_IMAGE,
-    rightChoice: {
-      text: 'Yes, contain the radiation!',
-      consequence: { health: 10, mental: -5 },
-    },
-    leftChoice: {
-      text: 'No, let it be.',
-      consequence: { health: -10, mental: 5 },
-    },
-  },
-  {
-    eventName: 'The Universal Library Sage',
-    dialog: 'I have ancient knowledge to share. Should I reveal it?',
-    eventImage: LIBRARY_SAGE_IMAGE,
-    rightChoice: {
-      text: 'Yes, share the ancient knowledge!',
-      consequence: { mental: -10, time: 5 },
-    },
-    leftChoice: {
-      text: 'No, keep it hidden.',
-      consequence: { mental: 5 },
-    },
-  },
-  {
-    eventName: 'The Illusionist Artist',
+    eventName: "Ingénieur en Énergie Zoltan",
     dialog:
-      'I can create mesmerizing illusions. Should I perform in the streets?',
-    eventImage: ILLUSIONIST_ARTIST_IMAGE,
+      "Our energy reserves are being drained by an unknown source. Should I investigate or seal off the reserves?",
+    eventImage: INGENIEUR_ENERGIE_ZOLTAN_IMAGE,
     rightChoice: {
-      text: 'Yes, mesmerize the crowd!',
-      consequence: { mental: -5, time: 5 },
+      text: "Investigate, we need to find the cause.",
+      consequence: { energy: 15, mental: -10, time: -5 },
     },
     leftChoice: {
-      text: "No, it's unnecessary.",
-      consequence: { mental: 5 },
+      text: "Seal the reserves, we can't risk losing more energy.",
+      consequence: { energy: -10 },
     },
   },
-  {
-    eventName: 'The Cosmic College Professor',
-    dialog:
-      'I can teach cosmic knowledge. Should I share it with the students?',
-    eventImage: COSMIC_PROFESSOR_IMAGE,
-    rightChoice: {
-      text: 'Yes, share the cosmic knowledge!',
-      consequence: { mental: -10, time: 5 },
-    },
-    leftChoice: {
-      text: "No, it's too advanced for them.",
-      consequence: { mental: 5 },
-    },
-  },
-  {
-    eventName: 'The Temporal Mayor',
-    dialog:
-      'We need to establish strict time regulations in the city. Should we enforce them?',
-    eventImage: TEMPORAL_MAYOR_IMAGE,
-    rightChoice: {
-      text: "Absolutely, let's regulate time!",
-      consequence: { time: -20, energy: 10 },
-    },
-    leftChoice: {
-      text: 'No, let time flow freely.',
-      consequence: { time: 10, energy: -20 },
-    },
-  },
-  {
-    eventName: 'The Timekeeper',
-    dialog:
-      'I have discovered a new temporal anomaly. Should we investigate further?',
-    eventImage: TIMEKEEPER_IMAGE,
-    rightChoice: {
-      text: "Yes, let's investigate the anomaly!",
-      consequence: { time: -10, energy: 5 },
-    },
-    leftChoice: {
-      text: "No, it's too risky.",
-      consequence: { time: 5 },
-    },
-  },
-  {
-    eventName: 'The Dimensional Thief',
-    dialog:
-      'I have stolen a valuable artifact from the future. Should we use it to our advantage?',
-    eventImage: DIMENSIONAL_THIEF_IMAGE,
-    rightChoice: {
-      text: "Yes, let's harness the power of the artifact!",
-      consequence: { time: -5, energy: 10 },
-    },
-    leftChoice: {
-      text: 'No, we must return it to its rightful place.',
-      consequence: { time: 5, energy: -10 },
-    },
-  },
-  {
-    eventName: 'The Gatekeeper',
-    dialog:
-      'We have a surplus of dimensional energy. How should we utilize it?',
-    eventImage: GATEKEEPER_IMAGE,
-    rightChoice: {
-      text: 'Invest in dimensional exploration!',
-      consequence: { energy: -10, health: 5 },
-    },
-    leftChoice: {
-      text: 'Store it for emergencies.',
-      consequence: { energy: 5 },
-    },
-  },
-  {
-    eventName: 'The Research Scientist',
-    dialog:
-      "I've made a breakthrough in dimensional energy extraction. Should we implement the new method?",
-    eventImage: RESEARCH_SCIENTIST_IMAGE,
-    rightChoice: {
-      text: 'Yes, implement the new method!',
-      consequence: { energy: -10, health: 5 },
-    },
-    leftChoice: {
-      text: 'No, stick to the current method.',
-      consequence: { energy: 5 },
-    },
-  },
-  {
-    eventName: 'The Timekeeper',
-    dialog: 'A dimensional rift has appeared. Should we attempt to seal it?',
-    eventImage: TIMEKEEPER_IMAGE,
-    rightChoice: {
-      text: "Yes, let's seal the rift!",
-      consequence: { energy: -5, health: 10 },
-    },
-    leftChoice: {
-      text: 'No, it may lead to new discoveries.',
-      consequence: { energy: 5, health: -10 },
-    },
-  },
-  {
-    eventName: 'The Space Clinic Doctor',
-    dialog:
-      'New medical technologies are available. Should we use them to improve healthcare?',
-    eventImage: SPACE_CLINIC_DOCTOR_IMAGE,
-    rightChoice: {
-      text: "Yes, let's embrace the new medical technologies!",
-      consequence: { health: -10, mental: 5 },
-    },
-    leftChoice: {
-      text: 'No, traditional methods are sufficient.',
-      consequence: { health: 5 },
-    },
-  },
-  {
-    eventName: 'The Bio-Protection Engineer',
-    dialog:
-      "I've developed advanced bio-enhancements. Should we offer them to the citizens?",
-    eventImage: BIO_PROTECTION_ENGINEER_IMAGE,
-    rightChoice: {
-      text: 'Yes, offer the bio-enhancements!',
-      consequence: { health: -5, mental: 5 },
-    },
-    leftChoice: {
-      text: 'No, it may have unintended consequences.',
-      consequence: { health: 5 },
-    },
-  },
-  {
-    eventName: 'The Sewer Creature',
-    dialog:
-      'I possess unique genetic traits. Should we study or quarantine me?',
-    eventImage: SEWER_CREATURE_IMAGE,
-    rightChoice: {
-      text: "Yes, let's study the genetic traits!",
-      consequence: { health: 10, mental: -5 },
-    },
-    leftChoice: {
-      text: "No, it's too dangerous.",
-      consequence: { health: -10, mental: 5 },
-    },
-  },
-  {
-    eventName: 'The Library Sage',
-    dialog: 'I have ancient cosmic wisdom to share. Should I reveal it?',
-    eventImage: LIBRARY_SAGE_IMAGE,
-    rightChoice: {
-      text: 'Yes, share the ancient wisdom!',
-      consequence: { mental: -10, time: 5 },
-    },
-    leftChoice: {
-      text: 'No, it may overwhelm the citizens.',
-      consequence: { mental: 5 },
-    },
-  },
-  {
-    eventName: 'The Illusionist Artist',
-    dialog: 'I can create mesmerizing illusions. Should I perform in the city?',
-    eventImage: ILLUSIONIST_ARTIST_IMAGE,
-    rightChoice: {
-      text: 'Yes, mesmerize the city with illusions!',
-      consequence: { mental: -5, time: 5 },
-    },
-    leftChoice: {
-      text: 'No, it may confuse the citizens.',
-      consequence: { mental: 5 },
-    },
-  },
-  {
-    eventName: 'The Library Sage',
-    dialog: 'I have deep cosmic insights. Should I share them with the public?',
-    eventImage: LIBRARY_SAGE_IMAGE,
-    rightChoice: {
-      text: 'Yes, share the cosmic insights!',
-      consequence: { mental: -10, time: 5 },
-    },
-    leftChoice: {
-      text: 'No, the public may not understand.',
-      consequence: { mental: 5 },
-    },
-  },
-];
+]
