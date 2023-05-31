@@ -14,7 +14,7 @@ const DOCTEUR_PROXIMA_IMAGE: string = "../../assets/images/pnj/doctor.webp"
 const INGENIEUR_ENERGIE_ZOLTAN_IMAGE: string =
   "../../assets/images/pnj/engineer.webp"
 
-export const events: EventModel[] = [
+export const basicEvents: EventModel[] = [
   {
     eventName: "Commandant Thalia",
     dialog: "An asteroid is coming toward us, can I teleport us outta here?",
@@ -29,7 +29,7 @@ export const events: EventModel[] = [
     },
   },
   {
-    eventName: "IA Méridiana",
+    eventName: "Mediriana AI",
     dialog:
       "Zoltan is fixing the energy condensator, flux is currently low. What do you want to prioritize ?",
     eventImage: IA_MERIDIANA_IMAGE,
@@ -43,7 +43,7 @@ export const events: EventModel[] = [
     },
   },
   {
-    eventName: "Chronomécanicien Griggs",
+    eventName: "Chronomechanic Griggs",
     dialog:
       "I've been working on some upgrades, which system should I focus on?",
     eventImage: CHRONOMECANICIEN_GRIGGS_IMAGE,
@@ -71,7 +71,7 @@ export const events: EventModel[] = [
     },
   },
   {
-    eventName: "IA Méridiana",
+    eventName: "Mediriana AI",
     dialog:
       "Data overload detected. Reallocate resources to prevent a system crash?",
     eventImage: IA_MERIDIANA_IMAGE,
@@ -85,7 +85,7 @@ export const events: EventModel[] = [
     },
   },
   {
-    eventName: "Chronomécanicien Griggs",
+    eventName: "Chronomechanic Griggs",
     dialog:
       "The time engine is acting up. I have two potential fixes, which one should I apply?",
     eventImage: CHRONOMECANICIEN_GRIGGS_IMAGE,
@@ -113,7 +113,7 @@ export const events: EventModel[] = [
     },
   },
   {
-    eventName: "Architecte Stellaire Orion",
+    eventName: "Stellar Architect Orion",
     dialog:
       "Hull breach detected, but I can only seal it from the outside. Shall I proceed?",
     eventImage: ARCHITECTE_STELLAIRE_ORION_IMAGE,
@@ -127,7 +127,7 @@ export const events: EventModel[] = [
     },
   },
   {
-    eventName: "Data Archiviste Altair",
+    eventName: "Data Archivist Altair",
     dialog:
       "I've found a data anomaly, it could either be a glitch or crucial info. What's the protocol?",
     eventImage: DATA_ARCHIVISTE_ALTAIR_IMAGE,
@@ -155,7 +155,7 @@ export const events: EventModel[] = [
     },
   },
   {
-    eventName: "Ingénieur en Énergie Zoltan",
+    eventName: "Energineer Zoltan",
     dialog:
       "Energy levels are falling rapidly, do you want me to reroute auxiliary power?",
     eventImage: INGENIEUR_ENERGIE_ZOLTAN_IMAGE,
@@ -183,7 +183,7 @@ export const events: EventModel[] = [
     },
   },
   {
-    eventName: "Architecte Stellaire Orion",
+    eventName: "Stellar Architect Orion",
     dialog:
       "I've found some weak points in our structure, do we have time for repairs?",
     eventImage: ARCHITECTE_STELLAIRE_ORION_IMAGE,
@@ -197,7 +197,7 @@ export const events: EventModel[] = [
     },
   },
   {
-    eventName: "Data Archiviste Altair",
+    eventName: "Data Archivist Altair",
     dialog:
       "I have been analyzing some interesting data, should I continue or assist Meridiana?",
     eventImage: DATA_ARCHIVISTE_ALTAIR_IMAGE,
@@ -225,7 +225,7 @@ export const events: EventModel[] = [
     },
   },
   {
-    eventName: "Ingénieur en Énergie Zoltan",
+    eventName: "Energineer Zoltan",
     dialog:
       "Our energy reserves are being drained by an unknown source. Should I investigate or seal off the reserves?",
     eventImage: INGENIEUR_ENERGIE_ZOLTAN_IMAGE,
@@ -239,7 +239,7 @@ export const events: EventModel[] = [
     },
   },
   {
-    eventName: "Chronomécanicien Griggs",
+    eventName: "Chronomechanic Griggs",
     dialog:
       "Temporal engine stability is decreasing, should I engage the backup chronal buffer?",
     eventImage: CHRONOMECANICIEN_GRIGGS_IMAGE,
@@ -253,7 +253,7 @@ export const events: EventModel[] = [
     },
   },
   {
-    eventName: "IA Méridiana",
+    eventName: "Mediriana AI",
     dialog:
       "I've detected a time anomaly. It could be beneficial to investigate, but it will require energy.",
     eventImage: IA_MERIDIANA_IMAGE,
@@ -281,7 +281,7 @@ export const events: EventModel[] = [
     },
   },
   {
-    eventName: "Ingénieur en Énergie Zoltan",
+    eventName: "Energineer Zoltan",
     dialog:
       "There's an energy surge in the temporal engine. Shall I reroute the extra energy?",
     eventImage: INGENIEUR_ENERGIE_ZOLTAN_IMAGE,
@@ -322,7 +322,7 @@ export const events: EventModel[] = [
     },
   },
   {
-    eventName: "IA Méridiana",
+    eventName: "Mediriana AI",
     dialog: "Detected an approaching time storm.",
     eventImage: IA_MERIDIANA_IMAGE,
     rightChoice: {
@@ -335,7 +335,7 @@ export const events: EventModel[] = [
     },
   },
   {
-    eventName: "Chronomécanicien Griggs",
+    eventName: "Chronomechanic Griggs",
     dialog: "Identified a potential upgrade in the temporal engine.",
     eventImage: CHRONOMECANICIEN_GRIGGS_IMAGE,
     rightChoice: {
@@ -362,7 +362,7 @@ export const events: EventModel[] = [
     },
   },
   {
-    eventName: "Data Archiviste Altair",
+    eventName: "Data Archivist Altair",
     dialog: "Potential breakthrough in understanding a new form of energy.",
     eventImage: DATA_ARCHIVISTE_ALTAIR_IMAGE,
     rightChoice: {
@@ -388,7 +388,7 @@ export const events: EventModel[] = [
     },
   },
   {
-    eventName: "Architecte Stellaire Orion",
+    eventName: "Stellar Architect Orion",
     dialog:
       "Our current trajectory will take us through a field of space debris.",
     eventImage: ARCHITECTE_STELLAIRE_ORION_IMAGE,
@@ -402,7 +402,7 @@ export const events: EventModel[] = [
     },
   },
   {
-    eventName: "Ingénieur en Énergie Zoltan",
+    eventName: "Energineer Zoltan",
     dialog: "Extra energy is being wasted. Possible to reroute.",
     eventImage: INGENIEUR_ENERGIE_ZOLTAN_IMAGE,
     rightChoice: {
@@ -429,7 +429,7 @@ export const events: EventModel[] = [
     },
   },
   {
-    eventName: "IA Méridiana",
+    eventName: "Mediriana AI",
     dialog:
       "A sudden spike in the temporal matrix could mean a potential time jump.",
     eventImage: IA_MERIDIANA_IMAGE,
@@ -443,7 +443,7 @@ export const events: EventModel[] = [
     },
   },
   {
-    eventName: "Chronomécanicien Griggs",
+    eventName: "Chronomechanic Griggs",
     dialog:
       "A temporal loophole has been detected. We can exploit it for fast travel.",
     eventImage: CHRONOMECANICIEN_GRIGGS_IMAGE,
@@ -485,7 +485,7 @@ export const events: EventModel[] = [
     },
   },
   {
-    eventName: "Architecte Stellaire Orion",
+    eventName: "Stellar Architect Orion",
     dialog:
       "A nearby star is about to go supernova. We can harness the energy, but it's risky.",
     eventImage: ARCHITECTE_STELLAIRE_ORION_IMAGE,
@@ -499,7 +499,7 @@ export const events: EventModel[] = [
     },
   },
   {
-    eventName: "Data Archiviste Altair",
+    eventName: "Data Archivist Altair",
     dialog:
       "We've detected an ancient data capsule. It could boost Méridiana's abilities.",
     eventImage: DATA_ARCHIVISTE_ALTAIR_IMAGE,
@@ -513,7 +513,7 @@ export const events: EventModel[] = [
     },
   },
   {
-    eventName: "Ingénieur en Énergie Zoltan",
+    eventName: "Energineer Zoltan",
     dialog:
       "We've got an energy leak in the auxiliary engine. We need to fix it now!",
     eventImage: INGENIEUR_ENERGIE_ZOLTAN_IMAGE,
@@ -541,7 +541,7 @@ export const events: EventModel[] = [
     },
   },
   {
-    eventName: "IA Méridiana",
+    eventName: "Mediriana AI",
     dialog:
       "We've encountered a dimensional rift. We can either navigate around it or go through it.",
     eventImage: IA_MERIDIANA_IMAGE,
@@ -555,7 +555,7 @@ export const events: EventModel[] = [
     },
   },
   {
-    eventName: "Chronomécanicien Griggs",
+    eventName: "Chronomechanic Griggs",
     dialog: "A temporal storm is approaching. We need to take action.",
     eventImage: CHRONOMECANICIEN_GRIGGS_IMAGE,
     rightChoice: {
@@ -607,7 +607,7 @@ export const events: EventModel[] = [
     },
   },
   {
-    eventName: "IA Méridiana",
+    eventName: "Mediriana AI",
     dialog: "I need a system upgrade. It can improve my performance.",
     eventImage: IA_MERIDIANA_IMAGE,
     rightChoice: {
@@ -619,4 +619,160 @@ export const events: EventModel[] = [
       consequence: {},
     },
   },
+  {
+    eventName: "Commandant Thalia",
+    dialog: "The local inhabitants are offering us a time-warp device. They're asking for energy in return.",
+    eventImage: COMMANDANT_THALIA_IMAGE,
+    rightChoice: {
+      text: "Trade energy for the device.",
+      consequence: { time: 20, energy: -20 },
+    },
+    leftChoice: {
+      text: "Politely decline their offer.",
+      consequence: { },
+    },
+  },
+  {
+    eventName: "Chronomechanic Griggs",
+    dialog: "We've found a pocket of suspended time. We can harness it, but it could disturb the ship's systems.",
+    eventImage: CHRONOMECANICIEN_GRIGGS_IMAGE,
+    rightChoice: {
+      text: "Harness the suspended time.",
+      consequence: { time: 20, energy: -10, mental: -5 },
+    },
+    leftChoice: {
+      text: "Let's not risk it. Leave it be.",
+      consequence: { },
+    },
+  },
+  {
+    eventName: "Commandant Thalia",
+    dialog: "A temporal merchant is selling rare Chrono Crystals, which can boost our temporal stability.",
+    eventImage: COMMANDANT_THALIA_IMAGE,
+    rightChoice: {
+      text: "Buy the Chrono Crystals.",
+      consequence: { time: 30, energy: -20 },
+    },
+    leftChoice: {
+      text: "We can't afford the trade.",
+      consequence: { },
+    },
+  },
+  {
+    eventName: "Chronomechanic Griggs",
+    dialog: "I can recalibrate our time engine, it may increase efficiency, but it's risky.",
+    eventImage: CHRONOMECANICIEN_GRIGGS_IMAGE,
+    rightChoice: {
+      text: "Recalibrate the time engine.",
+      consequence: { time: 20, energy: -15, health: -10 },
+    },
+    leftChoice: {
+      text: "It's too risky. Leave it be.",
+      consequence: { },
+    },
+  },
+  {
+    eventName: "Navigator Kassiopeia",
+    dialog: "A temporal shortcut has appeared, but it's quite unstable.",
+    eventImage: NAVIGATOR_KASSIOPEIA_IMAGE,
+    rightChoice: {
+      text: "Take the shortcut.",
+      consequence: { time: 20, energy: -20, health: -15 },
+    },
+    leftChoice: {
+      text: "Stay on the current path.",
+      consequence: { time: -10 },
+    },
+  },
+  {
+    eventName: "Mediriana AI",
+    dialog: "Optimizing the AI core could enhance time prediction algorithms.",
+    eventImage: IA_MERIDIANA_IMAGE,
+    rightChoice: {
+      text: "Optimize the AI core.",
+      consequence: { time: 20, energy: -15, mental: -5 },
+    },
+    leftChoice: {
+      text: "Maintain current AI core performance.",
+      consequence: { },
+    },
+  },
+  {
+    eventName: "Commandant Thalia",
+    dialog: "An ancient time relic has been located. It could boost our temporal stability, but it's guarded by hostile creatures.",
+    eventImage: COMMANDANT_THALIA_IMAGE,
+    rightChoice: {
+      text: "Retrieve the relic.",
+      consequence: { time: 30, energy: -25, health: -20 },
+    },
+    leftChoice: {
+      text: "Too dangerous. Leave it be.",
+      consequence: { },
+    },
+  },
+  {
+    eventName: "Docteur Proxima",
+    dialog: "The crew is reporting time lapses. We could investigate this anomaly.",
+    eventImage: DOCTEUR_PROXIMA_IMAGE,
+    rightChoice: {
+      text: "Investigate the anomaly.",
+      consequence: { time: 20, health: -10, energy: -10 },
+    },
+    leftChoice: {
+      text: "Ignore the reports.",
+      consequence: { time: -20 },
+    },
+  },
+  {
+    eventName: "Mediriana AI",
+    dialog: "Temporal interference detected. I could recalibrate sensors to minimize impact.",
+    eventImage: IA_MERIDIANA_IMAGE,
+    rightChoice: {
+      text: "Recalibrate the sensors.",
+      consequence: { time: 30, energy: -10 },
+    },
+    leftChoice: {
+      text: "Ignore the interference.",
+      consequence: { time: -20 },
+    },
+  },
+  {
+    eventName: "Chronomechanic Griggs",
+    dialog: "We can temporarily overclock the time engines for a boost, at the risk of overheating.",
+    eventImage: CHRONOMECANICIEN_GRIGGS_IMAGE,
+    rightChoice: {
+      text: "Overclock the engines.",
+      consequence: { time: 20, energy: -20, health: -10 },
+    },
+    leftChoice: {
+      text: "Maintain current engine performance.",
+      consequence: { },
+    },
+  },
+  {
+    eventName: "Navigator Kassiopeia",
+    dialog: "A passing time comet could be harvested for temporal energy.",
+    eventImage: NAVIGATOR_KASSIOPEIA_IMAGE,
+    rightChoice: {
+      text: "Attempt to harvest the comet.",
+      consequence: { time: 25, energy: -15 },
+    },
+    leftChoice: {
+      text: "Let the comet pass by.",
+      consequence: { },
+    },
+  },
+  {
+    eventName: "Docteur Proxima",
+    dialog: "Studying the effects of local time flora on crew could lead to better temporal stability.",
+    eventImage: DOCTEUR_PROXIMA_IMAGE,
+    rightChoice: {
+      text: "Conduct the study.",
+      consequence: { time: 15, health: -10 },
+    },
+    leftChoice: {
+      text: "Ignore the local flora.",
+      consequence: { },
+    },
+  }
 ]

@@ -7,15 +7,12 @@
   .gauge-patron {
     position: relative;
     z-index: 1;
-    img {
-      width: 100%;
-    }
   }
 
   .gauge-icons__gauges {
     position: absolute;
-    height: 35px;
-    width: 70%;
+    height: 33px;
+    width: 60%;
 
     .gauge-box {
       background-color: #ffffff;

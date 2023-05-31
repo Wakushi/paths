@@ -62,8 +62,8 @@ export class GaugesService {
   }
 
   onGameOver(reason: string, reach: string): void {
-    console.log(reason, ' killed you !');
     this._gameService.isGameOver$.next(true);
+    this._gameService.deathMessage$.next("You were killed by " + reason)
   }
 
   resetGauges(): void {
