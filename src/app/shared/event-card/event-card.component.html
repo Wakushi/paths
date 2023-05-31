@@ -13,7 +13,7 @@
           />
         </div>
         <div class="card__face card__face--back">
-          <img [src]="event.eventImage" />
+          <img [src]="event.eventImage" (dragstart)="(false)"/>
         </div>
       </div>
     </ng-container>

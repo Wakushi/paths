@@ -94,7 +94,7 @@ export class EventCardComponent implements AfterViewInit {
 
   onEnd() {
     this.isDraggingCard = false;
-    if (Math.abs(this.currentX) > window.innerWidth / 3) {
+    if (Math.abs(this.currentX) > 150) {
       const direction = this.currentX > 0 ? 1 : -1;
       this.onChoice(direction);
       this.currentX = direction * window.innerWidth;
