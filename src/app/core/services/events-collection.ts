@@ -1154,4 +1154,113 @@ export const basicEventsCollection: EventModel[] = [
       consequence: {},
     },
   },
+  {
+    eventName: "Navigator Kassiopeia",
+    dialog:
+      "We can utilize the gravitational slingshot effect around a nearby gas giant to save energy.",
+    eventImage: NAVIGATOR_KASSIOPEIA_IMAGE,
+    rightChoice: {
+      text: "Use the gravitational slingshot.",
+      consequence: { energy: 20, time: -15 },
+    },
+    leftChoice: {
+      text: "Keep current course.",
+      consequence: { time: -10 },
+    },
+  },
+  {
+    eventName: "Docteur Proxima",
+    dialog: "Initiating a crew-wide health fast could save significant energy.",
+    eventImage: DOCTEUR_PROXIMA_IMAGE,
+    rightChoice: {
+      text: "Initiate the health fast.",
+      consequence: { energy: 15, health: -10 },
+    },
+    leftChoice: {
+      text: "Maintain normal diet.",
+      consequence: {},
+    },
+  },
+  {
+    eventName: "Stellar Architect Orion",
+    dialog:
+      "An incoming solar flare can be harnessed for energy, but it might affect crew health.",
+    eventImage: ARCHITECTE_STELLAIRE_ORION_IMAGE,
+    rightChoice: {
+      text: "Harness the solar flare.",
+      consequence: { energy: 30, health: -20 },
+    },
+    leftChoice: {
+      text: "Take evasive action.",
+      consequence: { time: -15 },
+    },
+  },
+  {
+    eventName: "Data Archivist Altair",
+    dialog:
+      "A data defragmentation can free up system resources and save energy.",
+    eventImage: DATA_ARCHIVISTE_ALTAIR_IMAGE,
+    rightChoice: {
+      text: "Initiate defragmentation.",
+      consequence: { energy: 10, time: -5 },
+    },
+    leftChoice: {
+      text: "Skip defragmentation.",
+      consequence: {},
+    },
+  },
+  {
+    eventName: "Energineer Zoltan",
+    dialog: "An unexploited quantum energy field has been detected nearby.",
+    eventImage: INGENIEUR_ENERGIE_ZOLTAN_IMAGE,
+    rightChoice: {
+      text: "Exploit the quantum field.",
+      consequence: { energy: 40, time: -20 },
+    },
+    leftChoice: {
+      text: "Ignore the quantum field.",
+      consequence: { time: -5 },
+    },
+  },
+  {
+    eventName: "Commandant Thalia",
+    dialog: "Turning off non-essential ship lights can save energy.",
+    eventImage: COMMANDANT_THALIA_IMAGE,
+    rightChoice: {
+      text: "Turn off non-essential lights.",
+      consequence: { energy: 5 },
+    },
+    leftChoice: {
+      text: "Keep the lights on.",
+      consequence: { energy: -5 },
+    },
+  },
+  {
+    eventName: "Mediriana AI",
+    dialog:
+      "Reducing my processing power can conserve energy, but it will affect overall performance.",
+    eventImage: IA_MERIDIANA_IMAGE,
+    rightChoice: {
+      text: "Reduce AI processing power.",
+      consequence: { energy: 10, mental: -10 },
+    },
+    leftChoice: {
+      text: "Keep AI processing power at current level.",
+      consequence: {},
+    },
+  },
+  {
+    eventName: "Chronomechanic Griggs",
+    dialog:
+      "A temporal rift is emitting tachyon particles which can be converted into energy.",
+    eventImage: CHRONOMECANICIEN_GRIGGS_IMAGE,
+    rightChoice: {
+      text: "Convert tachyon particles into energy.",
+      consequence: { energy: 25, health: -10 },
+    },
+    leftChoice: {
+      text: "Avoid the temporal rift.",
+      consequence: { time: -10 },
+    },
+  },
 ]
