@@ -1,6 +1,6 @@
 import { EventModel } from "src/app/models/event.model"
 
-const IA_MERIDIANA_IMAGE: string = "../../assets/images/pnj/rabbit.webp"
+const IA_MERIDIANA_IMAGE: string = "../../assets/images/pnj/AI.webp"
 const COMMANDANT_THALIA_IMAGE: string = "../../assets/images/pnj/thalia.webp"
 const CHRONOMECANICIEN_GRIGGS_IMAGE: string =
   "../../assets/images/pnj/mechanic.webp"
@@ -17,22 +17,22 @@ const INGENIEUR_ENERGIE_ZOLTAN_IMAGE: string =
 export const questEventsCollection: EventModel[] = [
   {
     eventName: "Commandant Thalia",
-    dialog: "We have an energy breach, tell Griggs to bring the chronic recursor",
+    dialog:
+      "We have an energy breach, tell Griggs to bring the chronic recursor",
     eventImage: COMMANDANT_THALIA_IMAGE,
     rightChoice: {
       text: "I will.",
-      consequence: { },
+      consequence: {},
     },
     leftChoice: {
       text: "Yes sure.",
-      consequence: { },
+      consequence: {},
     },
-    quest:"QUEST_1A"
+    quest: "QUEST_1A",
   },
   {
     eventName: "Chronomechanic Griggs",
-    dialog:
-      "Sorry but I have a lot to do, what do you want ?",
+    dialog: "Sorry but I have a lot to do, what do you want ?",
     eventImage: CHRONOMECANICIEN_GRIGGS_IMAGE,
     rightChoice: {
       text: "We need the chronic recursor.",
@@ -42,7 +42,7 @@ export const questEventsCollection: EventModel[] = [
       text: "We need you to fix the shields.",
       consequence: { health: 20, mental: -15 },
     },
-    quest:"QUEST_1B"
+    quest: "QUEST_1B",
   },
 ]
 
@@ -653,7 +653,8 @@ export const basicEventsCollection: EventModel[] = [
   },
   {
     eventName: "Commandant Thalia",
-    dialog: "The local inhabitants are offering us a time-warp device. They're asking for energy in return.",
+    dialog:
+      "The local inhabitants are offering us a time-warp device. They're asking for energy in return.",
     eventImage: COMMANDANT_THALIA_IMAGE,
     rightChoice: {
       text: "Trade energy for the device.",
@@ -661,12 +662,13 @@ export const basicEventsCollection: EventModel[] = [
     },
     leftChoice: {
       text: "Politely decline their offer.",
-      consequence: { },
+      consequence: {},
     },
   },
   {
     eventName: "Chronomechanic Griggs",
-    dialog: "We've found a pocket of suspended time. We can harness it, but it could disturb the ship's systems.",
+    dialog:
+      "We've found a pocket of suspended time. We can harness it, but it could disturb the ship's systems.",
     eventImage: CHRONOMECANICIEN_GRIGGS_IMAGE,
     rightChoice: {
       text: "Harness the suspended time.",
@@ -674,12 +676,13 @@ export const basicEventsCollection: EventModel[] = [
     },
     leftChoice: {
       text: "Let's not risk it. Leave it be.",
-      consequence: { },
+      consequence: {},
     },
   },
   {
     eventName: "Commandant Thalia",
-    dialog: "A temporal merchant is selling rare Chrono Crystals, which can boost our temporal stability.",
+    dialog:
+      "A temporal merchant is selling rare Chrono Crystals, which can boost our temporal stability.",
     eventImage: COMMANDANT_THALIA_IMAGE,
     rightChoice: {
       text: "Buy the Chrono Crystals.",
@@ -687,12 +690,13 @@ export const basicEventsCollection: EventModel[] = [
     },
     leftChoice: {
       text: "We can't afford the trade.",
-      consequence: { },
+      consequence: {},
     },
   },
   {
     eventName: "Chronomechanic Griggs",
-    dialog: "I can recalibrate our time engine, it may increase efficiency, but it's risky.",
+    dialog:
+      "I can recalibrate our time engine, it may increase efficiency, but it's risky.",
     eventImage: CHRONOMECANICIEN_GRIGGS_IMAGE,
     rightChoice: {
       text: "Recalibrate the time engine.",
@@ -700,7 +704,7 @@ export const basicEventsCollection: EventModel[] = [
     },
     leftChoice: {
       text: "It's too risky. Leave it be.",
-      consequence: { },
+      consequence: {},
     },
   },
   {
@@ -726,12 +730,13 @@ export const basicEventsCollection: EventModel[] = [
     },
     leftChoice: {
       text: "Maintain current AI core performance.",
-      consequence: { },
+      consequence: {},
     },
   },
   {
     eventName: "Commandant Thalia",
-    dialog: "An ancient time relic has been located. It could boost our temporal stability, but it's guarded by hostile creatures.",
+    dialog:
+      "An ancient time relic has been located. It could boost our temporal stability, but it's guarded by hostile creatures.",
     eventImage: COMMANDANT_THALIA_IMAGE,
     rightChoice: {
       text: "Retrieve the relic.",
@@ -739,12 +744,13 @@ export const basicEventsCollection: EventModel[] = [
     },
     leftChoice: {
       text: "Too dangerous. Leave it be.",
-      consequence: { },
+      consequence: {},
     },
   },
   {
     eventName: "Docteur Proxima",
-    dialog: "The crew is reporting time lapses. We could investigate this anomaly.",
+    dialog:
+      "The crew is reporting time lapses. We could investigate this anomaly.",
     eventImage: DOCTEUR_PROXIMA_IMAGE,
     rightChoice: {
       text: "Investigate the anomaly.",
@@ -757,7 +763,8 @@ export const basicEventsCollection: EventModel[] = [
   },
   {
     eventName: "Mediriana AI",
-    dialog: "Temporal interference detected. I could recalibrate sensors to minimize impact.",
+    dialog:
+      "Temporal interference detected. I could recalibrate sensors to minimize impact.",
     eventImage: IA_MERIDIANA_IMAGE,
     rightChoice: {
       text: "Recalibrate the sensors.",
@@ -770,7 +777,8 @@ export const basicEventsCollection: EventModel[] = [
   },
   {
     eventName: "Chronomechanic Griggs",
-    dialog: "We can temporarily overclock the time engines for a boost, at the risk of overheating.",
+    dialog:
+      "We can temporarily overclock the time engines for a boost, at the risk of overheating.",
     eventImage: CHRONOMECANICIEN_GRIGGS_IMAGE,
     rightChoice: {
       text: "Overclock the engines.",
@@ -778,7 +786,7 @@ export const basicEventsCollection: EventModel[] = [
     },
     leftChoice: {
       text: "Maintain current engine performance.",
-      consequence: { },
+      consequence: {},
     },
   },
   {
@@ -791,12 +799,13 @@ export const basicEventsCollection: EventModel[] = [
     },
     leftChoice: {
       text: "Let the comet pass by.",
-      consequence: { },
+      consequence: {},
     },
   },
   {
     eventName: "Docteur Proxima",
-    dialog: "Studying the effects of local time flora on crew could lead to better temporal stability.",
+    dialog:
+      "Studying the effects of local time flora on crew could lead to better temporal stability.",
     eventImage: DOCTEUR_PROXIMA_IMAGE,
     rightChoice: {
       text: "Conduct the study.",
@@ -804,7 +813,345 @@ export const basicEventsCollection: EventModel[] = [
     },
     leftChoice: {
       text: "Ignore the local flora.",
-      consequence: { },
+      consequence: {},
     },
-  }
+  },
+  {
+    eventName: "Commandant Thalia",
+    dialog: "Our shields are deteriorating at an alarming rate.",
+    eventImage: COMMANDANT_THALIA_IMAGE,
+    rightChoice: {
+      text: "Divert power to reinforce shields.",
+      consequence: { health: 30, energy: -20 },
+    },
+    leftChoice: {
+      text: "Keep power distribution as is.",
+      consequence: { health: -30 },
+    },
+  },
+  {
+    eventName: "Data Archivist Altair",
+    dialog: "There's a network breach. It's affecting Méridiana's operations.",
+    eventImage: DATA_ARCHIVISTE_ALTAIR_IMAGE,
+    rightChoice: {
+      text: "Cut off the network and initiate repair protocol.",
+      consequence: { mental: 15, time: -10 },
+    },
+    leftChoice: {
+      text: "Let Méridiana handle it autonomously.",
+      consequence: { mental: -15, time: 10 },
+    },
+  },
+  {
+    eventName: "Navigator Kassiopeia",
+    dialog: "A wormhole appeared on our course. It could lead us off track.",
+    eventImage: NAVIGATOR_KASSIOPEIA_IMAGE,
+    rightChoice: {
+      text: "Enter the wormhole.",
+      consequence: { time: 40, mental: -20, health: -10 },
+    },
+    leftChoice: {
+      text: "Steer clear of the wormhole.",
+      consequence: { time: -15 },
+    },
+  },
+  {
+    eventName: "Mediriana AI",
+    dialog: "Our AI is suggesting an experimental speed boost.",
+    eventImage: IA_MERIDIANA_IMAGE,
+    rightChoice: {
+      text: "Implement the boost.",
+      consequence: { time: 30, energy: -20 },
+    },
+    leftChoice: {
+      text: "Stick to the current speed.",
+      consequence: { time: -15 },
+    },
+  },
+  {
+    eventName: "Chronomechanic Griggs",
+    dialog:
+      "We're caught in a time dilation field. We can attempt to stabilize it.",
+    eventImage: CHRONOMECANICIEN_GRIGGS_IMAGE,
+    rightChoice: {
+      text: "Attempt stabilization.",
+      consequence: { time: 20, energy: -10 },
+    },
+    leftChoice: {
+      text: "Wait for the effect to pass naturally.",
+      consequence: { time: -20, mental: 10 },
+    },
+  },
+  {
+    eventName: "Navigator Kassiopeia",
+    dialog:
+      "An energy-rich asteroid field is on our route. Harvesting may delay us.",
+    eventImage: NAVIGATOR_KASSIOPEIA_IMAGE,
+    rightChoice: {
+      text: "Alter course to harvest the asteroids.",
+      consequence: { time: -15, energy: 20 },
+    },
+    leftChoice: {
+      text: "Maintain current course.",
+      consequence: {},
+    },
+  },
+  {
+    eventName: "Docteur Proxima",
+    dialog: "I can recalibrate the med-bay to produce some extra energy.",
+    eventImage: DOCTEUR_PROXIMA_IMAGE,
+    rightChoice: {
+      text: "Recalibrate the med-bay.",
+      consequence: { health: -10, energy: 15 },
+    },
+    leftChoice: {
+      text: "Keep the med-bay focused on health.",
+      consequence: {},
+    },
+  },
+  {
+    eventName: "Stellar Architect Orion",
+    dialog:
+      "There are residual energy traces in a nearby nebula. It's safe to collect.",
+    eventImage: ARCHITECTE_STELLAIRE_ORION_IMAGE,
+    rightChoice: {
+      text: "Collect the energy traces.",
+      consequence: { energy: 20, time: -10 },
+    },
+    leftChoice: {
+      text: "Ignore the nebula.",
+      consequence: {},
+    },
+  },
+  {
+    eventName: "Data Archivist Altair",
+    dialog: "Unused data packets can be converted into energy.",
+    eventImage: DATA_ARCHIVISTE_ALTAIR_IMAGE,
+    rightChoice: {
+      text: "Convert the data packets.",
+      consequence: { mental: -5, energy: 10 },
+    },
+    leftChoice: {
+      text: "Keep the data as is.",
+      consequence: {},
+    },
+  },
+  {
+    eventName: "Energineer Zoltan",
+    dialog:
+      "We can optimize energy use by diverting from non-critical systems.",
+    eventImage: INGENIEUR_ENERGIE_ZOLTAN_IMAGE,
+    rightChoice: {
+      text: "Optimize energy use.",
+      consequence: { energy: 15 },
+    },
+    leftChoice: {
+      text: "Keep energy distribution as is.",
+      consequence: { mental: -10 },
+    },
+  },
+  {
+    eventName: "Commandant Thalia",
+    dialog: "We can convert some auxiliary systems to produce more energy.",
+    eventImage: COMMANDANT_THALIA_IMAGE,
+    rightChoice: {
+      text: "Convert the systems.",
+      consequence: { energy: 10, health: -5 },
+    },
+    leftChoice: {
+      text: "Keep auxiliary systems as they are.",
+      consequence: {},
+    },
+  },
+  {
+    eventName: "Mediriana AI",
+    dialog: "Unallocated processing power can be converted into energy.",
+    eventImage: IA_MERIDIANA_IMAGE,
+    rightChoice: {
+      text: "Convert processing power.",
+      consequence: { energy: 15, mental: -10 },
+    },
+    leftChoice: {
+      text: "Keep processing power as it is.",
+      consequence: {},
+    },
+  },
+  {
+    eventName: "Chronomechanic Griggs",
+    dialog: "Chrono-batteries can be charged with the temporal field's energy.",
+    eventImage: CHRONOMECANICIEN_GRIGGS_IMAGE,
+    rightChoice: {
+      text: "Charge the batteries.",
+      consequence: { energy: 20, time: -10 },
+    },
+    leftChoice: {
+      text: "Avoid interaction with the field.",
+      consequence: {},
+    },
+  },
+  {
+    eventName: "Navigator Kassiopeia",
+    dialog:
+      "A nearby star emits substantial solar wind. We could harvest this energy.",
+    eventImage: NAVIGATOR_KASSIOPEIA_IMAGE,
+    rightChoice: {
+      text: "Harvest the solar wind.",
+      consequence: { energy: 25, time: -15 },
+    },
+    leftChoice: {
+      text: "Maintain current course.",
+      consequence: {},
+    },
+  },
+  {
+    eventName: "Docteur Proxima",
+    dialog: "If we reduce life-support to minimal, we could save some energy.",
+    eventImage: DOCTEUR_PROXIMA_IMAGE,
+    rightChoice: {
+      text: "Reduce life-support.",
+      consequence: { energy: 15, health: -20 },
+    },
+    leftChoice: {
+      text: "Keep life-support at current levels.",
+      consequence: {},
+    },
+  },
+  {
+    eventName: "Stellar Architect Orion",
+    dialog:
+      "A nearby white dwarf is emitting a significant amount of fusion energy.",
+    eventImage: ARCHITECTE_STELLAIRE_ORION_IMAGE,
+    rightChoice: {
+      text: "Capture the energy emission.",
+      consequence: { energy: 30, time: -20 },
+    },
+    leftChoice: {
+      text: "Steer clear of the white dwarf.",
+      consequence: { time: -10 },
+    },
+  },
+  {
+    eventName: "Data Archivist Altair",
+    dialog: "Turning off long-term data storage will conserve a lot of energy.",
+    eventImage: DATA_ARCHIVISTE_ALTAIR_IMAGE,
+    rightChoice: {
+      text: "Turn off long-term storage.",
+      consequence: { energy: 15, mental: -20 },
+    },
+    leftChoice: {
+      text: "Keep long-term storage active.",
+      consequence: {},
+    },
+  },
+  {
+    eventName: "Energineer Zoltan",
+    dialog:
+      "The secondary power generator is under-utilized. Activating it will increase our energy reserves.",
+    eventImage: INGENIEUR_ENERGIE_ZOLTAN_IMAGE,
+    rightChoice: {
+      text: "Activate the secondary generator.",
+      consequence: { energy: 20 },
+    },
+    leftChoice: {
+      text: "Continue with the primary generator.",
+      consequence: { energy: -10 },
+    },
+  },
+  {
+    eventName: "Commandant Thalia",
+    dialog:
+      "The mess hall's lights are on all the time. Turning them off when not in use can save energy.",
+    eventImage: COMMANDANT_THALIA_IMAGE,
+    rightChoice: {
+      text: "Turn off the lights.",
+      consequence: { energy: 5, mental: -5 },
+    },
+    leftChoice: {
+      text: "Keep the lights on.",
+      consequence: {},
+    },
+  },
+  {
+    eventName: "Mediriana AI",
+    dialog:
+      "Less essential AI functions can be temporarily shut down for an energy boost.",
+    eventImage: IA_MERIDIANA_IMAGE,
+    rightChoice: {
+      text: "Shut down non-essential AI functions.",
+      consequence: { energy: 10, mental: -5 },
+    },
+    leftChoice: {
+      text: "Keep AI functions as is.",
+      consequence: {},
+    },
+  },
+  {
+    eventName: "Chronomechanic Griggs",
+    dialog:
+      "A time vortex is nearby. We can gain energy from its temporal distortions.",
+    eventImage: CHRONOMECANICIEN_GRIGGS_IMAGE,
+    rightChoice: {
+      text: "Approach the vortex cautiously.",
+      consequence: { energy: 20, time: -15, health: -10 },
+    },
+    leftChoice: {
+      text: "Avoid the vortex.",
+      consequence: { time: -10 },
+    },
+  },
+  {
+    eventName: "Navigator Kassiopeia",
+    dialog:
+      "Flying closer to a star will allow our solar panels to absorb more energy.",
+    eventImage: NAVIGATOR_KASSIOPEIA_IMAGE,
+    rightChoice: {
+      text: "Fly closer to the star.",
+      consequence: { energy: 30, health: -20 },
+    },
+    leftChoice: {
+      text: "Keep current distance from the star.",
+      consequence: { time: -5 },
+    },
+  },
+  {
+    eventName: "Docteur Proxima",
+    dialog:
+      "By temporarily reducing life support to non-essential areas, we can conserve energy.",
+    eventImage: DOCTEUR_PROXIMA_IMAGE,
+    rightChoice: {
+      text: "Reduce life support in non-essential areas.",
+      consequence: { energy: 15, health: -10 },
+    },
+    leftChoice: {
+      text: "Maintain current life support settings.",
+      consequence: {},
+    },
+  },
+  {
+    eventName: "Stellar Architect Orion",
+    dialog:
+      "A pulsar nearby is emitting strong waves of radiation, which can be converted into energy.",
+    eventImage: ARCHITECTE_STELLAIRE_ORION_IMAGE,
+    rightChoice: {
+      text: "Convert radiation into energy.",
+      consequence: { energy: 30, health: -15 },
+    },
+    leftChoice: {
+      text: "Keep away from the pulsar.",
+      consequence: { time: -10 },
+    },
+  },
+  {
+    eventName: "Data Archivist Altair",
+    dialog: "Less essential data archives can be erased to save energy.",
+    eventImage: DATA_ARCHIVISTE_ALTAIR_IMAGE,
+    rightChoice: {
+      text: "Erase less essential archives.",
+      consequence: { energy: 10, mental: -15 },
+    },
+    leftChoice: {
+      text: "Keep data archives as they are.",
+      consequence: {},
+    },
+  },
 ]
