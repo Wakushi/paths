@@ -2,11 +2,14 @@ import { Injectable } from "@angular/core"
 import { BehaviorSubject } from "rxjs"
 import { EventModel } from "src/app/models/event.model"
 import { basicEventsCollection } from "./events-collection"
+import { GameService } from "./game.service"
 
 @Injectable({
   providedIn: "root",
 })
 export class EventService {
+  constructor(private _gameService: GameService) {}
+
   eventCounter: number = 0
   basicEvents: EventModel[] = [...basicEventsCollection]
   eventPool: EventModel[] = []
@@ -31,9 +34,10 @@ export class EventService {
   }
 
   onNextEvent(): void {
+    this.eventCounter++
+    this._gameService.runLightYears$.next(this.eventCounter)
     this.randomFillEventPool()
     setTimeout(() => {
-      this.eventCounter++
       this.currentEvent$.next(this.eventPool.splice(0, 1)[0])
     }, 500)
   }
@@ -42,4 +46,5 @@ export class EventService {
     this.basicEvents = this.basicEvents.concat(this.eventDiscard)
     this.eventDiscard = []
   }
+
 }

@@ -6,11 +6,6 @@
 
 .game-background {
   position: absolute;
-  display: none;
-
-  @media screen and (min-width:450px) {
-    display: block
-  }
 }
 
 .game-content {
