@@ -20,4 +20,5 @@ export class EventModel {
       mental?: number;
     };
   };
+  quest?:string
 }

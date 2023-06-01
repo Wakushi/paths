@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core"
 import { BehaviorSubject } from "rxjs"
 import { EventModel } from "src/app/models/event.model"
 import { basicEventsCollection } from "./events-collection"
+import { questEventsCollection } from "./events-collection"
 import { GameService } from "./game.service"
 
 @Injectable({
@@ -12,33 +13,43 @@ export class EventService {
 
   eventCounter: number = 0
   basicEvents: EventModel[] = [...basicEventsCollection]
-  eventPool: EventModel[] = []
   eventDiscard: EventModel[] = []
 
   currentEvent$: BehaviorSubject<EventModel> = new BehaviorSubject<EventModel>(
-    basicEventsCollection[this.getRandomIndex(this.basicEvents)]
+    this.getRandomEvent(this.basicEvents)
   )
 
   getRandomIndex(array: EventModel[]): number {
     return Math.floor(Math.random() * array.length)
   }
 
-  randomFillEventPool(): void {
-    const randomEventIndex = Math.floor(Math.random() * this.basicEvents.length)
-    const randomEvent: EventModel = this.basicEvents.splice(
-      randomEventIndex,
-      1
-    )[0]
-    this.eventPool.push(randomEvent)
-    this.eventDiscard.push(randomEvent)
+  getRandomEvent(array: EventModel[]): EventModel {
+    return array[this.getRandomIndex(array)]
+  }
+
+  initializeEventArray(): void {
+    this.basicEvents = [...basicEventsCollection]
+    this.basicEvents = this.shuffleEventArray(this.basicEvents)
+  }
+
+  shuffleEventArray(array: EventModel[]): EventModel[] {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1))
+      ;[array[i], array[j]] = [array[j], array[i]]
+    }
+    return array
   }
 
   onNextEvent(): void {
     this.eventCounter++
+    if (this.eventCounter === 5) {
+      this.injectQuest()
+    }
     this._gameService.runLightYears$.next(this.eventCounter)
-    this.randomFillEventPool()
     setTimeout(() => {
-      this.currentEvent$.next(this.eventPool.splice(0, 1)[0])
+      const nextEvent = this.basicEvents.splice(0, 1)[0]
+      this.eventDiscard.push(nextEvent)
+      this.currentEvent$.next(nextEvent)
     }, 500)
   }
 
@@ -47,4 +58,13 @@ export class EventService {
     this.eventDiscard = []
   }
 
+  injectQuest(): void {
+    if (questEventsCollection.length > 1) {
+      const questDistance = Math.floor(Math.random() * 10) + 1
+      const questPair = questEventsCollection.splice(0, 2)
+      const randomIndex = this.getRandomIndex(this.basicEvents)
+      this.basicEvents.splice(randomIndex, 0, questPair[0])
+      this.basicEvents.splice(randomIndex + questDistance, 0, questPair[1])
+    }
+  }
 }

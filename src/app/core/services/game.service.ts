@@ -10,4 +10,6 @@ export class GameService {
   deathMessage$: BehaviorSubject<string> = new BehaviorSubject<string>("");
   runLightYears$: BehaviorSubject<number> = new BehaviorSubject<number>(0);
 
+  
+
 }

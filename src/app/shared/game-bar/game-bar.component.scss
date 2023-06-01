@@ -15,10 +15,18 @@
 
   .game-bar__inventory {
     gap: 1rem;
+    justify-self: center;
     .item-slot {
       height: 30px;
       width: 30px;
       background-color: rgba(0, 0, 0, 0.267);
     }
+  }
+
+  .game-bar__tablet {
+    max-width: 40px;
+    position: absolute;
+    left: 30px;
+    cursor: pointer;
   }
 }

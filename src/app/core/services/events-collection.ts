@@ -14,6 +14,38 @@ const DOCTEUR_PROXIMA_IMAGE: string = "../../assets/images/pnj/doctor.webp"
 const INGENIEUR_ENERGIE_ZOLTAN_IMAGE: string =
   "../../assets/images/pnj/engineer.webp"
 
+export const questEventsCollection: EventModel[] = [
+  {
+    eventName: "Commandant Thalia",
+    dialog: "We have an energy breach, tell Griggs to bring the chronic recursor",
+    eventImage: COMMANDANT_THALIA_IMAGE,
+    rightChoice: {
+      text: "I will.",
+      consequence: { },
+    },
+    leftChoice: {
+      text: "Yes sure.",
+      consequence: { },
+    },
+    quest:"QUEST_1A"
+  },
+  {
+    eventName: "Chronomechanic Griggs",
+    dialog:
+      "Sorry but I have a lot to do, what do you want ?",
+    eventImage: CHRONOMECANICIEN_GRIGGS_IMAGE,
+    rightChoice: {
+      text: "We need the chronic recursor.",
+      consequence: { time: 20, mental: 15 },
+    },
+    leftChoice: {
+      text: "We need you to fix the shields.",
+      consequence: { health: 20, mental: -15 },
+    },
+    quest:"QUEST_1B"
+  },
+]
+
 export const basicEventsCollection: EventModel[] = [
   {
     eventName: "Commandant Thalia",
