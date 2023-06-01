@@ -1,5 +1,5 @@
 <div class="game-bar flex--ctr flex--al">
-  <div class="game-bar__tablet">
+  <div class="game-bar__tablet" (click)="toggleQuestModal()">
     <img src="../../../assets/images/pictos/tablet.png">
   </div>
   <div class="game-bar__inventory flex">
@@ -9,4 +9,10 @@
     <div class="item-slot"></div>
   </div>
   <h3 class="game-bar__time">{{ runLightYears$ | async }} LY</h3>
+</div>
+<div class="game-quest-modal" [ngClass]="{ 'game-quest-modal--shown' : isQuestModalShown }">
+  <i class="fa-solid fa-circle-xmark" (click)="toggleQuestModal()"></i>
+  <ul *ngIf="questPool$ | async as questPool" class="flex--col">
+    <li *ngFor="let quest of questPool" class="quest-text flex--al"><div class="quest-checkbox"></div> {{ quest.questText }} </li>
+  </ul>
 </div>

@@ -1,6 +1,7 @@
 import { Component, ElementRef, ViewChild } from "@angular/core"
 import { Router } from "@angular/router"
 import { EventService } from "src/app/core/services/events.service"
+import { QuestService } from "src/app/core/services/quest.service"
 
 @Component({
   selector: "app-home",
@@ -8,10 +9,15 @@ import { EventService } from "src/app/core/services/events.service"
   styleUrls: ["./home.component.scss"],
 })
 export class HomeComponent {
-  constructor(private _router: Router, private _eventService: EventService) {}
+  constructor(
+    private _router: Router,
+    private _eventService: EventService,
+    private _questService: QuestService
+  ) {}
 
   startGame(): void {
     this._router.navigateByUrl("paths")
     this._eventService.initializeEventArray()
+    this._questService.initializeQuestPool()
   }
 }

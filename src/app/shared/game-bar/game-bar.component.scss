@@ -30,3 +30,49 @@
     cursor: pointer;
   }
 }
+
+.game-quest-modal {
+  position: absolute;
+  padding: 1rem 1.5rem;
+  background-color: #40325a;
+  width: 100%;
+  bottom: -110px;
+  min-height: 90px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.527);
+  transition: 1s;
+
+  ul {
+    list-style: none;
+    gap: 0.3rem;
+
+    .quest-text {
+      color: white;
+      gap: 0.4rem;
+
+      .quest-checkbox {
+        width: 20px;
+        height: 20px;
+        background-color: rgba(0, 0, 0, 0.267);
+      }
+    }
+  }
+
+  .fa-circle-xmark {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: white;
+    cursor: pointer;
+    opacity: 0.3;
+    transition: 1s;
+
+    &:hover,
+    &:focus {
+      opacity: 1;
+    }
+  }
+}
+
+.game-quest-modal--shown {
+  transform: translateY(-100%);
+}
