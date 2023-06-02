@@ -11,7 +11,9 @@ export class QuestService {
   currentQuestPool$: BehaviorSubject<Quest[]> = new BehaviorSubject<Quest[]>([])
 
   initializeQuestPool(): void {
-    const firstQuests = this.quests.splice(0, 3)
-    this.currentQuestPool$.next(firstQuests)
+    if (this.quests.length >= 3) {
+      const firstQuests = this.quests.splice(0, 3)
+      this.currentQuestPool$.next(firstQuests)
+    }
   }
 }
