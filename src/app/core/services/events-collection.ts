@@ -857,15 +857,15 @@ export const basicEventsCollection: EventModel[] = [
   },
   {
     eventName: "Mediriana AI",
-    dialog: "Our AI is suggesting an experimental speed boost.",
+    dialog: "I would suggest an experimental speed boost of my abilities.",
     eventImage: IA_MERIDIANA_IMAGE,
     rightChoice: {
       text: "Implement the boost.",
-      consequence: { time: 30, energy: -20 },
+      consequence: { mental: 30, energy: -20 },
     },
     leftChoice: {
-      text: "Stick to the current speed.",
-      consequence: { time: -15 },
+      text: "Stick to the current ratio.",
+      consequence: { mental: -15 },
     },
   },
   {
