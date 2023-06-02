@@ -14,6 +14,98 @@ const DOCTEUR_PROXIMA_IMAGE: string = "../../assets/images/pnj/doctor.webp"
 const INGENIEUR_ENERGIE_ZOLTAN_IMAGE: string =
   "../../assets/images/pnj/engineer.webp"
 
+export const introEventsCollection: EventModel[] = [
+  {
+    eventName: "Mediriana AI",
+    dialog:
+      "Finally, you've waken up..",
+    eventImage: IA_MERIDIANA_IMAGE,
+    rightChoice: {
+      text: "...",
+      consequence: {},
+    },
+    leftChoice: {
+      text: "...",
+      consequence: {},
+    },
+  },
+  {
+    eventName: "Mediriana AI",
+    dialog:
+      "Welcome back captain, how are you feeling ?",
+    eventImage: IA_MERIDIANA_IMAGE,
+    rightChoice: {
+      text: "What the.. ? ",
+      consequence: {},
+    },
+    leftChoice: {
+      text: "Where are we.. ?",
+      consequence: {},
+    },
+  },
+  {
+    eventName: "Mediriana AI",
+    dialog:
+      "We've extracted from the Mokla mothership, but we lost our communications and our temporal propulsor..",
+    eventImage: IA_MERIDIANA_IMAGE,
+    rightChoice: {
+      text: "This is bad...",
+      consequence: {},
+    },
+    leftChoice: {
+      text: "At least we're alive...",
+      consequence: {},
+    },
+  },
+  {
+    eventName: "Mediriana AI",
+    dialog:
+      "We're stranded in this timeline, and Mokla have sent fighters to track us. We have to make the repairs and find help.",
+    eventImage: IA_MERIDIANA_IMAGE,
+    rightChoice: {
+      text: "What should I do first ?",
+      consequence: {},
+    },
+    leftChoice: {
+      text: "Where are we headed ?",
+      consequence: {},
+    },
+  },
+  {
+    eventName: "Mediriana AI",
+    dialog:
+      "Commandant Thalia and the crew are waiting for your help. Remember that your next moves will have concrete consequences, choose wisely and always keep balance.",
+    eventImage: IA_MERIDIANA_IMAGE,
+    rightChoice: {
+      text: "Thanks Mediriana, keep an eye on the situation.",
+      consequence: {},
+    },
+    leftChoice: {
+      text: "I'll go help them.",
+      consequence: {},
+    },
+    quest:"INTRO_END"
+  },
+]
+
+export const lightYearEvents: EventModel [] = [
+  {
+    eventName: "Mediriana AI",
+    dialog:
+      "We have reached Extosopia-3. I have sent a signal, we should be contacted by travelling merchants ships soon.",
+    eventImage: IA_MERIDIANA_IMAGE,
+    rightChoice: {
+      text: "Thanks Mediriana.",
+      consequence: {},
+    },
+    leftChoice: {
+      text: "Let's move on.",
+      consequence: {},
+    },
+    quest:"EXTOSOPIA"
+  },
+]
+
 export const questEventsCollection: EventModel[] = [
   {
     eventName: "Commandant Thalia",

@@ -1,4 +1,4 @@
 export class Quest {
-  questId!: number
+  questId!: string
   questText!: string
 }

@@ -2,15 +2,15 @@ import { Quest } from "src/app/models/quest.model"
 
 export const questsCollection: Quest[] = [
   {
-    questId: 1,
-    questText: "Find the Agathe stone",
+    questId: "COMMUNICATIONS_1",
+    questText: "Fix the communications",
   },
   {
-    questId: 2,
-    questText: "Help the lost boy",
+    questId: "EXTOSOPIA",
+    questText: "Reach Extosopia-3 (15 LY)",
   },
   {
-    questId: 3,
-    questText: "Repair the flux calculator",
+    questId: "COSMIC_MERCHANT_1",
+    questText: "Help the cosmic merchant",
   },
 ]
