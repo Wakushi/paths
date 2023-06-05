@@ -110,6 +110,7 @@ export class GameSettingsComponent implements AfterViewInit, OnInit {
     this._userService.resetHasSeenIntro()
     this._gaugesService.resetGauges()
     this._gameService.runLightYears$.next(0)
+    this._musicService.pause()
     this._router.navigateByUrl("")
   }
 
