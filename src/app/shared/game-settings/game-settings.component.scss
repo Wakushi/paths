@@ -1,0 +1,72 @@
+.game-settings {
+  position: absolute;
+  background-color: rgb(61, 61, 61);
+  height: 100vh;
+  bottom: 0;
+  width: 100%;
+  z-index: 4;
+  transform: translateY(-100%);
+  transition: 0.5s;
+  gap: 1rem;
+  padding: 2rem;
+
+  h2,
+  h3,
+  .fa-circle-pause,
+  .fa-circle-play,
+  .fa-circle-xmark {
+    color: white;
+  }
+
+  h2,
+  .fa-circle-pause,
+  .fa-circle-play {
+    font-size: 2rem;
+  }
+
+  h2 {
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+  }
+
+  h3 {
+    font-size: 1.8rem;
+  }
+
+  .game-settings__music {
+    gap: 1rem;
+  }
+
+  .fa-circle-xmark {
+    position: absolute;
+    font-size: 1.3rem;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+  }
+
+  .button-reset {
+    color: #111;
+    background: white;
+    transition: background 1s;
+    user-select: none;
+    &:hover {
+      color: white;
+    }
+  }
+
+  .fa-circle-pause,
+  .fa-circle-play {
+    opacity: 0.3;
+    transition: 1s;
+
+    &:hover,
+    &:focus {
+      opacity: 1;
+    }
+  }
+}
+
+.game-settings--shown {
+  transform: translateY(0);
+}

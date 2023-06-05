@@ -29,11 +29,28 @@
     left: 30px;
     cursor: pointer;
   }
+
+  .fa-gear {
+    position: absolute;
+    z-index: 2;
+    font-size: 1.4rem;
+    bottom: 10px;
+    right: 20px;
+    color: white;
+    opacity: 0.3;
+    transition: 1s;
+
+    &:hover,
+    &:focus {
+      opacity: 1;
+    }
+  }
 }
 
 .game-quest-modal {
   position: absolute;
   padding: 1rem 1.5rem;
+  z-index: 3;
   background-color: #40325a;
   width: 100%;
   bottom: -120px;

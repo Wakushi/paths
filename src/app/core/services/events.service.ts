@@ -1,10 +1,12 @@
 import { Injectable } from "@angular/core"
 import { BehaviorSubject } from "rxjs"
 import { EventModel } from "src/app/models/event.model"
-import { basicEventsCollection } from "./events-collection"
-import { questEventsCollection } from "./events-collection"
-import { introEventsCollection } from "./events-collection"
-import { lightYearEvents } from "./events-collection"
+import {
+  basicEventsCollection,
+  questEventsCollection,
+  introEventsCollection,
+  lightYearEvents,
+} from "./events-collection"
 import { GameService } from "./game.service"
 import { UserService } from "./user-service"
 
@@ -36,6 +38,10 @@ export class EventService {
     return array[this.getRandomIndex(array)]
   }
 
+  resetEventCounter(): void {
+    this.eventCounter = 0
+  }
+
   shuffleEventArray(array: EventModel[]): EventModel[] {
     for (let i = array.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1))
@@ -52,6 +58,11 @@ export class EventService {
     }
     this.currentEvent$.next(this.basicEvents[0])
     this.basicEvents.shift()
+  }
+
+  initializeNewGame(): void {
+    this.resetEventCounter()
+    this.isTimeSuspended$.next(true)
   }
 
   onNextEvent(): void {

@@ -1,7 +1,8 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: 'Oswald', sans-serif;}
+  font-family: "Oswald", sans-serif;
+}
 
 *,
 *::after,
@@ -63,6 +64,24 @@ h1 {
   &:hover,
   &:focus {
     color: rgb(67, 68, 134);
+  }
+}
+
+.button--basic {
+  background-color: rgb(67, 68, 134);
+  border: transparent;
+  border-radius: 0.3rem;
+  font-size: 1.3rem;
+  padding: 0.3rem 1.3rem;
+  color: white;
+  width: 100%;
+  max-width: 200px;
+  text-align: center;
+  box-shadow: 1px 2px 15px rgb(27, 27, 27);
+  &:hover,
+  &:focus {
+    color: white;
+    background-color: rgb(67, 68, 134);
   }
 }
 

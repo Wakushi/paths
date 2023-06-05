@@ -10,6 +10,7 @@ import { GameOverComponent } from '../app/modules/game-over/game-over.component'
 import { GameBarComponent } from './shared/game-bar/game-bar.component';
 import { EventCardComponent } from './shared/event-card/event-card.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { GameSettingsComponent } from './shared/game-settings/game-settings.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     GameOverComponent,
     GameBarComponent,
     EventCardComponent,
+    GameSettingsComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule],
   providers: [],

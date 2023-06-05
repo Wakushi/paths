@@ -5,11 +5,14 @@ import { BehaviorSubject } from "rxjs"
   providedIn: "root",
 })
 export class UserService {
-
   hasSeenIntro$: BehaviorSubject<boolean> = new BehaviorSubject(false)
 
   setHasSeenIntro(): void {
     localStorage.setItem("intro", "seen")
+  }
+
+  resetHasSeenIntro(): void {
+    localStorage.removeItem("intro")
   }
 
   checkHasSeenIntro(): boolean {

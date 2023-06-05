@@ -12,12 +12,13 @@ import { Quest } from "src/app/models/quest.model"
 export class GameBarComponent implements OnInit {
   constructor(
     private _gameService: GameService,
-    private _questService: QuestService
+    private _questService: QuestService,
   ) {}
 
   runLightYears$!: Observable<number>
   questPool$!: Observable<Quest[]>
   isQuestModalShown: boolean = false
+  isSettingsModalShown : boolean = false
 
   ngOnInit(): void {
     this.runLightYears$ = this._gameService.runLightYears$
@@ -27,4 +28,9 @@ export class GameBarComponent implements OnInit {
   toggleQuestModal(): void {
     this.isQuestModalShown = !this.isQuestModalShown
   }
+
+  onSettings(): void {
+    this.isSettingsModalShown = !this.isSettingsModalShown
+  }
+
 }

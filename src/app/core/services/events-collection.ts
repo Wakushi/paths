@@ -615,7 +615,7 @@ export const basicEventsCollection: EventModel[] = [
     eventImage: ARCHITECTE_STELLAIRE_ORION_IMAGE,
     rightChoice: {
       text: "Harness the energy.",
-      consequence: { energy: 40, health: -20, time: -15 },
+      consequence: { energy: 20, health: -20, time: -15 },
     },
     leftChoice: {
       text: "Move away from the star.",
@@ -918,7 +918,7 @@ export const basicEventsCollection: EventModel[] = [
     },
     leftChoice: {
       text: "Keep power distribution as is.",
-      consequence: { health: -30 },
+      consequence: { health: -20 },
     },
   },
   {
@@ -940,7 +940,7 @@ export const basicEventsCollection: EventModel[] = [
     eventImage: NAVIGATOR_KASSIOPEIA_IMAGE,
     rightChoice: {
       text: "Enter the wormhole.",
-      consequence: { time: 40, mental: -20, health: -10 },
+      consequence: { time: 20, mental: -20, health: -10 },
     },
     leftChoice: {
       text: "Steer clear of the wormhole.",
@@ -1307,7 +1307,7 @@ export const basicEventsCollection: EventModel[] = [
     eventImage: INGENIEUR_ENERGIE_ZOLTAN_IMAGE,
     rightChoice: {
       text: "Exploit the quantum field.",
-      consequence: { energy: 40, time: -20 },
+      consequence: { energy: 20, time: -20 },
     },
     leftChoice: {
       text: "Ignore the quantum field.",
@@ -1416,7 +1416,7 @@ export const basicEventsCollection: EventModel[] = [
     eventImage: INGENIEUR_ENERGIE_ZOLTAN_IMAGE,
     rightChoice: {
       text: "Exploit the quantum field.",
-      consequence: { energy: 40, time: -20 },
+      consequence: { energy:20, time: -20 },
     },
     leftChoice: {
       text: "Ignore the quantum field.",

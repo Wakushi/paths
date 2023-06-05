@@ -1,0 +1,26 @@
+<div
+  [ngClass]="{ 'game-settings--shown': isSettingsModalShown }"
+  class="game-settings flex--al flex--col"
+>
+  <i (click)="onCloseSettings()" class="fa-solid fa-circle-xmark"></i>
+  <h2>Settings</h2>
+  <div class="game-settings__music flex--al">
+    <h3>Main theme</h3>
+    <i
+      (click)="onPlayButton()"
+      class="fa-solid"
+      [ngClass]="{
+        'fa-circle-play': !(isMusicPlaying$ | async),
+        'fa-circle-pause': (isMusicPlaying$ | async)
+      }"
+    ></i>
+  </div>
+  <a class="button--basic" href="">Home</a>
+  <button
+    [ngStyle]="getButtonStyle()"
+    #resetButton
+    class="button--basic button-reset"
+  >
+    Reset game
+  </button>
+</div>
