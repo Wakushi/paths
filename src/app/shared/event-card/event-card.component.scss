@@ -8,10 +8,10 @@
 
   .event-box__text {
     text-align: center;
-    height: 60px;
+    height: 68px;
     font-size: 1.2rem;
-    padding: 0 1rem 2rem 1rem;
     line-height: 1.2;
+    padding: 0 1.3rem;
   }
 
   .event-box__name {
@@ -65,7 +65,7 @@
     max-height: 340px;
     box-shadow: 2px 3px 4px black;
     margin-top: 1rem;
-    border-bottom: 1px rgb(49, 36, 65) ridge ;
+    border-bottom: 1px rgb(49, 36, 65) ridge;
     border-right: 3px rgb(49, 35, 66) ridge;
   }
 

@@ -19,7 +19,6 @@ import { EventModel } from "src/app/models/event.model"
   styleUrls: ["./choice.component.scss"],
 })
 export class ChoiceComponent implements OnInit, OnDestroy {
-  @ViewChild("mainTheme") mainThemeAudio!: ElementRef
 
   constructor(
     private _eventService: EventService,
@@ -32,8 +31,8 @@ export class ChoiceComponent implements OnInit, OnDestroy {
   currentEvent$!: Observable<EventModel>
   isGameOver$!: Observable<boolean>
   isMusicPlaying$!: BehaviorSubject<boolean>
-  playSubscription!: Subscription
-  pauseSubscription!: Subscription
+  playSubscription: Subscription = new Subscription
+  pauseSubscription: Subscription = new Subscription
   mainTheme = new Audio("../../assets/sounds/music/nova.mp3")
 
   ngOnInit(): void {
@@ -44,6 +43,10 @@ export class ChoiceComponent implements OnInit, OnDestroy {
     this.isGameOver$ = this._gameService.isGameOver$
     this._eventService.initializeEventArray()
     this._questService.initializeQuestPool()
+    this.initializeAudio() 
+  }
+
+  initializeAudio(): void {
     this.mainTheme.play()
     this._musicService.isMusicPlaying$.next(true)
     this.playSubscription = this._musicService.playAudio$.subscribe(() => {

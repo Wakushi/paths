@@ -8,6 +8,7 @@ import {
 } from "@angular/core"
 import { Observable, first, map } from "rxjs"
 import { EventService } from "src/app/core/services/events.service"
+import { GameService } from "src/app/core/services/game.service"
 import { GaugesService } from "src/app/core/services/gauges.service"
 import { EventModel } from "src/app/models/event.model"
 
@@ -29,6 +30,7 @@ export class EventCardComponent implements AfterViewInit {
   constructor(
     private _eventService: EventService,
     private _gaugesService: GaugesService,
+    private _gameService: GameService,
     private renderer: Renderer2
   ) {}
 
@@ -133,23 +135,27 @@ export class EventCardComponent implements AfterViewInit {
   }
 
   onChoice(direction: number): void {
+    // Checks on which side the card was dropped and converts (map) the Subject into its consequence
     const consequence =
       direction === 1
         ? this.event$.pipe(map((event) => event.rightChoice.consequence))
         : this.event$.pipe(map((event) => event.leftChoice.consequence))
-
+    // We iterate on the value of the Subject to update the gauge accordingly
     consequence.pipe(first()).subscribe((consequenceObj) => {
       Object.entries(consequenceObj).forEach(([key, value]) => {
         this._gaugesService.updateGauge(key, value)
       })
     })
-    setTimeout(() => {
-      this.animateCard = false
-    }, 500)
-    this._eventService.onNextEvent()
-    this.fadeIn()
-    setTimeout(() => {
-      this.animateCard = true
-    }, 500)
+
+    if (!this._gameService.isGameOver$.value) {
+      this._eventService.onNextEvent()
+      this.fadeIn()
+      setTimeout(() => {
+        this.animateCard = false
+      }, 500)
+      setTimeout(() => {
+        this.animateCard = true
+      }, 500)
+    }
   }
 }

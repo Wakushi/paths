@@ -2,10 +2,9 @@
   position: absolute;
   background-color: rgb(61, 61, 61);
   height: 100vh;
-  bottom: 0;
+  top: -100%;
   width: 100%;
   z-index: 4;
-  transform: translateY(-100%);
   transition: 0.5s;
   gap: 1rem;
   padding: 2rem;
@@ -68,5 +67,5 @@
 }
 
 .game-settings--shown {
-  transform: translateY(0);
+  transform: translateY(100%);
 }
