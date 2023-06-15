@@ -1,5 +1,5 @@
 .game-bar {
-  background-color: #40325a;
+  background-color: var(--main-color);
   padding: 1.8rem;
   position: relative;
 
@@ -18,6 +18,7 @@
       height: 30px;
       width: 30px;
       background-color: rgba(0, 0, 0, 0.267);
+      box-shadow: inset 1px 5px 8px rgba(0, 0, 0, 0.616);
     }
   }
 
@@ -52,7 +53,7 @@
   background-color: #40325a;
   width: 100%;
   bottom: -120px;
-  min-height: 90px;
+  min-height: 115px;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.527);
   transition: 1s;
 

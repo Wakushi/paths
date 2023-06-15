@@ -9,6 +9,7 @@ import {
 } from "./events-collection"
 import { GameService } from "./game.service"
 import { UserService } from "./user-service"
+import { QuestService } from "./quest.service"
 
 @Injectable({
   providedIn: "root",
@@ -16,13 +17,16 @@ import { UserService } from "./user-service"
 export class EventService {
   constructor(
     private _gameService: GameService,
-    private _userService: UserService
+    private _userService: UserService,
+    private _questService: QuestService
   ) {}
 
   hasSeenIntro$: BehaviorSubject<boolean> = this._userService.hasSeenIntro$
   isTimeSuspended$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(
     true
   )
+  showSnackbar$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false)
+  snackbarMessage$: BehaviorSubject<string> = new BehaviorSubject<string>("")
   eventCounter: number = 0
   basicEvents: EventModel[] = [...basicEventsCollection]
   eventDiscard: EventModel[] = []
@@ -117,10 +121,20 @@ export class EventService {
           lightYearEvents.find((event) => event.quest === "EXTOSOPIA") ||
             ({} as EventModel)
         )
+        this.openQuestSnackbar("Reach Extosopia-3")
+        this._questService.removeQuest("EXTOSOPIA")
         break
 
       default:
         break
     }
+  }
+
+  openQuestSnackbar(message: string): void {
+    this.showSnackbar$.next(true)
+    this.snackbarMessage$.next(message)
+    setTimeout(() => {
+      this.showSnackbar$.next(false)
+    }, 3500)
   }
 }

@@ -1,0 +1,16 @@
+<div
+  [ngClass]="{
+    'slide-in-and-out-animation': showSnackbar$ | async
+  }"
+  class="snackbar-container flex--al"
+>
+  <p>{{ snackEvent | async }}</p>
+  <div class="event-checkbox flex--ctr flex--al">
+    <div
+      class="event-checkbox__inner"
+      [ngClass]="{
+        'check-animation': showSnackbar$ | async
+      }"
+    ></div>
+  </div>
+</div>

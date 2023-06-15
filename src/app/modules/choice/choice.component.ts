@@ -1,10 +1,4 @@
-import {
-  Component,
-  OnInit,
-  ViewChild,
-  ElementRef,
-  OnDestroy,
-} from "@angular/core"
+import { Component, OnInit, OnDestroy } from "@angular/core"
 import { Observable, BehaviorSubject, Subscription } from "rxjs"
 import { EventService } from "src/app/core/services/events.service"
 import { GameService } from "src/app/core/services/game.service"
@@ -19,7 +13,6 @@ import { EventModel } from "src/app/models/event.model"
   styleUrls: ["./choice.component.scss"],
 })
 export class ChoiceComponent implements OnInit, OnDestroy {
-
   constructor(
     private _eventService: EventService,
     private _gameService: GameService,
@@ -31,8 +24,9 @@ export class ChoiceComponent implements OnInit, OnDestroy {
   currentEvent$!: Observable<EventModel>
   isGameOver$!: Observable<boolean>
   isMusicPlaying$!: BehaviorSubject<boolean>
-  playSubscription: Subscription = new Subscription
-  pauseSubscription: Subscription = new Subscription
+  snackbarMessage$!: BehaviorSubject<string>
+  playSubscription: Subscription = new Subscription()
+  pauseSubscription: Subscription = new Subscription()
   mainTheme = new Audio("../../assets/sounds/music/nova.mp3")
 
   ngOnInit(): void {
@@ -41,13 +35,14 @@ export class ChoiceComponent implements OnInit, OnDestroy {
     }
     this.currentEvent$ = this._eventService.currentEvent$
     this.isGameOver$ = this._gameService.isGameOver$
+    this.snackbarMessage$ = this._eventService.snackbarMessage$
     this._eventService.initializeEventArray()
     this._questService.initializeQuestPool()
-    this.initializeAudio() 
+    this.initializeAudio()
   }
 
   initializeAudio(): void {
-    this.mainTheme.play()
+    // this.mainTheme.play()
     this._musicService.isMusicPlaying$.next(true)
     this.playSubscription = this._musicService.playAudio$.subscribe(() => {
       this.mainTheme.play()

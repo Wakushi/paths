@@ -11,6 +11,7 @@ import { GameBarComponent } from './shared/game-bar/game-bar.component';
 import { EventCardComponent } from './shared/event-card/event-card.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GameSettingsComponent } from './shared/game-settings/game-settings.component';
+import { SnackbarComponent } from './shared/snackbar/snackbar.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { GameSettingsComponent } from './shared/game-settings/game-settings.comp
     GameBarComponent,
     EventCardComponent,
     GameSettingsComponent,
+    SnackbarComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule],
   providers: [],
