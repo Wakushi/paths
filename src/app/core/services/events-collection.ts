@@ -1,5 +1,6 @@
 import { EventModel } from "src/app/models/event.model"
 
+// NPCs
 const IA_MERIDIANA_IMAGE: string = "../../assets/images/pnj/AI.webp"
 const COMMANDANT_THALIA_IMAGE: string = "../../assets/images/pnj/thalia.webp"
 const CHRONOMECANICIEN_GRIGGS_IMAGE: string =
@@ -13,12 +14,16 @@ const DATA_ARCHIVISTE_ALTAIR_IMAGE: string =
 const DOCTEUR_PROXIMA_IMAGE: string = "../../assets/images/pnj/doctor.webp"
 const INGENIEUR_ENERGIE_ZOLTAN_IMAGE: string =
   "../../assets/images/pnj/engineer.webp"
+const EXTOSOPIA_MERCHANT: string =
+  "../../assets/images/pnj/extosopia-merchant.webp"
+
+// ITEMS
+const EXTOSOPIA_RELIC: string = "../../assets/images/items/gauge-relic.webp"
 
 export const introEventsCollection: EventModel[] = [
   {
     eventName: "Mediriana AI",
-    dialog:
-      "Finally, you've waken up..",
+    dialog: "Finally, you've waken up..",
     eventImage: IA_MERIDIANA_IMAGE,
     rightChoice: {
       text: "...",
@@ -31,8 +36,7 @@ export const introEventsCollection: EventModel[] = [
   },
   {
     eventName: "Mediriana AI",
-    dialog:
-      "Welcome back captain, how are you feeling ?",
+    dialog: "Welcome back captain, how are you feeling ?",
     eventImage: IA_MERIDIANA_IMAGE,
     rightChoice: {
       text: "What the.. ? ",
@@ -84,11 +88,11 @@ export const introEventsCollection: EventModel[] = [
       text: "I'll go help them.",
       consequence: {},
     },
-    quest:"INTRO_END"
+    quest: "INTRO_END",
   },
 ]
 
-export const lightYearEvents: EventModel [] = [
+export const lightYearEvents: EventModel[] = [
   {
     eventName: "Mediriana AI",
     dialog:
@@ -102,7 +106,7 @@ export const lightYearEvents: EventModel [] = [
       text: "Let's move on.",
       consequence: {},
     },
-    quest:"EXTOSOPIA"
+    quest: "EXTOSOPIA",
   },
 ]
 
@@ -135,6 +139,38 @@ export const questEventsCollection: EventModel[] = [
       consequence: { health: 20, mental: -15 },
     },
     quest: "QUEST_1B",
+  },
+]
+
+export const extosopiaEventsCollection: EventModel[] = [
+  {
+    eventName: "Extosopia merchant",
+    dialog:
+      "Hey traveler, would you be interested to exchange some batteries for my relic ? It is said that it help to predict the future..",
+    eventImage: EXTOSOPIA_MERCHANT,
+    rightChoice: {
+      text: "Sure, why not.",
+      consequence: {},
+    },
+    leftChoice: {
+      text: "How does that work ..?",
+      consequence: {},
+    },
+    quest: "EXTOSOPIA_RELIC",
+  },
+  {
+    eventName: "Farseer Relic",
+    dialog:
+      "The strange relic emits a warm and comforting light. As you touch it, you feel more aware of your destiny, but you can't tell if it'll be good or bad yet..",
+    eventImage: EXTOSOPIA_RELIC,
+    rightChoice: {
+      text: "...",
+      consequence: { time: 0, energy: 0, health: 0, mental: 0 },
+    },
+    leftChoice: {
+      text: "...",
+      consequence: { time: 0, energy: 0, health: 0, mental: 0 },
+    },
   },
 ]
 
@@ -1416,7 +1452,7 @@ export const basicEventsCollection: EventModel[] = [
     eventImage: INGENIEUR_ENERGIE_ZOLTAN_IMAGE,
     rightChoice: {
       text: "Exploit the quantum field.",
-      consequence: { energy:20, time: -20 },
+      consequence: { energy: 20, time: -20 },
     },
     leftChoice: {
       text: "Ignore the quantum field.",

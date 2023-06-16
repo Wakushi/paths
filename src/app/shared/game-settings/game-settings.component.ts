@@ -15,6 +15,7 @@ import { GaugesService } from "src/app/core/services/gauges.service"
 import { UserService } from "src/app/core/services/user-service"
 import { fromEvent, Subscription, Observable } from "rxjs"
 import { MusicService } from "src/app/core/services/music.service"
+import { ItemService } from "src/app/core/services/items.service"
 
 @Component({
   selector: "app-game-settings",
@@ -39,7 +40,8 @@ export class GameSettingsComponent implements AfterViewInit, OnInit {
     private _userService: UserService,
     private _eventService: EventService,
     private _router: Router,
-    private _musicService: MusicService
+    private _musicService: MusicService,
+    private _itemService: ItemService
   ) {}
 
   ngOnInit(): void {
@@ -112,6 +114,7 @@ export class GameSettingsComponent implements AfterViewInit, OnInit {
     this._gameService.runLightYears$.next(0)
     this._musicService.pause()
     this._router.navigateByUrl("")
+    this._itemService.resetItems()
   }
 
   onPlayButton(): void {

@@ -6,6 +6,10 @@ export const questsCollection: Quest[] = [
     questText: "Reach Extosopia-3 (15 LY)",
   },
   {
+    questId: "GAUGE_RELIC",
+    questText: "Find the lost relic",
+  },
+  {
     questId: "COMMUNICATIONS_1",
     questText: "Fix the communications",
   },
@@ -14,7 +18,7 @@ export const questsCollection: Quest[] = [
     questText: "Help the cosmic merchant",
   },
   {
-    questId: "GRAVE_DIGGING",
-    questText: "Find the lost relic",
+    questId: "KIE_NEBULA",
+    questText: "Discover the Kie Nebula",
   },
 ]

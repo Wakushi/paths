@@ -1,6 +1,8 @@
 import { Injectable } from "@angular/core"
 import { BehaviorSubject } from "rxjs"
 import { GameService } from "./game.service"
+import { EventService } from "./events.service"
+import { ItemService } from "./items.service"
 
 @Injectable({
   providedIn: "root",
@@ -11,7 +13,21 @@ export class GaugesService {
   healthGauge$: BehaviorSubject<number> = new BehaviorSubject<number>(50)
   mentalGauge$: BehaviorSubject<number> = new BehaviorSubject<number>(50)
 
-  constructor(private _gameService: GameService) {}
+  highlightTimeGauge$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(
+    false
+  )
+  highlightEnergyGauge$: BehaviorSubject<boolean> =
+    new BehaviorSubject<boolean>(false)
+  highlightHealthGauge$: BehaviorSubject<boolean> =
+    new BehaviorSubject<boolean>(false)
+  highlightMentalGauge$: BehaviorSubject<boolean> =
+    new BehaviorSubject<boolean>(false)
+
+  constructor(
+    private _gameService: GameService,
+    private _eventService: EventService,
+    private _itemService: ItemService
+  ) {}
 
   updateGauge(gauge: string, value: number): void {
     switch (gauge) {
@@ -59,6 +75,40 @@ export class GaugesService {
       default:
         break
     }
+  }
+
+  highlightGauge(direction: string): void {
+    if (!this._itemService.gaugeRelic$.value) return
+    const currentEvent = this._eventService.currentEvent$.value
+    const consequences: string[] =
+      direction === "left"
+        ? Object.keys(currentEvent.leftChoice.consequence)
+        : Object.keys(currentEvent.rightChoice.consequence)
+    consequences.forEach((consequence: string) => {
+      switch (consequence) {
+        case "time":
+          this.highlightTimeGauge$.next(true)
+          break
+        case "mental":
+          this.highlightMentalGauge$.next(true)
+          break
+        case "health":
+          this.highlightHealthGauge$.next(true)
+          break
+        case "energy":
+          this.highlightEnergyGauge$.next(true)
+          break
+        default:
+          break
+      }
+    })
+  }
+
+  resetGaugeHighlight(): void {
+    this.highlightTimeGauge$.next(false)
+    this.highlightMentalGauge$.next(false)
+    this.highlightHealthGauge$.next(false)
+    this.highlightEnergyGauge$.next(false)
   }
 
   onGameOver(reason: string, reach: string): void {

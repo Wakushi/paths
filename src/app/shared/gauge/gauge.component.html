@@ -4,19 +4,31 @@
   </div>
   <div class="gauge-icons__gauges flex--ctr">
     <div
-      [ngStyle]="{ height: (timeGauge$ | async) + '%' }"
+      [ngStyle]="{
+        height: (timeGauge$ | async) + '%',
+        backgroundColor: (highlightTimeGauge$ | async) ? 'var(--highlight-gauge)' : 'white'
+      }"
       class="gauge-box"
     ></div>
     <div
-      [ngStyle]="{ height: (energyGauge$ | async) + '%' }"
+      [ngStyle]="{
+        height: (energyGauge$ | async) + '%',
+        backgroundColor: (highlightEnergyGauge$ | async) ? 'var(--highlight-gauge)' : 'white'
+      }"
       class="gauge-box"
     ></div>
     <div
-      [ngStyle]="{ height: (healthGauge$ | async) + '%' }"
+      [ngStyle]="{
+        height: (healthGauge$ | async) + '%',
+        backgroundColor: (highlightHealthGauge$ | async) ? 'var(--highlight-gauge)' : 'white'
+      }"
       class="gauge-box"
     ></div>
     <div
-      [ngStyle]="{ height: (mentalGauge$ | async) + '%' }"
+      [ngStyle]="{
+        height: (mentalGauge$ | async) + '%',
+        backgroundColor: (highlightMentalGauge$ | async) ? 'var(--highlight-gauge)' : 'white'
+      }"
       class="gauge-box"
     ></div>
   </div>

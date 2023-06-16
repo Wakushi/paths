@@ -6,10 +6,12 @@ import {
   questEventsCollection,
   introEventsCollection,
   lightYearEvents,
+  extosopiaEventsCollection,
 } from "./events-collection"
 import { GameService } from "./game.service"
 import { UserService } from "./user-service"
 import { QuestService } from "./quest.service"
+import { ItemService } from "./items.service"
 
 @Injectable({
   providedIn: "root",
@@ -18,7 +20,8 @@ export class EventService {
   constructor(
     private _gameService: GameService,
     private _userService: UserService,
-    private _questService: QuestService
+    private _questService: QuestService,
+    private _itemService: ItemService
   ) {}
 
   hasSeenIntro$: BehaviorSubject<boolean> = this._userService.hasSeenIntro$
@@ -40,6 +43,10 @@ export class EventService {
 
   getRandomEvent(array: EventModel[]): EventModel {
     return array[this.getRandomIndex(array)]
+  }
+
+  getRandomNumber(): number {
+    return Math.floor(Math.random() * 10) + 1
   }
 
   resetEventCounter(): void {
@@ -89,14 +96,20 @@ export class EventService {
     this.eventDiscard = []
   }
 
-  injectQuest(): void {
+  injectSeparatedQuest(): void {
     if (questEventsCollection.length > 1) {
-      const questDistance = Math.floor(Math.random() * 10) + 1
+      const questDistance = this.getRandomNumber()
       const questPair = questEventsCollection.splice(0, 2)
       const randomIndex = this.getRandomIndex(this.basicEvents)
       this.basicEvents.splice(randomIndex, 0, questPair[0])
       this.basicEvents.splice(randomIndex + questDistance, 0, questPair[1])
     }
+  }
+
+  injectFollowedEvent(collection: EventModel[], amount: number): void {
+    const randomIndex = this.getRandomNumber()
+    const injectedEvents = collection.splice(0, amount)
+    this.basicEvents.splice(randomIndex, 0, ...injectedEvents)
   }
 
   eventReader(event: EventModel): void {
@@ -107,6 +120,11 @@ export class EventService {
       case "INTRO_END":
         this.isTimeSuspended$.next(false)
         this._userService.setHasSeenIntro()
+        break
+      case "EXTOSOPIA_RELIC":
+        this._itemService.gaugeRelic$.next(true)
+        this.openQuestSnackbar("Find the relic")
+        this._questService.removeQuest("GAUGE_RELIC")
         break
 
       default:
@@ -123,6 +141,7 @@ export class EventService {
         )
         this.openQuestSnackbar("Reach Extosopia-3")
         this._questService.removeQuest("EXTOSOPIA")
+        this.injectFollowedEvent(extosopiaEventsCollection, 2)
         break
 
       default:

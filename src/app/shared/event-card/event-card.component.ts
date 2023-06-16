@@ -78,13 +78,23 @@ export class EventCardComponent implements AfterViewInit {
       "transform",
       `translateX(${this.currentX}px) rotate(${rotationAngle}deg)`
     )
+    if (this.currentX === 0) {
+      this._gaugesService.resetGaugeHighlight()
+    }
     if (this.currentX > 0) {
+      this._gaugesService.resetGaugeHighlight()
+      this._gaugesService.highlightGauge("right")
+      this.renderer.setStyle(this.leftChoice.nativeElement, "opacity", 0)
       this.renderer.setStyle(
         this.rightChoice.nativeElement,
         "opacity",
         Math.abs(this.currentX / 100)
       )
-    } else {
+    }
+    if (this.currentX < 0) {
+      this._gaugesService.resetGaugeHighlight()
+      this._gaugesService.highlightGauge("left")
+      this.renderer.setStyle(this.rightChoice.nativeElement, "opacity", 0)
       this.renderer.setStyle(
         this.leftChoice.nativeElement,
         "opacity",
@@ -95,6 +105,7 @@ export class EventCardComponent implements AfterViewInit {
 
   onEnd() {
     this.isDraggingCard = false
+    this._gaugesService.resetGaugeHighlight()
     if (Math.abs(this.currentX) > 150) {
       const direction = this.currentX > 0 ? 1 : -1
       this.onChoice(direction)
