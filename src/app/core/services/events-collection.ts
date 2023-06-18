@@ -11,15 +11,17 @@ const ARCHITECTE_STELLAIRE_ORION_IMAGE: string =
   "../../assets/images/pnj/architect.webp"
 const DATA_ARCHIVISTE_ALTAIR_IMAGE: string =
   "../../assets/images/pnj/archivist.webp"
-const DOCTEUR_PROXIMA_IMAGE: string = "../../assets/images/pnj/doctor.webp"
+const DOCTOR_PROXIMA_IMAGE: string = "../../assets/images/pnj/doctor.webp"
 const INGENIEUR_ENERGIE_ZOLTAN_IMAGE: string =
   "../../assets/images/pnj/engineer.webp"
 const EXTOSOPIA_MERCHANT: string =
   "../../assets/images/pnj/extosopia-merchant.webp"
+const EXTOSOPIA: string = "../../assets/images/pnj/extosopia.webp"
 
 // ITEMS
 const EXTOSOPIA_RELIC: string = "../../assets/images/items/gauge-relic.webp"
 
+// EVENTS
 export const introEventsCollection: EventModel[] = [
   {
     eventName: "Mediriana AI",
@@ -142,7 +144,7 @@ export const questEventsCollection: EventModel[] = [
   },
 ]
 
-export const extosopiaEventsCollection: EventModel[] = [
+export const extosopiaIntroEvents: EventModel[] = [
   {
     eventName: "Extosopia merchant",
     dialog:
@@ -170,6 +172,702 @@ export const extosopiaEventsCollection: EventModel[] = [
     leftChoice: {
       text: "...",
       consequence: { time: 0, energy: 0, health: 0, mental: 0 },
+    },
+    quest: "EXTOSOPIA_EVENTS",
+  },
+]
+
+export const extosopiaEventsCollection: EventModel[] = [
+  {
+    eventName: "Extosopia",
+    dialog: "An EXTOSOPIA cook offers to prepare a feast for the crew.",
+    eventImage: EXTOSOPIA,
+    rightChoice: {
+      text: "Accept the feast offer.",
+      consequence: { health: 20, energy: -10 },
+    },
+    leftChoice: {
+      text: "Politely decline.",
+      consequence: {},
+    },
+  },
+  {
+    eventName: "Extosopia",
+    dialog: "We are invited to a local ceremony, it might take a while.",
+    eventImage: EXTOSOPIA,
+    rightChoice: {
+      text: "Attend the ceremony.",
+      consequence: { mental: 15, time: -20 },
+    },
+    leftChoice: {
+      text: "Politely decline.",
+      consequence: {},
+    },
+  },
+  {
+    eventName: "Extosopia",
+    dialog:
+      "We can learn about EXTOSOPIA technology, but it could be challenging.",
+    eventImage: EXTOSOPIA,
+    rightChoice: {
+      text: "Learn about their technology.",
+      consequence: { mental: 20, energy: -15 },
+    },
+    leftChoice: {
+      text: "Focus on our own technology.",
+      consequence: {},
+    },
+  },
+  {
+    eventName: "Extosopia",
+    dialog: "We're asked to assist in a volcanic research expedition.",
+    eventImage: EXTOSOPIA,
+    rightChoice: {
+      text: "Join the research expedition.",
+      consequence: { time: 15, health: -10 },
+    },
+    leftChoice: {
+      text: "Decline the expedition request.",
+      consequence: {},
+    },
+  },
+  {
+    eventName: "Extosopia",
+    dialog: "A local game tournament is taking place, should we participate?",
+    eventImage: EXTOSOPIA,
+    rightChoice: {
+      text: "Participate in the tournament.",
+      consequence: { mental: 10, energy: -5 },
+    },
+    leftChoice: {
+      text: "Avoid the tournament.",
+      consequence: {},
+    },
+  },
+  {
+    eventName: "Extosopia",
+    dialog: "Locals have offered to perform maintenance on our ship.",
+    eventImage: EXTOSOPIA,
+    rightChoice: {
+      text: "Accept the maintenance offer.",
+      consequence: { energy: 20, time: -10 },
+    },
+    leftChoice: {
+      text: "Politely decline the offer.",
+      consequence: {},
+    },
+  },
+  {
+    eventName: "Extosopia",
+    dialog:
+      "We're offered a chance to enjoy EXTOSOPIA music. It's quite... unique.",
+    eventImage: EXTOSOPIA,
+    rightChoice: {
+      text: "Enjoy the music.",
+      consequence: { mental: -5, health: 15 },
+    },
+    leftChoice: {
+      text: "Politely decline the offer.",
+      consequence: {},
+    },
+  },
+  {
+    eventName: "Extosopia",
+    dialog:
+      "There's an opportunity to gather rare minerals but it's risky due to volcanic activity.",
+    eventImage: EXTOSOPIA,
+    rightChoice: {
+      text: "Attempt to gather the minerals.",
+      consequence: { energy: 20, health: -20 },
+    },
+    leftChoice: {
+      text: "Avoid the risk.",
+      consequence: {},
+    },
+  },
+  {
+    eventName: "Extosopia",
+    dialog:
+      "We can trade our tech insights for local knowledge. It could take some time.",
+    eventImage: EXTOSOPIA,
+    rightChoice: {
+      text: "Trade the tech insights.",
+      consequence: { mental: 20, time: -20 },
+    },
+    leftChoice: {
+      text: "Keep our tech insights.",
+      consequence: {},
+    },
+  },
+  {
+    eventName: "Extosopia",
+    dialog:
+      "We encounter a sentient nebula, its energies pulsing with mysterious patterns.",
+    eventImage: EXTOSOPIA,
+    rightChoice: {
+      text: "Try to decipher the nebula's patterns.",
+      consequence: { mental: 15, energy: -5 },
+    },
+    leftChoice: {
+      text: "Keep a respectful distance from the nebula.",
+      consequence: { energy: 10, mental: -5 },
+    },
+  },
+  {
+    eventName: "Extosopia",
+    dialog:
+      "A local entity, the Aeon, has shared a timeless riddle. Solving it may enlighten us.",
+    eventImage: EXTOSOPIA,
+    rightChoice: {
+      text: "Attempt to solve the riddle.",
+      consequence: { mental: 15, health: -10 },
+    },
+    leftChoice: {
+      text: "Politely decline the riddle challenge.",
+      consequence: { health: 10, mental: -5 },
+    },
+  },
+  {
+    eventName: "Extosopia",
+    dialog:
+      "The ship detects temporal fluctuations around a mysterious monolith.",
+    eventImage: EXTOSOPIA,
+    rightChoice: {
+      text: "Investigate the monolith.",
+      consequence: { time: 10, health: -5 },
+    },
+    leftChoice: {
+      text: "Keep a safe distance from the monolith.",
+      consequence: { health: 10, time: -5 },
+    },
+  },
+  {
+    eventName: "Extosopia",
+    dialog:
+      "We find a sea of liquid energy. Bathing in it could supercharge our systems.",
+    eventImage: EXTOSOPIA,
+    rightChoice: {
+      text: "Immerse in the energy sea.",
+      consequence: { energy: 15, mental: -10 },
+    },
+    leftChoice: {
+      text: "Keep the ship dry.",
+      consequence: { mental: 10, energy: -5 },
+    },
+  },
+  {
+    eventName: "Extosopia",
+    dialog:
+      "A constellation in the sky forms an ancient cosmic map, potentially revealing hidden sectors.",
+    eventImage: EXTOSOPIA,
+    rightChoice: {
+      text: "Decipher the constellation map.",
+      consequence: { mental: 15, time: -10 },
+    },
+    leftChoice: {
+      text: "Maintain the current navigation path.",
+      consequence: { time: 15, mental: -5 },
+    },
+  },
+  {
+    eventName: "Extosopia",
+    dialog:
+      "A species of luminous fauna emits radiation that can heal organic tissues.",
+    eventImage: EXTOSOPIA,
+    rightChoice: {
+      text: "Approach the luminous fauna.",
+      consequence: { health: 15, energy: -10 },
+    },
+    leftChoice: {
+      text: "Steer clear of the fauna.",
+      consequence: { energy: 10, health: -5 },
+    },
+  },
+  {
+    eventName: "Extosopia",
+    dialog:
+      "Local extosopians perform a ritual that bends time, creating a moment that lasts forever.",
+    eventImage: EXTOSOPIA,
+    rightChoice: {
+      text: "Join the time-bending ritual.",
+      consequence: { time: 20, health: -10 },
+    },
+    leftChoice: {
+      text: "Observe the ritual from afar.",
+      consequence: { health: 15, time: -5 },
+    },
+  },
+  {
+    eventName: "Extosopia",
+    dialog:
+      "The Great Extosopian Orchestra is performing. Their music resonates with the ship's core systems.",
+    eventImage: EXTOSOPIA,
+    rightChoice: {
+      text: "Sync with the musical frequencies.",
+      consequence: { energy: 20, time: -10 },
+    },
+    leftChoice: {
+      text: "Shield the systems from external frequencies.",
+      consequence: { time: 15, energy: -5 },
+    },
+  },
+  {
+    eventName: "Extosopia",
+    dialog:
+      "The planet's core emits waves that enhance cognition at the cost of physical stamina.",
+    eventImage: EXTOSOPIA,
+    rightChoice: {
+      text: "Absorb the core's waves.",
+      consequence: { mental: 20, health: -15 },
+    },
+    leftChoice: {
+      text: "Shield the ship from the core's waves.",
+      consequence: { health: 20, mental: -10 },
+    },
+  },
+  {
+    eventName: "Extosopia",
+    dialog:
+      "An ancient tree of knowledge shares its wisdom through its radiating energy.",
+    eventImage: EXTOSOPIA,
+    rightChoice: {
+      text: "Approach the tree.",
+      consequence: { mental: 20, energy: -15 },
+    },
+    leftChoice: {
+      text: "Avoid the tree's area.",
+      consequence: { energy: 20, mental: -15 },
+    },
+  },
+  {
+    eventName: "Extosopia",
+    dialog:
+      "A local dance is known to increase physical health but it's quite exhausting.",
+    eventImage: EXTOSOPIA,
+    rightChoice: {
+      text: "Learn the dance.",
+      consequence: { health: 15, energy: -10 },
+    },
+    leftChoice: {
+      text: "Politely decline the dance lesson.",
+      consequence: {},
+    },
+  },
+  {
+    eventName: "Extosopia",
+    dialog:
+      "Local cuisine is rich in nutrients but can be a bit too spicy for some.",
+    eventImage: EXTOSOPIA,
+    rightChoice: {
+      text: "Try the local cuisine.",
+      consequence: { health: 20, mental: -10 },
+    },
+    leftChoice: {
+      text: "Stick to regular meals.",
+      consequence: { mental: 10, health: -5 },
+    },
+  },
+  {
+    eventName: "Extosopia",
+    dialog:
+      "A hike to a local volcano offers breathtaking views but it's physically demanding.",
+    eventImage: EXTOSOPIA,
+    rightChoice: {
+      text: "Take the hike.",
+      consequence: { mental: 20, energy: -20 },
+    },
+    leftChoice: {
+      text: "Stay back and relax.",
+      consequence: { energy: 10, mental: -10 },
+    },
+  },
+  {
+    eventName: "Extosopia",
+    dialog:
+      "We're invited to a local party. It could be a chance to unwind or be draining.",
+    eventImage: EXTOSOPIA,
+    rightChoice: {
+      text: "Join the party.",
+      consequence: { mental: 15, energy: -10 },
+    },
+    leftChoice: {
+      text: "Rest instead.",
+      consequence: { energy: 10, mental: -5 },
+    },
+  },
+  {
+    eventName: "Extosopia",
+    dialog:
+      "Local meditation practices are said to calm the mind but can feel a bit strange.",
+    eventImage: EXTOSOPIA,
+    rightChoice: {
+      text: "Try local meditation.",
+      consequence: { mental: 20, health: -5 },
+    },
+    leftChoice: {
+      text: "Keep to our usual routines.",
+      consequence: { mental: -10, health: 10 },
+    },
+  },
+  {
+    eventName: "Extosopia",
+    dialog:
+      "We're offered to take part in local sports. It's quite energetic and competitive.",
+    eventImage: EXTOSOPIA,
+    rightChoice: {
+      text: "Participate in the sports.",
+      consequence: { health: 15, energy: -15 },
+    },
+    leftChoice: {
+      text: "Sit out and watch.",
+      consequence: { mental: -5, energy: 10 },
+    },
+  },
+  {
+    eventName: "Extosopia",
+    dialog:
+      "We can exchange tales of our adventures but they might not fully understand.",
+    eventImage: EXTOSOPIA,
+    rightChoice: {
+      text: "Share our tales.",
+      consequence: { mental: 10, time: -10 },
+    },
+    leftChoice: {
+      text: "Listen to their stories instead.",
+      consequence: { time: 10, mental: -5 },
+    },
+  },
+  {
+    eventName: "Extosopia",
+    dialog:
+      "We can assist in local construction. It's hard work, but they would appreciate it.",
+    eventImage: EXTOSOPIA,
+    rightChoice: {
+      text: "Help with the construction.",
+      consequence: { health: 15, energy: -20 },
+    },
+    leftChoice: {
+      text: "Politely decline the offer.",
+      consequence: { mental: -10, energy: 10 },
+    },
+  },
+  {
+    eventName: "Extosopia",
+    dialog:
+      "A local merchant offers to trade goods. Their prices can be a bit high.",
+    eventImage: EXTOSOPIA,
+    rightChoice: {
+      text: "Trade with the merchant.",
+      consequence: { health: 10, energy: -10 },
+    },
+    leftChoice: {
+      text: "Politely decline the offer.",
+      consequence: { mental: -5, energy: 10 },
+    },
+  },
+  {
+    eventName: "Extosopia",
+    dialog:
+      "An opportunity arises to learn local language. It's quite complex.",
+    eventImage: EXTOSOPIA,
+    rightChoice: {
+      text: "Learn the local language.",
+      consequence: { mental: 15, time: -15 },
+    },
+    leftChoice: {
+      text: "Stick to universal translator.",
+      consequence: { time: 10, mental: -10 },
+    },
+  },
+  {
+    eventName: "Extosopia",
+    dialog:
+      "We're invited to a traditional music session. It can be quite loud.",
+    eventImage: EXTOSOPIA,
+    rightChoice: {
+      text: "Attend the music session.",
+      consequence: { mental: 10, health: -10 },
+    },
+    leftChoice: {
+      text: "Take some quiet time instead.",
+      consequence: { health: 10, mental: -5 },
+    },
+  },
+  {
+    eventName: "Extosopia",
+    dialog:
+      "A floating crystal forest is offering us a chance to synchronize our minds.",
+    eventImage: EXTOSOPIA,
+    rightChoice: {
+      text: "Synchronize minds with the forest.",
+      consequence: { mental: 20, time: -15 },
+    },
+    leftChoice: {
+      text: "Politely decline the crystal's offer.",
+      consequence: { time: 10, mental: -10 },
+    },
+  },
+  {
+    eventName: "Extosopia",
+    dialog:
+      "A Glibnobber Beast offers to give us a ride. It's known for its bumpy rides.",
+    eventImage: EXTOSOPIA,
+    rightChoice: {
+      text: "Ride the Glibnobber Beast.",
+      consequence: { health: -15, time: 20 },
+    },
+    leftChoice: {
+      text: "Politely decline the Glibnobber's offer.",
+      consequence: { time: -10, health: 10 },
+    },
+  },
+  {
+    eventName: "Extosopia",
+    dialog:
+      "Local aliens offer a Bio-resonance session, promising to balance our energies.",
+    eventImage: EXTOSOPIA,
+    rightChoice: {
+      text: "Accept the Bio-resonance session.",
+      consequence: { energy: 20, mental: -10 },
+    },
+    leftChoice: {
+      text: "Politely decline the offer.",
+      consequence: { mental: 10, energy: -10 },
+    },
+  },
+  {
+    eventName: "Extosopia",
+    dialog:
+      "The Extosopia Choir of Whales invites us to a deep-sea singing concert.",
+    eventImage: EXTOSOPIA,
+    rightChoice: {
+      text: "Attend the deep-sea concert.",
+      consequence: { mental: 15, health: -10 },
+    },
+    leftChoice: {
+      text: "Stay ashore and enjoy the tranquility.",
+      consequence: { health: 10, mental: -5 },
+    },
+  },
+  {
+    eventName: "Extosopia",
+    dialog:
+      "An underground hot lava pool invites us for a warm bath, it might be too hot though.",
+    eventImage: EXTOSOPIA,
+    rightChoice: {
+      text: "Take a bath in the lava pool.",
+      consequence: { health: 20, energy: -20 },
+    },
+    leftChoice: {
+      text: "Decline and take a regular bath instead.",
+      consequence: { energy: 10, health: -5 },
+    },
+  },
+  {
+    eventName: "Extosopia",
+    dialog:
+      "A psionic fruit tree offers its fruits, it enhances cognitive functions at cost of physical energy.",
+    eventImage: EXTOSOPIA,
+    rightChoice: {
+      text: "Eat the psionic fruit.",
+      consequence: { mental: 20, energy: -15 },
+    },
+    leftChoice: {
+      text: "Politely decline and eat our own food.",
+      consequence: { energy: 10, mental: -5 },
+    },
+  },
+  {
+    eventName: "Extosopia",
+    dialog:
+      "A mystical mountain offers to teleport us to its peak, saving time but it can be disorienting.",
+    eventImage: EXTOSOPIA,
+    rightChoice: {
+      text: "Accept the mountain's offer.",
+      consequence: { time: 20, mental: -15 },
+    },
+    leftChoice: {
+      text: "Politely decline and continue on foot.",
+      consequence: { mental: 10, time: -10 },
+    },
+  },
+  {
+    eventName: "Extosopia",
+    dialog:
+      "A local alien offers us a local delicacy called Zarblatt, known for its potent energy boosting properties but might upset our digestive systems.",
+    eventImage: EXTOSOPIA,
+    rightChoice: {
+      text: "Try the Zarblatt.",
+      consequence: { energy: 20, health: -10 },
+    },
+    leftChoice: {
+      text: "Politely decline and stick to our own food.",
+      consequence: { health: 5, energy: -5 },
+    },
+  },
+  {
+    eventName: "Extosopia",
+    dialog:
+      "The local tribe offers us a dance under the bioluminescent trees, it's a physical workout but can be very enlightening.",
+    eventImage: EXTOSOPIA,
+    rightChoice: {
+      text: "Join in the dance.",
+      consequence: { mental: 20, energy: -15 },
+    },
+    leftChoice: {
+      text: "Politely watch and enjoy the dance.",
+      consequence: { energy: 10, mental: -5 },
+    },
+  },
+  {
+    eventName: "Extosopia",
+    dialog:
+      "Local inhabitants suggest us to dive into the Mind-Melding River, it increases our cognitive function but may alter the sense of time.",
+    eventImage: EXTOSOPIA,
+    rightChoice: {
+      text: "Dive into the Mind-Melding River.",
+      consequence: { mental: 20, time: -15 },
+    },
+    leftChoice: {
+      text: "Politely decline and keep to dry land.",
+      consequence: { time: 10, mental: -5 },
+    },
+  },
+  {
+    eventName: "Extosopia",
+    dialog:
+      "We come across a field of floating anti-gravity stones. Touching them might affect our mental clarity.",
+    eventImage: EXTOSOPIA,
+    rightChoice: {
+      text: "Touch the floating stones.",
+      consequence: { mental: 20, time: -10 },
+    },
+    leftChoice: {
+      text: "Stay clear of the stones.",
+      consequence: { time: 10, mental: -5 },
+    },
+  },
+  {
+    eventName: "Extosopia",
+    dialog: "We spot a shimmering oasis filled with time-dilating waters.",
+    eventImage: EXTOSOPIA,
+    rightChoice: {
+      text: "Bathe in the oasis.",
+      consequence: { time: 20, energy: -10 },
+    },
+    leftChoice: {
+      text: "Avoid the shimmering waters.",
+      consequence: { energy: 15, time: -5 },
+    },
+  },
+  {
+    eventName: "Extosopia",
+    dialog: "Our sensors pick up an energy-rich crystalline cave nearby.",
+    eventImage: EXTOSOPIA,
+    rightChoice: {
+      text: "Explore the cave.",
+      consequence: { energy: 20, health: -10 },
+    },
+    leftChoice: {
+      text: "Steer clear of the cave.",
+      consequence: { health: 15, energy: -10 },
+    },
+  },
+  {
+    eventName: "Extosopia",
+    dialog:
+      "The planet's vibrant atmosphere allows us to recharge the ship's energy reserves.",
+    eventImage: EXTOSOPIA,
+    rightChoice: {
+      text: "Absorb the atmospheric energy.",
+      consequence: { energy: 20, time: -5 },
+    },
+    leftChoice: {
+      text: "Don't tamper with the atmosphere.",
+      consequence: { time: 10, energy: -5 },
+    },
+  },
+  {
+    eventName: "Extosopia",
+    dialog:
+      "A local creature, the MindBeast, is said to boost cognitive abilities to those who can outsmart it.",
+    eventImage: EXTOSOPIA,
+    rightChoice: {
+      text: "Try to outsmart the MindBeast.",
+      consequence: { mental: 20, health: -10 },
+    },
+    leftChoice: {
+      text: "Avoid the MindBeast.",
+      consequence: { health: 10, mental: -5 },
+    },
+  },
+  {
+    eventName: "Extosopia",
+    dialog:
+      "We discover a field of plants emitting a soft, soothing light said to restore physical well-being.",
+    eventImage: EXTOSOPIA,
+    rightChoice: {
+      text: "Bask in the soothing light.",
+      consequence: { health: 20, energy: -10 },
+    },
+    leftChoice: {
+      text: "Avoid the glowing plants.",
+      consequence: { energy: 15, health: -5 },
+    },
+  },
+  {
+    eventName: "Extosopia",
+    dialog:
+      "The Galactic Alignment event has begun, causing fluctuations in the fabric of time.",
+    eventImage: EXTOSOPIA,
+    rightChoice: {
+      text: "Observe the Galactic Alignment.",
+      consequence: { time: 20, mental: -15 },
+    },
+    leftChoice: {
+      text: "Ignore the event.",
+      consequence: { mental: 10, time: -10 },
+    },
+  },
+  {
+    eventName: "Extosopia",
+    dialog: "We've located a cache of ancient, power-infused artifacts.",
+    eventImage: EXTOSOPIA,
+    rightChoice: {
+      text: "Collect the artifacts.",
+      consequence: { energy: 20, health: -15 },
+    },
+    leftChoice: {
+      text: "Leave the artifacts untouched.",
+      consequence: { health: 20, energy: -10 },
+    },
+  },
+  {
+    eventName: "Extosopia",
+    dialog:
+      "The radiant Harmonic Crystal is vibrating at a frequency that could boost our mental functions.",
+    eventImage: EXTOSOPIA,
+    rightChoice: {
+      text: "Attune to the Harmonic Crystal.",
+      consequence: { mental: 20, health: -10 },
+    },
+    leftChoice: {
+      text: "Ignore the crystal.",
+      consequence: { health: 15, mental: -5 },
+    },
+  },
+  {
+    eventName: "Extosopia",
+    dialog:
+      "We're invited to participate in the Extosopian Unity Mind-meld - an event that could enhance our cognitive abilities.",
+    eventImage: EXTOSOPIA,
+    rightChoice: {
+      text: "Join the Mind-meld.",
+      consequence: { mental: 20, time: -15 },
+    },
+    leftChoice: {
+      text: "Refrain from the Mind-meld.",
+      consequence: { time: 15, mental: -10 },
     },
   },
 ]
@@ -301,10 +999,10 @@ export const basicEventsCollection: EventModel[] = [
     },
   },
   {
-    eventName: "Docteur Proxima",
+    eventName: "Doctor Proxima",
     dialog:
       "Crew's morale is low due to extended isolation. Suggest throwing a small party to boost morale.",
-    eventImage: DOCTEUR_PROXIMA_IMAGE,
+    eventImage: DOCTOR_PROXIMA_IMAGE,
     rightChoice: {
       text: "Sounds fun, let's do it!",
       consequence: { mental: 20, time: -10, energy: -10 },
@@ -371,10 +1069,10 @@ export const basicEventsCollection: EventModel[] = [
     },
   },
   {
-    eventName: "Docteur Proxima",
+    eventName: "Doctor Proxima",
     dialog:
       "There are signs of a viral infection in the crew, should we go into quarantine?",
-    eventImage: DOCTEUR_PROXIMA_IMAGE,
+    eventImage: DOCTOR_PROXIMA_IMAGE,
     rightChoice: {
       text: "Yes, health is our top priority.",
       consequence: { health: 20, energy: -10, time: -10 },
@@ -461,7 +1159,7 @@ export const basicEventsCollection: EventModel[] = [
     eventImage: NAVIGATOR_KASSIOPEIA_IMAGE,
     rightChoice: {
       text: "Take the shortcut!",
-      consequence: { time: 30, health: -10, energy: -15 },
+      consequence: { time: 20, health: -10, energy: -15 },
     },
     leftChoice: {
       text: "Stay on the current path.",
@@ -508,10 +1206,10 @@ export const basicEventsCollection: EventModel[] = [
     },
   },
   {
-    eventName: "Docteur Proxima",
+    eventName: "Doctor Proxima",
     dialog:
       "Found a new medicinal herb on the latest planet. Can be useful for enhancing crew's physical health.",
-    eventImage: DOCTEUR_PROXIMA_IMAGE,
+    eventImage: DOCTOR_PROXIMA_IMAGE,
     rightChoice: {
       text: "Harvest and use it.",
       consequence: { health: 20, time: -5 },
@@ -631,10 +1329,10 @@ export const basicEventsCollection: EventModel[] = [
     },
   },
   {
-    eventName: "Docteur Proxima",
+    eventName: "Doctor Proxima",
     dialog:
       "A space-borne virus has been detected onboard. We need to act fast.",
-    eventImage: DOCTEUR_PROXIMA_IMAGE,
+    eventImage: DOCTOR_PROXIMA_IMAGE,
     rightChoice: {
       text: "Initiate the containment protocol.",
       consequence: { health: 20, time: -10 },
@@ -741,9 +1439,9 @@ export const basicEventsCollection: EventModel[] = [
     },
   },
   {
-    eventName: "Docteur Proxima",
+    eventName: "Doctor Proxima",
     dialog: "The crew is stressed out. We need a break.",
-    eventImage: DOCTEUR_PROXIMA_IMAGE,
+    eventImage: DOCTOR_PROXIMA_IMAGE,
     rightChoice: {
       text: "Give the crew a day off.",
       consequence: { health: 15, time: -10 },
@@ -754,9 +1452,9 @@ export const basicEventsCollection: EventModel[] = [
     },
   },
   {
-    eventName: "Docteur Proxima",
+    eventName: "Doctor Proxima",
     dialog: "There's an unidentified disease spreading. We need to quarantine.",
-    eventImage: DOCTEUR_PROXIMA_IMAGE,
+    eventImage: DOCTOR_PROXIMA_IMAGE,
     rightChoice: {
       text: "Initiate quarantine protocols.",
       consequence: { health: 20, time: -15, energy: -10 },
@@ -868,7 +1566,7 @@ export const basicEventsCollection: EventModel[] = [
     eventImage: COMMANDANT_THALIA_IMAGE,
     rightChoice: {
       text: "Retrieve the relic.",
-      consequence: { time: 30, energy: -25, health: -20 },
+      consequence: { time: 30, energy: -20, health: -20 },
     },
     leftChoice: {
       text: "Too dangerous. Leave it be.",
@@ -876,10 +1574,10 @@ export const basicEventsCollection: EventModel[] = [
     },
   },
   {
-    eventName: "Docteur Proxima",
+    eventName: "Doctor Proxima",
     dialog:
       "The crew is reporting time lapses. We could investigate this anomaly.",
-    eventImage: DOCTEUR_PROXIMA_IMAGE,
+    eventImage: DOCTOR_PROXIMA_IMAGE,
     rightChoice: {
       text: "Investigate the anomaly.",
       consequence: { time: 20, health: -10, energy: -10 },
@@ -931,10 +1629,10 @@ export const basicEventsCollection: EventModel[] = [
     },
   },
   {
-    eventName: "Docteur Proxima",
+    eventName: "Doctor Proxima",
     dialog:
       "Studying the effects of local time flora on crew could lead to better temporal stability.",
-    eventImage: DOCTEUR_PROXIMA_IMAGE,
+    eventImage: DOCTOR_PROXIMA_IMAGE,
     rightChoice: {
       text: "Conduct the study.",
       consequence: { time: 15, health: -10 },
@@ -1025,9 +1723,9 @@ export const basicEventsCollection: EventModel[] = [
     },
   },
   {
-    eventName: "Docteur Proxima",
+    eventName: "Doctor Proxima",
     dialog: "I can recalibrate the med-bay to produce some extra energy.",
-    eventImage: DOCTEUR_PROXIMA_IMAGE,
+    eventImage: DOCTOR_PROXIMA_IMAGE,
     rightChoice: {
       text: "Recalibrate the med-bay.",
       consequence: { health: -10, energy: 15 },
@@ -1132,9 +1830,9 @@ export const basicEventsCollection: EventModel[] = [
     },
   },
   {
-    eventName: "Docteur Proxima",
+    eventName: "Doctor Proxima",
     dialog: "If we reduce life-support to minimal, we could save some energy.",
-    eventImage: DOCTEUR_PROXIMA_IMAGE,
+    eventImage: DOCTOR_PROXIMA_IMAGE,
     rightChoice: {
       text: "Reduce life-support.",
       consequence: { energy: 15, health: -20 },
@@ -1242,10 +1940,10 @@ export const basicEventsCollection: EventModel[] = [
     },
   },
   {
-    eventName: "Docteur Proxima",
+    eventName: "Doctor Proxima",
     dialog:
       "By temporarily reducing life support to non-essential areas, we can conserve energy.",
-    eventImage: DOCTEUR_PROXIMA_IMAGE,
+    eventImage: DOCTOR_PROXIMA_IMAGE,
     rightChoice: {
       text: "Reduce life support in non-essential areas.",
       consequence: { energy: 15, health: -10 },
@@ -1297,9 +1995,9 @@ export const basicEventsCollection: EventModel[] = [
     },
   },
   {
-    eventName: "Docteur Proxima",
+    eventName: "Doctor Proxima",
     dialog: "Initiating a crew-wide health fast could save significant energy.",
-    eventImage: DOCTEUR_PROXIMA_IMAGE,
+    eventImage: DOCTOR_PROXIMA_IMAGE,
     rightChoice: {
       text: "Initiate the health fast.",
       consequence: { energy: 15, health: -10 },
@@ -1406,9 +2104,9 @@ export const basicEventsCollection: EventModel[] = [
     },
   },
   {
-    eventName: "Docteur Proxima",
+    eventName: "Doctor Proxima",
     dialog: "Initiating a crew-wide health fast could save significant energy.",
-    eventImage: DOCTEUR_PROXIMA_IMAGE,
+    eventImage: DOCTOR_PROXIMA_IMAGE,
     rightChoice: {
       text: "Initiate the health fast.",
       consequence: { energy: 15, health: -10 },
@@ -1515,10 +2213,10 @@ export const basicEventsCollection: EventModel[] = [
     },
   },
   {
-    eventName: "Docteur Proxima",
+    eventName: "Doctor Proxima",
     dialog:
       "Using bioluminescent bacteria instead of regular lights in some areas could save energy.",
-    eventImage: DOCTEUR_PROXIMA_IMAGE,
+    eventImage: DOCTOR_PROXIMA_IMAGE,
     rightChoice: {
       text: "Implement the bioluminescent bacteria.",
       consequence: { energy: 5 },
@@ -1526,6 +2224,407 @@ export const basicEventsCollection: EventModel[] = [
     leftChoice: {
       text: "Keep using regular lights.",
       consequence: {},
+    },
+  },
+  {
+    eventName: "Energineer Zoltan",
+    dialog:
+      "Converting waste heat to energy is possible with our current setup.",
+    eventImage: INGENIEUR_ENERGIE_ZOLTAN_IMAGE,
+    rightChoice: {
+      text: "Start the heat conversion.",
+      consequence: { energy: 10, health: 5 },
+    },
+    leftChoice: {
+      text: "Ignore the waste heat.",
+      consequence: { energy: -5 },
+    },
+  },
+  {
+    eventName: "Commandant Thalia",
+    dialog: "Hyperdrive can be overclocked for increased speed.",
+    eventImage: COMMANDANT_THALIA_IMAGE,
+    rightChoice: {
+      text: "Overclock the hyperdrive.",
+      consequence: { time: 15, health: 5 },
+    },
+    leftChoice: {
+      text: "Hyperdrive stays normal.",
+      consequence: { time: -10 },
+    },
+  },
+  {
+    eventName: "Mediriana AI",
+    dialog: "The crew can be given health boosters for increased resilience.",
+    eventImage: IA_MERIDIANA_IMAGE,
+    rightChoice: {
+      text: "Administer health boosters.",
+      consequence: { health: 15, energy: -5 },
+    },
+    leftChoice: {
+      text: "Decline health boosters.",
+      consequence: { health: -10 },
+    },
+  },
+  {
+    eventName: "Chronomechanic Griggs",
+    dialog:
+      "The ship's reactor can be modified to produce additional time flux.",
+    eventImage: CHRONOMECANICIEN_GRIGGS_IMAGE,
+    rightChoice: {
+      text: "Modify the reactor.",
+      consequence: { time: 10, health: 5 },
+    },
+    leftChoice: {
+      text: "Leave the reactor as is.",
+      consequence: { time: -10 },
+    },
+  },
+  {
+    eventName: "Navigator Kassiopeia",
+    dialog: "A giant gas cloud can be utilized to boost our health reserves.",
+    eventImage: NAVIGATOR_KASSIOPEIA_IMAGE,
+    rightChoice: {
+      text: "Enter the gas cloud.",
+      consequence: { health: 20, time: -5 },
+    },
+    leftChoice: {
+      text: "Avoid the gas cloud.",
+      consequence: { health: -5 },
+    },
+  },
+  {
+    eventName: "Doctor Proxima",
+    dialog: "We can perform a complete health check-up to improve crew health.",
+    eventImage: DOCTOR_PROXIMA_IMAGE,
+    rightChoice: {
+      text: "Perform health check-up.",
+      consequence: { health: 15, time: -10 },
+    },
+    leftChoice: {
+      text: "Ignore the health check-up.",
+      consequence: { health: -10 },
+    },
+  },
+  {
+    eventName: "Energineer Zoltan",
+    dialog: "An external energy source detected. We can harness it.",
+    eventImage: INGENIEUR_ENERGIE_ZOLTAN_IMAGE,
+    rightChoice: {
+      text: "Harness the energy source.",
+      consequence: { energy: 20, health: 5 },
+    },
+    leftChoice: {
+      text: "Ignore the energy source.",
+      consequence: { energy: -15 },
+    },
+  },
+  {
+    eventName: "Commandant Thalia",
+    dialog: "We've found a planet with edible plant life. We can harvest them.",
+    eventImage: COMMANDANT_THALIA_IMAGE,
+    rightChoice: {
+      text: "Harvest the plants.",
+      consequence: { health: 15, time: -10 },
+    },
+    leftChoice: {
+      text: "Continue the journey.",
+      consequence: { health: -5 },
+    },
+  },
+  {
+    eventName: "Mediriana AI",
+    dialog: "We can reroute non-essential power to the medical bay.",
+    eventImage: IA_MERIDIANA_IMAGE,
+    rightChoice: {
+      text: "Reroute the power.",
+      consequence: { health: 20, energy: -10 },
+    },
+    leftChoice: {
+      text: "Keep power allocation.",
+      consequence: { energy: -5 },
+    },
+  },
+  {
+    eventName: "Chronomechanic Griggs",
+    dialog: "Chrono-turbines can improve health by altering biological time.",
+    eventImage: CHRONOMECANICIEN_GRIGGS_IMAGE,
+    rightChoice: {
+      text: "Activate the chrono-turbines.",
+      consequence: { health: 15, time: -15 },
+    },
+    leftChoice: {
+      text: "Chrono-turbines stay off.",
+      consequence: { health: -10 },
+    },
+  },
+  {
+    eventName: "Navigator Kassiopeia",
+    dialog: "An uncharted planet has natural healing springs.",
+    eventImage: NAVIGATOR_KASSIOPEIA_IMAGE,
+    rightChoice: {
+      text: "Visit the healing springs.",
+      consequence: { health: 15, time: -10 },
+    },
+    leftChoice: {
+      text: "Maintain course.",
+      consequence: { health: -5 },
+    },
+  },
+  {
+    eventName: "Doctor Proxima",
+    dialog: "Utilize our medical nanobots to enhance crew's health.",
+    eventImage: DOCTOR_PROXIMA_IMAGE,
+    rightChoice: {
+      text: "Deploy nanobots.",
+      consequence: { health: 20, energy: -10 },
+    },
+    leftChoice: {
+      text: "Keep nanobots on standby.",
+      consequence: { health: -10 },
+    },
+  },
+  {
+    eventName: "Energineer Zoltan",
+    dialog: "We can improve life support systems efficiency.",
+    eventImage: INGENIEUR_ENERGIE_ZOLTAN_IMAGE,
+    rightChoice: {
+      text: "Enhance the life support systems.",
+      consequence: { health: 15, energy: -5 },
+    },
+    leftChoice: {
+      text: "Life support systems are fine as they are.",
+      consequence: { health: -5 },
+    },
+  },
+  {
+    eventName: "Commandant Thalia",
+    dialog: "The crew could use some R&R. A short break would be beneficial.",
+    eventImage: COMMANDANT_THALIA_IMAGE,
+    rightChoice: {
+      text: "Authorize the break.",
+      consequence: { health: 10, time: -15 },
+    },
+    leftChoice: {
+      text: "Continue without a break.",
+      consequence: { health: -5 },
+    },
+  },
+  {
+    eventName: "Mediriana AI",
+    dialog: "Crew's health can be improved by enhancing sleep cycles.",
+    eventImage: IA_MERIDIANA_IMAGE,
+    rightChoice: {
+      text: "Enhance sleep cycles.",
+      consequence: { health: 15, time: -5 },
+    },
+    leftChoice: {
+      text: "Maintain current sleep cycles.",
+      consequence: { health: -10 },
+    },
+  },
+  {
+    eventName: "Chronomechanic Griggs",
+    dialog:
+      "A slight alteration in temporal phase could boost the crew's health.",
+    eventImage: CHRONOMECANICIEN_GRIGGS_IMAGE,
+    rightChoice: {
+      text: "Alter temporal phase.",
+      consequence: { health: 20, time: -15 },
+    },
+    leftChoice: {
+      text: "Temporal phase stays stable.",
+      consequence: { health: -10 },
+    },
+  },
+  {
+    eventName: "Navigator Kassiopeia",
+    dialog:
+      "A cosmic storm ahead can be used for a health boost with proper shielding.",
+    eventImage: NAVIGATOR_KASSIOPEIA_IMAGE,
+    rightChoice: {
+      text: "Brace for the storm.",
+      consequence: { health: 20, energy: -10 },
+    },
+    leftChoice: {
+      text: "Avoid the storm.",
+      consequence: { health: -10 },
+    },
+  },
+  {
+    eventName: "Doctor Proxima",
+    dialog:
+      "Crew's health can be improved by optimizing diet with synthesized nutrients.",
+    eventImage: DOCTOR_PROXIMA_IMAGE,
+    rightChoice: {
+      text: "Optimize the diet.",
+      consequence: { health: 10, energy: -5 },
+    },
+    leftChoice: {
+      text: "Maintain the current diet.",
+      consequence: { health: -5 },
+    },
+  },
+  {
+    eventName: "Energineer Zoltan",
+    dialog: "Can recycle used energy cells to generate health-boosting field.",
+    eventImage: INGENIEUR_ENERGIE_ZOLTAN_IMAGE,
+    rightChoice: {
+      text: "Recycle the energy cells.",
+      consequence: { health: 15, energy: -10 },
+    },
+    leftChoice: {
+      text: "Keep energy cells.",
+      consequence: { health: -10 },
+    },
+  },
+  {
+    eventName: "Commandant Thalia",
+    dialog: "A nearby nebula has therapeutic radiation for health improvement.",
+    eventImage: COMMANDANT_THALIA_IMAGE,
+    rightChoice: {
+      text: "Navigate through the nebula.",
+      consequence: { health: 20, time: -15 },
+    },
+    leftChoice: {
+      text: "Avoid the nebula.",
+      consequence: { health: -10 },
+    },
+  },
+  {
+    eventName: "Energineer Zoltan",
+    dialog:
+      "We have a chance to fine-tune the ship's AI for better efficiency.",
+    eventImage: INGENIEUR_ENERGIE_ZOLTAN_IMAGE,
+    rightChoice: {
+      text: "Fine-tune the AI.",
+      consequence: { mental: 10, energy: -5 },
+    },
+    leftChoice: {
+      text: "Leave the AI settings as is.",
+      consequence: { mental: -10 },
+    },
+  },
+  {
+    eventName: "Mediriana AI",
+    dialog:
+      "A forced system reboot can refresh and optimize cognitive functions.",
+    eventImage: IA_MERIDIANA_IMAGE,
+    rightChoice: {
+      text: "Initiate a system reboot.",
+      consequence: { mental: 15, energy: -10 },
+    },
+    leftChoice: {
+      text: "Skip the reboot.",
+      consequence: { mental: -15 },
+    },
+  },
+  {
+    eventName: "Chronomechanic Griggs",
+    dialog:
+      "A synchronization with the temporal field can enhance mental processing.",
+    eventImage: CHRONOMECANICIEN_GRIGGS_IMAGE,
+    rightChoice: {
+      text: "Sync with the temporal field.",
+      consequence: { mental: 20, time: -10 },
+    },
+    leftChoice: {
+      text: "Keep current synchronization.",
+      consequence: { mental: -10 },
+    },
+  },
+  {
+    eventName: "Docteur Proxima",
+    dialog: "We can implement cognitive exercises to improve mental wellbeing.",
+    eventImage: DOCTOR_PROXIMA_IMAGE,
+    rightChoice: {
+      text: "Implement cognitive exercises.",
+      consequence: { mental: 15, time: -5 },
+    },
+    leftChoice: {
+      text: "Ignore the suggestion.",
+      consequence: { mental: -10 },
+    },
+  },
+  {
+    eventName: "Commandant Thalia",
+    dialog: "Implementing a relaxation protocol can improve mental states.",
+    eventImage: COMMANDANT_THALIA_IMAGE,
+    rightChoice: {
+      text: "Start the relaxation protocol.",
+      consequence: { mental: 20, time: -5 },
+    },
+    leftChoice: {
+      text: "Stick to the usual routine.",
+      consequence: { mental: -15 },
+    },
+  },
+  {
+    eventName: "Navigator Kassiopeia",
+    dialog:
+      "Navigating through a nebula can cause a mental strain on the crew.",
+    eventImage: NAVIGATOR_KASSIOPEIA_IMAGE,
+    rightChoice: {
+      text: "Navigate through the nebula.",
+      consequence: { mental: -20, time: 10 },
+    },
+    leftChoice: {
+      text: "Avoid the nebula.",
+      consequence: {},
+    },
+  },
+  {
+    eventName: "Energineer Zoltan",
+    dialog: "Maintenance of the ship's AI can briefly reduce mental capacity.",
+    eventImage: INGENIEUR_ENERGIE_ZOLTAN_IMAGE,
+    rightChoice: {
+      text: "Perform AI maintenance.",
+      consequence: { mental: -15, energy: 10 },
+    },
+    leftChoice: {
+      text: "Postpone maintenance.",
+      consequence: { mental: 10 },
+    },
+  },
+  {
+    eventName: "Mediriana AI",
+    dialog:
+      "An upgrade to the AI system could temporarily disrupt mental functions.",
+    eventImage: IA_MERIDIANA_IMAGE,
+    rightChoice: {
+      text: "Proceed with the upgrade.",
+      consequence: { mental: -20, time: 15 },
+    },
+    leftChoice: {
+      text: "Delay the upgrade.",
+      consequence: { mental: 10 },
+    },
+  },
+  {
+    eventName: "Chronomechanic Griggs",
+    dialog: "Overuse of temporal adjustments can cause mental fatigue.",
+    eventImage: CHRONOMECANICIEN_GRIGGS_IMAGE,
+    rightChoice: {
+      text: "Continue using temporal adjustments.",
+      consequence: { mental: -20, time: 20 },
+    },
+    leftChoice: {
+      text: "Minimize the use of temporal adjustments.",
+      consequence: { mental: 15 },
+    },
+  },
+  {
+    eventName: "Commandant Thalia",
+    dialog:
+      "Intense space training can strengthen mental resilience but it's tiring.",
+    eventImage: COMMANDANT_THALIA_IMAGE,
+    rightChoice: {
+      text: "Implement intense space training.",
+      consequence: { mental: 20, energy: -15 },
+    },
+    leftChoice: {
+      text: "Maintain regular training schedule.",
+      consequence: { mental: -5 },
     },
   },
 ]

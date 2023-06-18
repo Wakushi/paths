@@ -7,6 +7,7 @@ import {
   introEventsCollection,
   lightYearEvents,
   extosopiaEventsCollection,
+  extosopiaIntroEvents,
 } from "./events-collection"
 import { GameService } from "./game.service"
 import { UserService } from "./user-service"
@@ -63,6 +64,11 @@ export class EventService {
 
   initializeEventArray(): void {
     this.basicEvents = [...basicEventsCollection]
+    if (this._userService.checkInventory("GAUGE_RELIC")) {
+      this.basicEvents = this.shuffleEventArray(
+        this.basicEvents.concat(extosopiaEventsCollection)
+      )
+    }
     this.basicEvents = this.shuffleEventArray(this.basicEvents)
     if (!this.hasSeenIntro$.value) {
       this.basicEvents = [...introEventsCollection].concat(this.basicEvents)
@@ -108,8 +114,7 @@ export class EventService {
 
   injectFollowedEvent(collection: EventModel[], amount: number): void {
     const randomIndex = this.getRandomNumber()
-    const injectedEvents = collection.splice(0, amount)
-    this.basicEvents.splice(randomIndex, 0, ...injectedEvents)
+    this.basicEvents.splice(randomIndex, 0, ...collection)
   }
 
   eventReader(event: EventModel): void {
@@ -123,11 +128,15 @@ export class EventService {
         break
       case "EXTOSOPIA_RELIC":
         this._itemService.gaugeRelic$.next(true)
-        this._userService.addItem("GAUGE_RELIC")
         this.openQuestSnackbar("Find the relic")
+        this._userService.addItem("GAUGE_RELIC")
         this._questService.removeQuest("GAUGE_RELIC")
         break
-
+      case "EXTOSOPIA_EVENTS":
+        this.basicEvents = this.shuffleEventArray(
+          this.basicEvents.concat(extosopiaEventsCollection)
+        )
+        break
       default:
         break
     }
@@ -136,13 +145,15 @@ export class EventService {
   lightYearReader(lightYear: number): void {
     switch (lightYear) {
       case 15:
-        this.basicEvents.unshift(
-          lightYearEvents.find((event) => event.quest === "EXTOSOPIA") ||
-            ({} as EventModel)
-        )
-        this.openQuestSnackbar("Reach Extosopia-3")
-        this._questService.removeQuest("EXTOSOPIA")
-        this.injectFollowedEvent(extosopiaEventsCollection, 2)
+        if (!this._userService.checkInventory("GAUGE_RELIC")) {
+          this.basicEvents.unshift(
+            lightYearEvents.find((event) => event.quest === "EXTOSOPIA") ||
+              ({} as EventModel)
+          )
+          this.openQuestSnackbar("Reach Extosopia-3")
+          this._questService.removeQuest("EXTOSOPIA")
+          this.injectFollowedEvent(extosopiaIntroEvents, 2)
+        }
         break
 
       default:

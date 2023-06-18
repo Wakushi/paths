@@ -42,7 +42,7 @@ export class UserService {
     this.userInventory$.next([])
   }
 
-  checkSavedInventory(): void {
+  syncSavedInventory(): void {
     const inventory = localStorage.getItem("inventory")?.split(",")
     const userInventory: string[] = []
     if (inventory) {
@@ -59,5 +59,11 @@ export class UserService {
       })
       this.userInventory$.next(userInventory)
     }
+  }
+
+  checkInventory(item:string):boolean {
+    const inventory = localStorage.getItem("inventory")?.split(",")
+    if(!inventory) return false
+    return inventory.includes(item)
   }
 }

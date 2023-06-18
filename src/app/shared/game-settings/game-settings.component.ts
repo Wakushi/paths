@@ -114,6 +114,7 @@ export class GameSettingsComponent implements AfterViewInit, OnInit {
     this._userService.resetHasSeenIntro()
     this._userService.resetInventory()
     this._gaugesService.resetGauges()
+    this._eventService.eventDiscard = []
     this._gameService.runLightYears$.next(0)
     this._musicService.pause()
     this._router.navigateByUrl("")
@@ -139,6 +140,11 @@ export class GameSettingsComponent implements AfterViewInit, OnInit {
   onDeckData(): void {
     console.clear()
     this._debugService.checkDeckData()
+  }
+
+  onEventsData(): void {
+    console.clear()
+    this._debugService.getEventsData()
   }
 
   ngOnDestroy() {
