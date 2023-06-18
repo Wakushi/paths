@@ -3,11 +3,31 @@
   <div class="game-bar__tablet" (click)="toggleQuestModal()">
     <img src="../../../assets/images/pictos/tablet.png" />
   </div>
-  <div class="game-bar__inventory flex">
-    <div class="item-slot"></div>
-    <div class="item-slot"></div>
-    <div class="item-slot"></div>
-    <div class="item-slot"></div>
+  <div
+    *ngIf="userInventory$ | async as userInventory"
+    class="game-bar__inventory flex"
+  >
+    <div class="item-slot">
+      <img *ngIf="userInventory.length" [src]="itemsImage[userInventory[0]]" />
+    </div>
+    <div class="item-slot">
+      <img
+        *ngIf="userInventory.length > 1"
+        [src]="itemsImage[userInventory[1]]"
+      />
+    </div>
+    <div class="item-slot">
+      <img
+        *ngIf="userInventory.length > 2"
+        [src]="itemsImage[userInventory[2]]"
+      />
+    </div>
+    <div class="item-slot">
+      <img
+        *ngIf="userInventory.length > 3"
+        [src]="itemsImage[userInventory[3]]"
+      />
+    </div>
   </div>
   <h3 class="game-bar__time">{{ runLightYears$ | async }} LY</h3>
   <i (click)="onSettings()" class="fa-solid fa-gear"></i>

@@ -16,6 +16,7 @@ import { UserService } from "src/app/core/services/user-service"
 import { fromEvent, Subscription, Observable } from "rxjs"
 import { MusicService } from "src/app/core/services/music.service"
 import { ItemService } from "src/app/core/services/items.service"
+import { DebugService } from "src/app/core/services/debug.service"
 
 @Component({
   selector: "app-game-settings",
@@ -41,7 +42,8 @@ export class GameSettingsComponent implements AfterViewInit, OnInit {
     private _eventService: EventService,
     private _router: Router,
     private _musicService: MusicService,
-    private _itemService: ItemService
+    private _itemService: ItemService,
+    private _debugService: DebugService
   ) {}
 
   ngOnInit(): void {
@@ -110,6 +112,7 @@ export class GameSettingsComponent implements AfterViewInit, OnInit {
   onResetGame(): void {
     this._eventService.initializeNewGame()
     this._userService.resetHasSeenIntro()
+    this._userService.resetInventory()
     this._gaugesService.resetGauges()
     this._gameService.runLightYears$.next(0)
     this._musicService.pause()
@@ -126,6 +129,16 @@ export class GameSettingsComponent implements AfterViewInit, OnInit {
     } else {
       this._musicService.pause()
     }
+  }
+
+  onGeneralData(): void {
+    console.clear()
+    this._debugService.checkGeneralData()
+  }
+
+  onDeckData(): void {
+    console.clear()
+    this._debugService.checkDeckData()
   }
 
   ngOnDestroy() {

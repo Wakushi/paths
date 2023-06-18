@@ -123,6 +123,7 @@ export class EventService {
         break
       case "EXTOSOPIA_RELIC":
         this._itemService.gaugeRelic$.next(true)
+        this._userService.addItem("GAUGE_RELIC")
         this.openQuestSnackbar("Find the relic")
         this._questService.removeQuest("GAUGE_RELIC")
         break

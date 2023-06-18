@@ -33,6 +33,7 @@ export class ChoiceComponent implements OnInit, OnDestroy {
     if (this._userService.checkHasSeenIntro()) {
       this._eventService.isTimeSuspended$.next(false)
     }
+    this._userService.checkSavedInventory()
     this.currentEvent$ = this._eventService.currentEvent$
     this.isGameOver$ = this._gameService.isGameOver$
     this.snackbarMessage$ = this._eventService.snackbarMessage$

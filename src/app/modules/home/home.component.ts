@@ -9,15 +9,9 @@ import { QuestService } from "src/app/core/services/quest.service"
   styleUrls: ["./home.component.scss"],
 })
 export class HomeComponent {
-  constructor(
-    private _router: Router,
-    private _eventService: EventService,
-    private _questService: QuestService
-  ) {}
+  constructor(private _router: Router) {}
 
   startGame(): void {
     this._router.navigateByUrl("paths")
-    this._eventService.initializeEventArray()
-    this._questService.initializeQuestPool()
   }
 }
