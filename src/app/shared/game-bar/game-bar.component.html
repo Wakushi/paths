@@ -66,7 +66,7 @@
 <!-- ITEM ZOOM -->
 <div
   *ngIf="isItemAZoomed || isItemBZoomed || isItemCZoomed || isItemDZoomed"
-  class="black-screen flex--col flex--al flex--ctr"
+  class="black-screen flex--col flex--al"
   (click)="toggleItemZoom('REMOVE')"
 >
   <p class="black-screen__item-name">{{ currentZoomedItem.name }}</p>
