@@ -22,6 +22,11 @@
       background-color: rgba(0, 0, 0, 0.267);
       box-shadow: inset 1px 5px 8px rgba(0, 0, 0, 0.616);
       padding: 0.1rem;
+
+      img {
+        position: relative;
+        z-index: 6;
+      }
     }
   }
 
@@ -55,7 +60,7 @@
 .game-quest-modal {
   position: absolute;
   padding: 1rem 1.5rem;
-  z-index: 3;
+  z-index: 7;
   background-color: #40325a;
   width: 100%;
   bottom: -120px;
@@ -97,4 +102,108 @@
 
 .game-quest-modal--shown {
   transform: translateY(-100%);
+}
+
+.black-screen {
+  position: absolute;
+  top: 0;
+  opacity: 0;
+  z-index: 7;
+  background-color: rgba(0, 0, 0, 0.808);
+  height: 100vh;
+  width: 100vw;
+  gap: 270px;
+  animation: fade-in 1.3s 0.8s forwards;
+
+  p {
+    opacity: 0;
+    color: white;
+    text-align: center;
+    pointer-events: none;
+    animation: scale-up 1.5s 1s forwards;
+  }
+
+  .black-screen__item-name {
+    font-size: 2rem;
+  }
+
+  .black-screen__item-desc {
+    font-size: 1.2rem;
+    width: 90%;
+  }
+}
+
+.zoomed-item--a {
+  z-index: 8;
+  animation: zoom-item-a 2s forwards;
+}
+.zoomed-item--b {
+  z-index: 8;
+  animation: zoom-item-b 2s forwards;
+}
+.zoomed-item--c {
+  z-index: 8;
+  animation: zoom-item-c 2s forwards;
+}
+.zoomed-item--d {
+  z-index: 8;
+  animation: zoom-item-d 2s forwards;
+}
+
+@keyframes zoom-item-a {
+  0% {
+    height: 26px;
+    width: 26px;
+    z-index: 8;
+  }
+  100% {
+    z-index: 8;
+    position: absolute;
+    height: 250px;
+    width: 250px;
+    transform: translate(-20%, -170%);
+  }
+}
+@keyframes zoom-item-b {
+  0% {
+    height: 26px;
+    width: 26px;
+    z-index: 8;
+  }
+  100% {
+    z-index: 8;
+    position: absolute;
+    height: 250px;
+    width: 250px;
+    transform: translate(-35%, -170%);
+  }
+}
+@keyframes zoom-item-c {
+  0% {
+    height: 26px;
+    width: 26px;
+    z-index: 8;
+  }
+  100% {
+    z-index: 8;
+    position: absolute;
+    height: 250px;
+    width: 250px;
+    transform: translate(-50%, -170%);
+  }
+}
+
+@keyframes zoom-item-d {
+  0% {
+    height: 26px;
+    width: 26px;
+    z-index: 8;
+  }
+  100% {
+    z-index: 8;
+    position: absolute;
+    height: 250px;
+    width: 250px;
+    transform: translate(-70%, -170%);
+  }
 }

@@ -8,24 +8,37 @@
     class="game-bar__inventory flex"
   >
     <div class="item-slot">
-      <img *ngIf="userInventory.length" [src]="itemsImage[userInventory[0]]" />
+      <img
+        [ngClass]="{ 'zoomed-item--a': isItemAZoomed }"
+        *ngIf="userInventory.length"
+        [src]="itemsImage[userInventory[0]]"
+        (click)="toggleItemZoom('A')"
+      />
     </div>
     <div class="item-slot">
       <img
+        [ngClass]="{ 'zoomed-item--b': isItemBZoomed }"
         *ngIf="userInventory.length > 1"
         [src]="itemsImage[userInventory[1]]"
+        (click)="toggleItemZoom('B')"
       />
     </div>
     <div class="item-slot">
       <img
+        [ngClass]="{ 'zoomed-item--c': isItemCZoomed }"
         *ngIf="userInventory.length > 2"
         [src]="itemsImage[userInventory[2]]"
+        (click)="toggleItemZoom('C')"
       />
     </div>
     <div class="item-slot">
       <img
+        [ngClass]="{
+          'zoomed-item--d': isItemDZoomed
+        }"
         *ngIf="userInventory.length > 3"
         [src]="itemsImage[userInventory[3]]"
+        (click)="toggleItemZoom('D')"
       />
     </div>
   </div>
@@ -50,3 +63,12 @@
   (closeSettingsEvent)="onSettings()"
   [isSettingsModalShown]="isSettingsModalShown"
 ></app-game-settings>
+<!-- ITEM ZOOM -->
+<div
+  *ngIf="isItemAZoomed || isItemBZoomed || isItemCZoomed || isItemDZoomed"
+  class="black-screen flex--col flex--al flex--ctr"
+  (click)="toggleItemZoom('REMOVE')"
+>
+  <p class="black-screen__item-name">{{ currentZoomedItem.name }}</p>
+  <p class="black-screen__item-desc">{{ currentZoomedItem.desc }}</p>
+</div>

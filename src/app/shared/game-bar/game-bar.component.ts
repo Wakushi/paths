@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core"
-import { Observable } from "rxjs"
+import { Observable, first } from "rxjs"
 import { GameService } from "src/app/core/services/game.service"
 import { ItemService } from "src/app/core/services/items.service"
 import { QuestService } from "src/app/core/services/quest.service"
@@ -24,7 +24,13 @@ export class GameBarComponent implements OnInit {
   userInventory$!: Observable<string[]>
   isQuestModalShown: boolean = false
   isSettingsModalShown: boolean = false
+  isItemAZoomed: boolean = false
+  isItemBZoomed: boolean = false
+  isItemCZoomed: boolean = false
+  isItemDZoomed: boolean = false
   itemsImage: { [key: string]: string } = this._itemService.itemsImage
+  itemsInformation = this._itemService.itemsInformation
+  currentZoomedItem!: { name: string; desc: string }
 
   ngOnInit(): void {
     this.runLightYears$ = this._gameService.runLightYears$
@@ -38,5 +44,43 @@ export class GameBarComponent implements OnInit {
 
   onSettings(): void {
     this.isSettingsModalShown = !this.isSettingsModalShown
+  }
+
+  toggleItemZoom(item: string): void {
+    switch (item) {
+      case "A":
+        this.isItemAZoomed = !this.isItemAZoomed
+        this.userInventory$.pipe(first()).subscribe((userInventory) => {
+          this.currentZoomedItem = this.itemsInformation[userInventory[0]]
+        })
+        break
+      case "B":
+        this.isItemBZoomed = !this.isItemBZoomed
+        this.userInventory$.pipe(first()).subscribe((userInventory) => {
+          this.currentZoomedItem = this.itemsInformation[userInventory[1]]
+        })
+        break
+      case "C":
+        this.isItemCZoomed = !this.isItemCZoomed
+        this.userInventory$.pipe(first()).subscribe((userInventory) => {
+          this.currentZoomedItem = this.itemsInformation[userInventory[2]]
+        })
+        break
+      case "D":
+        this.isItemDZoomed = !this.isItemDZoomed
+        this.userInventory$.pipe(first()).subscribe((userInventory) => {
+          this.currentZoomedItem = this.itemsInformation[userInventory[3]]
+        })
+        break
+      case "REMOVE":
+        this.isItemAZoomed = false
+        this.isItemBZoomed = false
+        this.isItemCZoomed = false
+        this.isItemDZoomed = false
+        break
+
+      default:
+        break
+    }
   }
 }
