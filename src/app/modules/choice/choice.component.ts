@@ -47,7 +47,7 @@ export class ChoiceComponent implements OnInit, OnDestroy {
   }
 
   initializeAudio(): void {
-    // this.mainTheme.play()
+    this.mainTheme.play()
     this._musicService.isMusicPlaying$.next(true)
     this.playSubscription = this._musicService.playAudio$.subscribe(() => {
       this.mainTheme.play()
