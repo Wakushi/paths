@@ -1,5 +1,14 @@
 :host {
   flex: 1;
+
+  img {
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    pointer-events: none;
+  }
 }
 .event-box {
   gap: 1.5rem;
