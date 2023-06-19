@@ -113,6 +113,7 @@ export class GameSettingsComponent implements AfterViewInit, OnInit {
     this._eventService.initializeNewGame()
     this._userService.resetHasSeenIntro()
     this._userService.resetInventory()
+    this._userService.resetQuestList()
     this._gaugesService.resetGauges()
     this._eventService.eventDiscard = []
     this._gameService.runLightYears$.next(0)

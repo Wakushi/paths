@@ -3,7 +3,7 @@ import { UserService } from "./user-service"
 import { EventService } from "./events.service"
 import { EventModel } from "src/app/models/event.model"
 import { basicEventsCollection } from "./events-collection"
-import { extosopiaEventsCollection } from "./events-collection"
+import { extosopiaEventsCollection } from "./event-collections/extosopia-events"
 
 @Injectable({
   providedIn: "root",

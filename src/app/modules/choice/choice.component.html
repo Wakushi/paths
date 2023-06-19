@@ -1,9 +1,14 @@
 <div class="game">
   <img
     class="game-background"
-    src="../../../assets/images/backgrounds/city.png"
+    src="../../../assets/images/backgrounds/space.webp"
   />
-  <div class="game-content flex--col">
+  <div
+    class="game-content flex--col"
+    [ngStyle]="{
+      background: (isGameOver$ | async) ? gameOverBackground : gameBackground
+    }"
+  >
     <app-gauge></app-gauge>
     <app-event-card
       [event$]="currentEvent$"

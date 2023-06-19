@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core"
 import { BehaviorSubject, Subject } from "rxjs"
 import { ItemService } from "./items.service"
+import { Quest } from "src/app/models/quest.model"
 
 @Injectable({
   providedIn: "root",
@@ -61,9 +62,19 @@ export class UserService {
     }
   }
 
-  checkInventory(item:string):boolean {
+  checkInventory(item: string): boolean {
     const inventory = localStorage.getItem("inventory")?.split(",")
-    if(!inventory) return false
+    if (!inventory) return false
     return inventory.includes(item)
   }
+
+  saveQuestList(questList: Quest[]): void {
+    const questIds = questList.map((quest) => quest.questId)
+    localStorage.setItem("quests", questIds.join(","))
+  }
+
+  resetQuestList(): void {
+    localStorage.removeItem("quests")
+  }
+
 }

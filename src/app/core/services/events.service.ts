@@ -6,9 +6,11 @@ import {
   questEventsCollection,
   introEventsCollection,
   lightYearEvents,
+} from "./events-collection"
+import {
   extosopiaEventsCollection,
   extosopiaIntroEvents,
-} from "./events-collection"
+} from "./event-collections/extosopia-events"
 import { GameService } from "./game.service"
 import { UserService } from "./user-service"
 import { QuestService } from "./quest.service"
@@ -145,7 +147,7 @@ export class EventService {
   lightYearReader(lightYear: number): void {
     switch (lightYear) {
       case 15:
-        if (!this._userService.checkInventory("GAUGE_RELIC")) {
+        if (!this._questService.isQuestDone("EXTOSOPIA")) {
           this.basicEvents.unshift(
             lightYearEvents.find((event) => event.quest === "EXTOSOPIA") ||
               ({} as EventModel)

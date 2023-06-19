@@ -28,6 +28,10 @@ export class ChoiceComponent implements OnInit, OnDestroy {
   playSubscription: Subscription = new Subscription()
   pauseSubscription: Subscription = new Subscription()
   mainTheme = new Audio("../../assets/sounds/music/nova.mp3")
+  gameBackground: string =
+    "url('../../../assets/images/backgrounds/spaceship.webp') no-repeat center center fixed"
+    gameOverBackground: string =
+    "url('../../../assets/images/backgrounds/spaceship-2.webp') no-repeat center center fixed"
 
   ngOnInit(): void {
     if (this._userService.checkHasSeenIntro()) {
