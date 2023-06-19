@@ -9,13 +9,13 @@
       background: (isGameOver$ | async) ? gameOverBackground : gameBackground
     }"
   >
-    <app-gauge></app-gauge>
+    <app-gauge *ngIf="(isGameOver$ | async) === false"></app-gauge>
     <app-event-card
       [event$]="currentEvent$"
       *ngIf="!(isGameOver$ | async)"
     ></app-event-card>
     <app-game-over *ngIf="isGameOver$ | async"></app-game-over>
-    <app-game-bar></app-game-bar>
+    <app-game-bar *ngIf="(isGameOver$ | async) === false"></app-game-bar>
   </div>
 </div>
 

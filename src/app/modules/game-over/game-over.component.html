@@ -1,6 +1,7 @@
 <div class="game-over flex--ctr flex--col flex--al">
   <h1>Game Over</h1>
   <p> {{ deathMessage$ | async }} </p> 
-  <p> You survived {{ runLightYears$ | async }} light years.</p>
+  <p> You survived {{ runLightYears$ | async }} light years</p>
   <button class="button--text" (click)="onTryAgain()">Try again</button>
 </div>
+<div class="black-screen"></div>

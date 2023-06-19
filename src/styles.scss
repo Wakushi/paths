@@ -56,14 +56,18 @@ h1 {
 
 .button--text {
   font-size: 2rem;
-  background: transparent;
-  border: transparent;
+  background: rgba(128, 128, 128, 0.171);
+  border: 1px solid rgba(128, 128, 128, 0.274);
+  padding: 0.2rem 3rem;
+  border-radius: 0.3rem;
   color: white;
   cursor: pointer;
+  text-shadow: 1px 1px 5px black;
+  transition: 1s;
 
   &:hover,
   &:focus {
-    color: rgb(67, 68, 134);
+    padding: 0.2rem 4rem;
   }
 }
 
