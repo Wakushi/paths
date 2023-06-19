@@ -26,12 +26,13 @@
   }
 
   .game-bar__tablet {
-    max-width: 45px;
+    max-width: 55px;
     position: absolute;
-    left: 30px;
+    left: 20px;
     cursor: pointer;
     overflow: hidden;
     border-radius: 5px;
+    filter: drop-shadow(1px 2px 8px rgba(0, 0, 0, 0.596));
   }
 
   .fa-gear {

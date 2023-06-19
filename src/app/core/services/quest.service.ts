@@ -21,8 +21,6 @@ export class QuestService {
       const firstQuests = this.quests.splice(0, 3)
       this.currentQuestPool$.next(firstQuests)
     }
-    console.log(this.isQuestDone("EXTOSOPIA"))
-    console.log(this.isQuestDone("GAUGE_RELIC"))
   }
 
   injectNextQuest(): void {
@@ -36,7 +34,7 @@ export class QuestService {
     const finishedQuest = questsCollection.find(
       (quest) => quest.questId === questId
     )
-    if (finishedQuest) this.questsDone.push(finishedQuest)
+    if (finishedQuest && !this.questsDone.includes(finishedQuest)) this.questsDone.push(finishedQuest)
     this._userService.saveQuestList(this.questsDone)
     const quests = this.currentQuestPool$.value.filter(
       (quest) => questId !== quest.questId

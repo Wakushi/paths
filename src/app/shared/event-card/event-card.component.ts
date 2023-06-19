@@ -56,6 +56,31 @@ export class EventCardComponent implements AfterViewInit {
     )
   }
 
+  onChoice(direction: number): void {
+    // Checks on which side the card was dropped and converts (map) the Subject into its consequence
+    const consequence =
+      direction === 1
+        ? this.event$.pipe(map((event) => event.rightChoice.consequence))
+        : this.event$.pipe(map((event) => event.leftChoice.consequence))
+    // We iterate on the value of the Subject to update the gauge accordingly
+    consequence.pipe(first()).subscribe((consequenceObj) => {
+      Object.entries(consequenceObj).forEach(([key, value]) => {
+        this._gaugesService.updateGauge(key, value)
+      })
+    })
+
+    if (!this._gameService.isGameOver$.value) {
+      this._eventService.onNextEvent()
+      this.fadeIn()
+      setTimeout(() => {
+        this.animateCard = false
+      }, 500)
+      setTimeout(() => {
+        this.animateCard = true
+      }, 500)
+    }
+  }
+
   onStart(e: any) {
     this.isDraggingCard = true
     if (e.type === "touchstart") {
@@ -143,30 +168,5 @@ export class EventCardComponent implements AfterViewInit {
       "opacity 0.5s"
     )
     this.renderer.setStyle(this.eventCard.nativeElement, "opacity", "1")
-  }
-
-  onChoice(direction: number): void {
-    // Checks on which side the card was dropped and converts (map) the Subject into its consequence
-    const consequence =
-      direction === 1
-        ? this.event$.pipe(map((event) => event.rightChoice.consequence))
-        : this.event$.pipe(map((event) => event.leftChoice.consequence))
-    // We iterate on the value of the Subject to update the gauge accordingly
-    consequence.pipe(first()).subscribe((consequenceObj) => {
-      Object.entries(consequenceObj).forEach(([key, value]) => {
-        this._gaugesService.updateGauge(key, value)
-      })
-    })
-
-    if (!this._gameService.isGameOver$.value) {
-      this._eventService.onNextEvent()
-      this.fadeIn()
-      setTimeout(() => {
-        this.animateCard = false
-      }, 500)
-      setTimeout(() => {
-        this.animateCard = true
-      }, 500)
-    }
   }
 }

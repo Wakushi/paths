@@ -30,7 +30,7 @@ export class ChoiceComponent implements OnInit, OnDestroy {
   mainTheme = new Audio("../../assets/sounds/music/nova.mp3")
   gameBackground: string =
     "url('../../../assets/images/backgrounds/spaceship.webp') no-repeat center center fixed"
-    gameOverBackground: string =
+  gameOverBackground: string =
     "url('../../../assets/images/backgrounds/spaceship-2.webp') no-repeat center center fixed"
 
   ngOnInit(): void {
@@ -38,11 +38,11 @@ export class ChoiceComponent implements OnInit, OnDestroy {
       this._eventService.isTimeSuspended$.next(false)
     }
     this._userService.syncSavedInventory()
+    this._eventService.initializeEventArray()
+    this._questService.initializeQuestPool()
     this.currentEvent$ = this._eventService.currentEvent$
     this.isGameOver$ = this._gameService.isGameOver$
     this.snackbarMessage$ = this._eventService.snackbarMessage$
-    this._eventService.initializeEventArray()
-    this._questService.initializeQuestPool()
     this.initializeAudio()
   }
 
