@@ -12,6 +12,7 @@ import { EventCardComponent } from './shared/event-card/event-card.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GameSettingsComponent } from './shared/game-settings/game-settings.component';
 import { SnackbarComponent } from './shared/snackbar/snackbar.component';
+import { DivideByTwoPipe } from './core/pipes/divide-by-two.pipe'
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { SnackbarComponent } from './shared/snackbar/snackbar.component';
     EventCardComponent,
     GameSettingsComponent,
     SnackbarComponent,
+    DivideByTwoPipe 
   ],
   imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule],
   providers: [],

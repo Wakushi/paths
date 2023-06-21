@@ -6,4 +6,27 @@
     <p>Thanks for playing !</p>
   </div>
   <button class="button--text" (click)="startGame()">Start</button>
+  <button class="button--text" (click)="toggleRulesModal()">Rules</button>
+  <!-- RULES MODAL -->
+  <div
+    [ngClass]="{ showRules: isRulesModalShowing }"
+    class="rules-container flex--col flex--al flex--ctr"
+  >
+    <i class="fa-solid fa-circle-xmark" (click)="toggleRulesModal()"></i>
+    <p>
+      You're the captain of a time-travelling spaceship. Your goal is to take
+      the right decisions.
+    </p>
+    <p>
+      Your choices will have impact on 4 gauges : temporal stability, ship
+      energy, health and AI / crew's mental
+    </p>
+    <div class="gauge-img-container">
+      <img src="../../../assets/images/pictos/icons.png" />
+    </div>
+    <p>
+      The rule is simple : no gauge must reach 0% or 100%, you have to always
+      keep balance.
+    </p>
+  </div>
 </div>

@@ -31,7 +31,7 @@ export class ChoiceComponent implements OnInit, OnDestroy {
   gameBackground: string =
     "url('../../../assets/images/backgrounds/spaceship.webp') no-repeat center center fixed"
   gameOverBackground: string =
-    "url('../../../assets/images/backgrounds/spaceship-2.webp') no-repeat center center fixed"
+    "url('../../../assets/images/backgrounds/game-over.webp') no-repeat center center fixed"
 
   ngOnInit(): void {
     if (this._userService.checkHasSeenIntro()) {

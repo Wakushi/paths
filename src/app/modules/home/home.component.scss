@@ -1,12 +1,55 @@
 .home {
   height: 100vh;
   background-color: #111;
+  overflow: hidden;
   gap: 2rem;
   color: white;
+  position: relative;
 
   p {
     font-size: 1.3rem;
     max-width: 350px;
     text-align: center;
   }
+}
+
+.rules-container {
+  position: absolute;
+  color: white;
+  bottom: -100%;
+  height: 100vh;
+  background-color: rgb(10, 10, 10);
+  gap: 3rem;
+  opacity: 0;
+  transition: 1s;
+
+  &.showRules {
+    transform: translateY(-100%);
+    opacity: 1;
+  }
+
+  .gauge-img-container {
+    box-shadow: 1px 1px 20px var(--main-color);
+    background-color: white;
+  }
+
+  p {
+    text-align: center;
+    font-size: 1.3rem;
+    padding: 0 2.5rem;
+  }
+
+  .fa-circle-xmark {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 1.2rem;
+    opacity: 0.6;
+
+    &:hover,
+    &:focus {
+      opacity: 1;
+    }
+  }
+
 }

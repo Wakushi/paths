@@ -5,29 +5,45 @@
   <div class="gauge-icons__gauges flex--ctr">
     <div
       [ngStyle]="{
-        height: (timeGauge$ | async) + '%',
-        backgroundColor: (highlightTimeGauge$ | async) ? 'var(--highlight-gauge)' : 'white'
+        height:
+          (timeGauge$
+            | async
+            | divideByTwo : (chronicubeRelic$ | async) === true) + '%',
+        backgroundColor:
+          (highlightTimeGauge$ | async) ? 'var(--highlight-gauge)' : 'white'
       }"
       class="gauge-box"
     ></div>
     <div
       [ngStyle]="{
-        height: (energyGauge$ | async) + '%',
-        backgroundColor: (highlightEnergyGauge$ | async) ? 'var(--highlight-gauge)' : 'white'
+        height:
+          (energyGauge$
+            | async
+            | divideByTwo : (chronicubeRelic$ | async) === true) + '%',
+        backgroundColor:
+          (highlightEnergyGauge$ | async) ? 'var(--highlight-gauge)' : 'white'
       }"
       class="gauge-box"
     ></div>
     <div
       [ngStyle]="{
-        height: (healthGauge$ | async) + '%',
-        backgroundColor: (highlightHealthGauge$ | async) ? 'var(--highlight-gauge)' : 'white'
+        height:
+          (healthGauge$
+            | async
+            | divideByTwo : (chronicubeRelic$ | async) === true) + '%',
+        backgroundColor:
+          (highlightHealthGauge$ | async) ? 'var(--highlight-gauge)' : 'white'
       }"
       class="gauge-box"
     ></div>
     <div
       [ngStyle]="{
-        height: (mentalGauge$ | async) + '%',
-        backgroundColor: (highlightMentalGauge$ | async) ? 'var(--highlight-gauge)' : 'white'
+        height:
+          (mentalGauge$
+            | async
+            | divideByTwo : (chronicubeRelic$ | async) === true) + '%',
+        backgroundColor:
+          (highlightMentalGauge$ | async) ? 'var(--highlight-gauge)' : 'white'
       }"
       class="gauge-box"
     ></div>

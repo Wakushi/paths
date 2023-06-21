@@ -1,6 +1,6 @@
 import { EventModel } from "src/app/models/event.model"
 
-function getRandomIndex(array: EventModel[]): number {
+function getRandomIndex(array: any[]): number {
   return Math.floor(Math.random() * array.length)
 }
 
@@ -16,4 +16,4 @@ function shuffleEventArray(array: EventModel[]): EventModel[] {
   return array
 }
 
-export { getRandomNumber, shuffleEventArray }
+export { getRandomNumber, shuffleEventArray, getRandomIndex }
