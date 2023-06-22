@@ -65,7 +65,11 @@ export class EventCardComponent implements AfterViewInit {
     // We iterate on the value of the Subject to update the gauge accordingly
     consequence.pipe(first()).subscribe((consequenceObj) => {
       Object.entries(consequenceObj).forEach(([key, value]) => {
-        this._gaugesService.updateGauge(key, value)
+        if (key !== "special") {
+          this._gaugesService.updateGauge(key, +value)
+        } else {
+          this._eventService.onSpecialEvent(value.toString())
+        }
       })
     })
 

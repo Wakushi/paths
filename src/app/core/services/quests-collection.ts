@@ -10,12 +10,20 @@ export const questsCollection: Quest[] = [
     questText: "Find the lost relic",
   },
   {
-    questId: "COMMUNICATIONS_1",
-    questText: "Fix the communications",
+    questId: "REPAIRS_3",
+    questText: "Fix the shield engine",
   },
   {
-    questId: "COSMIC_MERCHANT_1",
-    questText: "Help the cosmic merchant",
+    questId: "REPAIRS_1",
+    questText: "Find clues about the lost planet",
+  },
+  {
+    questId: "REPAIRS_2",
+    questText: "Survive an asteroid shield",
+  },
+  {
+    questId: "KIE_NEBULA",
+    questText: "Discover the Kie Nebula",
   },
   {
     questId: "KIE_NEBULA",

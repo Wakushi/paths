@@ -16,4 +16,16 @@ function shuffleEventArray(array: EventModel[]): EventModel[] {
   return array
 }
 
-export { getRandomNumber, shuffleEventArray, getRandomIndex }
+function checkArraysMatch(arr1: any[], arr2: any[]): boolean {
+  if (arr1.length !== arr2.length) {
+    return false
+  }
+  for (let i = 0; i < arr1.length; i++) {
+    if (arr1[i] !== arr2[i]) {
+      return false
+    }
+  }
+  return true
+}
+
+export { getRandomNumber, shuffleEventArray, getRandomIndex, checkArraysMatch }

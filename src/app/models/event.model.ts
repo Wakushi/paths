@@ -1,24 +1,26 @@
 export class EventModel {
-  eventName!: string;
-  dialog!: string;
-  eventImage!: string;
+  eventName!: string
+  dialog!: string
+  eventImage!: string
   rightChoice!: {
-    text: string;
+    text: string
     consequence: {
-      time?: number;
-      energy?: number;
-      health?: number;
-      mental?: number;
-    };
-  };
+      time?: number
+      energy?: number
+      health?: number
+      mental?: number
+      special?: string
+    }
+  }
   leftChoice!: {
-    text: string;
+    text: string
     consequence: {
-      time?: number;
-      energy?: number;
-      health?: number;
-      mental?: number;
-    };
-  };
-  quest?:string
+      time?: number
+      energy?: number
+      health?: number
+      mental?: number
+      special?: string
+    }
+  }
+  quest?: string
 }

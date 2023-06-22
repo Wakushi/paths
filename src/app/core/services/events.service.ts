@@ -5,6 +5,7 @@ import { introEventsCollection } from "./event-collections/intro-event"
 import {
   extosopiaEventsCollection,
   extosopiaIntroEvents,
+  extosopiaRepairEvents,
 } from "./event-collections/extosopia-events"
 import { basicEventsCollection } from "./event-collections/basic-events"
 import { lightYearEvents } from "./event-collections/light-year-events"
@@ -12,7 +13,16 @@ import { GameService } from "./game.service"
 import { UserService } from "./user-service"
 import { QuestService } from "./quest.service"
 import { ItemService } from "./items.service"
-import { getRandomNumber, shuffleEventArray } from "../utils/utils"
+import {
+  checkArraysMatch,
+  getRandomNumber,
+  shuffleEventArray,
+} from "../utils/utils"
+import {
+  asteroidSequence,
+  skjoldAsteroidEvents,
+  skjoldIntroEvents,
+} from "./event-collections/skjold-events"
 
 @Injectable({
   providedIn: "root",
@@ -26,17 +36,18 @@ export class EventService {
   ) {}
 
   hasSeenIntro$: BehaviorSubject<boolean> = this._userService.hasSeenIntro$
+  showSnackbar$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false)
+  snackbarMessage$: BehaviorSubject<string> = new BehaviorSubject<string>("")
   isTimeSuspended$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(
     true
   )
-  showSnackbar$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false)
-  snackbarMessage$: BehaviorSubject<string> = new BehaviorSubject<string>("")
-  eventCounter: number = 0
-  basicEvents: EventModel[] = [...basicEventsCollection]
-  eventDiscard: EventModel[] = []
   currentEvent$: BehaviorSubject<EventModel> = new BehaviorSubject<EventModel>(
     {} as EventModel
   )
+  basicEvents: EventModel[] = [...basicEventsCollection]
+  eventDiscard: EventModel[] = []
+  specialEvents: string[] = []
+  eventCounter: number = 0
 
   // EVENTS MANAGEMENT METHODS
 
@@ -67,6 +78,9 @@ export class EventService {
     this.basicEvents = shuffleEventArray(this.basicEvents)
     if (!this.hasSeenIntro$.value) {
       this.basicEvents = [...introEventsCollection].concat(this.basicEvents)
+    }
+    if (this._userService.checkInventory("CARTOGRAPHER_MAP")) {
+      this.injectFollowedEvent(skjoldAsteroidEvents)
     }
     this.currentEvent$.next(this.basicEvents[0])
     this.basicEvents.shift()
@@ -101,6 +115,10 @@ export class EventService {
   //   }
   // }
 
+  onSpecialEvent(eventValue: string): void {
+    this.specialEvents.push(eventValue)
+  }
+
   // EVENT READER
 
   eventReader(event: EventModel): void {
@@ -122,6 +140,30 @@ export class EventService {
         this.basicEvents = shuffleEventArray(
           this.basicEvents.concat(extosopiaEventsCollection)
         )
+        this.injectFollowedEvent(extosopiaRepairEvents)
+        break
+      case "REPAIRS_1":
+        this._itemService.cartographerMap$.next(true)
+        this.openQuestSnackbar("Find clues about the lost planet")
+        this._userService.addItem("CARTOGRAPHER_MAP")
+        this._questService.removeQuest("REPAIRS_1")
+        this.injectFollowedEvent(skjoldAsteroidEvents)
+        break
+      case "ASTEROID_FIRST":
+        this.specialEvents = []
+        break
+      case "ASTEROID_LAST":
+        if (checkArraysMatch(this.specialEvents, asteroidSequence)) {
+          this.specialEvents = []
+          this._itemService.cartographerMap$.next(false)
+          this.openQuestSnackbar("Survive an asteroid shield")
+          this._questService.removeQuest("REPAIRS_2")
+          this.basicEvents.unshift(skjoldIntroEvents[0])
+          // INJECT SJKOLD CARDS
+        } else {
+          console.log("You failed")
+          // Event : 'As you barely dodge your third asteroid, a huge piece of rock hurts the haul. You decide to make a turn..' 
+        }
         break
       default:
         break
@@ -133,7 +175,10 @@ export class EventService {
   lightYearReader(lightYear: number): void {
     switch (lightYear) {
       case 15:
-        if (!this._questService.isQuestDone("EXTOSOPIA") || !this._userService.checkInventory("GAUGE_RELIC")) {
+        if (
+          !this._questService.isQuestDone("EXTOSOPIA") ||
+          !this._userService.checkInventory("GAUGE_RELIC")
+        ) {
           this.basicEvents.unshift(
             lightYearEvents.find((event) => event.quest === "EXTOSOPIA") ||
               ({} as EventModel)
@@ -156,6 +201,7 @@ export class EventService {
     this.snackbarMessage$.next(message)
     setTimeout(() => {
       this.showSnackbar$.next(false)
+      this.snackbarMessage$.next('')
     }, 3500)
   }
 }

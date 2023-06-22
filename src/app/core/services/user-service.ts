@@ -53,6 +53,10 @@ export class UserService {
             userInventory.push(item)
             this._itemService.gaugeRelic$.next(true)
             break
+          case "CARTOGRAPHER_MAP":
+            userInventory.push(item)
+            this._itemService.cartographerMap$.next(true)
+            break
 
           default:
             break

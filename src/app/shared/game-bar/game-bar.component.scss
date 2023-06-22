@@ -65,8 +65,9 @@
   width: 100%;
   bottom: -120px;
   min-height: 115px;
-  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.527);
+  box-shadow: inset 1px 1px 8px rgba(0, 0, 0, 0.822);
   transition: 1s;
+  border-top: 4px solid var(--dark-color);
 
   ul {
     list-style: none;
