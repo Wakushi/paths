@@ -82,6 +82,8 @@ export class EventService {
     if (this._userService.checkInventory("CARTOGRAPHER_MAP")) {
       this.injectFollowedEvent(skjoldAsteroidEvents)
     }
+    // IF QUEST INCLUDES "REPAIRS_2" > INJECT SKJOLD
+    
     this.currentEvent$.next(this.basicEvents[0])
     this.basicEvents.shift()
   }
@@ -156,13 +158,14 @@ export class EventService {
         if (checkArraysMatch(this.specialEvents, asteroidSequence)) {
           this.specialEvents = []
           this._itemService.cartographerMap$.next(false)
+          this._userService.removeItem("CARTOGRAPHER_MAP")
           this.openQuestSnackbar("Survive an asteroid shield")
           this._questService.removeQuest("REPAIRS_2")
           this.basicEvents.unshift(skjoldIntroEvents[0])
           // INJECT SJKOLD CARDS
         } else {
           console.log("You failed")
-          // Event : 'As you barely dodge your third asteroid, a huge piece of rock hurts the haul. You decide to make a turn..' 
+          // Event : 'As you barely dodge your third asteroid, a huge piece of rock hurts the haul. You decide to make a turn..'
         }
         break
       default:
@@ -201,7 +204,7 @@ export class EventService {
     this.snackbarMessage$.next(message)
     setTimeout(() => {
       this.showSnackbar$.next(false)
-      this.snackbarMessage$.next('')
+      this.snackbarMessage$.next("")
     }, 3500)
   }
 }

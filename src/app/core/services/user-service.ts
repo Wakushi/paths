@@ -38,6 +38,14 @@ export class UserService {
     localStorage.setItem("inventory", currentInventory.join(","))
   }
 
+  removeItem(item: string): void {
+    const currentInventory = this.userInventory$.value.filter(
+      (invItem) => invItem !== item
+    )
+    this.userInventory$.next(currentInventory)
+    localStorage.setItem("inventory", currentInventory.join(","))
+  }
+
   resetInventory(): void {
     localStorage.removeItem("inventory")
     this.userInventory$.next([])
@@ -80,5 +88,4 @@ export class UserService {
   resetQuestList(): void {
     localStorage.removeItem("quests")
   }
-
 }
