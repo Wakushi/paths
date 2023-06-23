@@ -38,8 +38,8 @@ export class ChoiceComponent implements OnInit, OnDestroy {
       this._eventService.isTimeSuspended$.next(false)
     }
     this._userService.syncSavedInventory()
-    this._eventService.initializeEventArray()
     this._questService.initializeQuestPool()
+    this._eventService.initializeEventArray()
     this.currentEvent$ = this._eventService.currentEvent$
     this.isGameOver$ = this._gameService.isGameOver$
     this.snackbarMessage$ = this._eventService.snackbarMessage$

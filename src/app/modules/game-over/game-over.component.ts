@@ -28,7 +28,6 @@ export class GameOverComponent implements OnInit {
     this._gameService.isGameOver$.next(false)
     this._gameService.runLightYears$.next(0)
     this._eventService.eventCounter = 0
-    this._eventService.refillDiscardedEvents()
     this._gaugeService.resetGauges()
   }
 }

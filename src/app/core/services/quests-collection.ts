@@ -15,7 +15,7 @@ export const questsCollection: Quest[] = [
   },
   {
     questId: "REPAIRS_1",
-    questText: "Find clues about the lost planet",
+      questText: "Find clues about the abandoned planet",
   },
   {
     questId: "REPAIRS_2",
@@ -23,7 +23,7 @@ export const questsCollection: Quest[] = [
   },
   {
     questId: "KIE_NEBULA",
-    questText: "Discover the Kie Nebula",
+    questText: "Discover the Kie Nebula (60 LY)",
   },
   {
     questId: "KIE_NEBULA",

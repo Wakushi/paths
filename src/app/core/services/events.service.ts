@@ -1,14 +1,10 @@
 import { Injectable } from "@angular/core"
 import { BehaviorSubject } from "rxjs"
+
+// MODELS
 import { EventModel } from "src/app/models/event.model"
-import { introEventsCollection } from "./event-collections/intro-event"
-import {
-  extosopiaEventsCollection,
-  extosopiaIntroEvents,
-  extosopiaRepairEvents,
-} from "./event-collections/extosopia-events"
-import { basicEventsCollection } from "./event-collections/basic-events"
-import { lightYearEvents } from "./event-collections/light-year-events"
+
+// SERVICES
 import { GameService } from "./game.service"
 import { UserService } from "./user-service"
 import { QuestService } from "./quest.service"
@@ -18,9 +14,21 @@ import {
   getRandomNumber,
   shuffleEventArray,
 } from "../utils/utils"
+
+// EVENTS
+import { introEventsCollection } from "./event-collections/intro-event"
+import { basicEventsCollection } from "./event-collections/basic-events"
+import { lightYearEvents } from "./event-collections/light-year-events"
 import {
+  extosopiaEventsCollection,
+  extosopiaIntroEvents,
+  extosopiaRepairEvents,
+} from "./event-collections/extosopia-events"
+import {
+  asteroidEventFail,
   asteroidSequence,
   skjoldAsteroidEvents,
+  skjoldEventsCollection,
   skjoldIntroEvents,
 } from "./event-collections/skjold-events"
 
@@ -75,15 +83,19 @@ export class EventService {
         this.basicEvents.concat(extosopiaEventsCollection)
       )
     }
+    if (this._questService.isQuestDone("REPAIRS_2")) {
+      this.basicEvents = shuffleEventArray(
+        this.basicEvents.concat(skjoldEventsCollection)
+      )
+    }
     this.basicEvents = shuffleEventArray(this.basicEvents)
     if (!this.hasSeenIntro$.value) {
       this.basicEvents = [...introEventsCollection].concat(this.basicEvents)
     }
     if (this._userService.checkInventory("CARTOGRAPHER_MAP")) {
-      this.injectFollowedEvent(skjoldAsteroidEvents)
+      this.injectFollowedEvent(skjoldAsteroidEvents, 15)
     }
-    // IF QUEST INCLUDES "REPAIRS_2" > INJECT SKJOLD
-    
+
     this.currentEvent$.next(this.basicEvents[0])
     this.basicEvents.shift()
   }
@@ -102,8 +114,8 @@ export class EventService {
     this.eventDiscard = []
   }
 
-  injectFollowedEvent(collection: EventModel[]): void {
-    const randomIndex = getRandomNumber(10)
+  injectFollowedEvent(collection: EventModel[], maxDistance: number): void {
+    const randomIndex = getRandomNumber(maxDistance)
     this.basicEvents.splice(randomIndex, 0, ...collection)
   }
 
@@ -142,14 +154,14 @@ export class EventService {
         this.basicEvents = shuffleEventArray(
           this.basicEvents.concat(extosopiaEventsCollection)
         )
-        this.injectFollowedEvent(extosopiaRepairEvents)
+        this.injectFollowedEvent(extosopiaRepairEvents, 10)
         break
       case "REPAIRS_1":
         this._itemService.cartographerMap$.next(true)
-        this.openQuestSnackbar("Find clues about the lost planet")
+        this.openQuestSnackbar("Find clues about the abandoned planet")
         this._userService.addItem("CARTOGRAPHER_MAP")
         this._questService.removeQuest("REPAIRS_1")
-        this.injectFollowedEvent(skjoldAsteroidEvents)
+        this.injectFollowedEvent(skjoldAsteroidEvents, 15)
         break
       case "ASTEROID_FIRST":
         this.specialEvents = []
@@ -159,13 +171,15 @@ export class EventService {
           this.specialEvents = []
           this._itemService.cartographerMap$.next(false)
           this._userService.removeItem("CARTOGRAPHER_MAP")
-          this.openQuestSnackbar("Survive an asteroid shield")
+          this.openQuestSnackbar("Survive an asteroid field")
           this._questService.removeQuest("REPAIRS_2")
+          this.basicEvents = shuffleEventArray(
+            this.basicEvents.concat(skjoldEventsCollection)
+          )
           this.basicEvents.unshift(skjoldIntroEvents[0])
-          // INJECT SJKOLD CARDS
         } else {
-          console.log("You failed")
-          // Event : 'As you barely dodge your third asteroid, a huge piece of rock hurts the haul. You decide to make a turn..'
+          this.injectFollowedEvent(skjoldAsteroidEvents, 15)
+          this.basicEvents.unshift(asteroidEventFail)
         }
         break
       default:
@@ -188,7 +202,7 @@ export class EventService {
           )
           this.openQuestSnackbar("Reach Extosopia-3")
           this._questService.removeQuest("EXTOSOPIA")
-          this.injectFollowedEvent(extosopiaIntroEvents)
+          this.injectFollowedEvent(extosopiaIntroEvents, 10)
         }
         break
 
