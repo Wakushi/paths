@@ -676,4 +676,144 @@ export const skjoldEventsCollection: EventModel[] = [
       consequence: { mental: 5 },
     },
   },
+  {
+    eventName: "Mysterious Signal",
+    dialog:
+      "A strange signal echoes through the icy wastes. It could be a trap... or an opportunity.",
+    eventImage: SKJOLD,
+    rightChoice: {
+      text: "Follow the signal",
+      consequence: { time: -10, mental: 15, health: -10 },
+    },
+    leftChoice: {
+      text: "Ignore the signal",
+      consequence: { mental: -5 },
+    },
+  },
+  {
+    eventName: "Aurora Storm",
+    dialog:
+      "A dazzling aurora lights up the sky, affecting the ship's navigational systems. Ride it out or reroute?",
+    eventImage: SKJOLD,
+    rightChoice: {
+      text: "Ride out the storm",
+      consequence: { time: -5, energy: 10 },
+    },
+    leftChoice: {
+      text: "Reroute to avoid the storm",
+      consequence: { time: -15 },
+    },
+  },
+  {
+    eventName: "Abandoned Mech",
+    dialog:
+      "You spot an abandoned Federation Mech half-buried in the snow. Could be valuable, could be dangerous.",
+    eventImage: SKJOLD,
+    rightChoice: {
+      text: "Scavenge the Mech",
+      consequence: { time: -5, energy: 15, health: -10 },
+    },
+    leftChoice: {
+      text: "Leave the Mech",
+      consequence: { mental: 5 },
+    },
+  },
+  {
+    eventName: "Frozen Lake",
+    dialog:
+      "A frozen lake sprawls before you. It might be quicker to cross, but the ice could break...",
+    eventImage: SKJOLD,
+    rightChoice: {
+      text: "Cross the lake",
+      consequence: { time: 10, health: -15 },
+    },
+    leftChoice: {
+      text: "Go around the lake",
+      consequence: { time: -10 },
+    },
+  },
+  {
+    eventName: "Mysterious Object",
+    dialog:
+      "An object of alien origin pulses with an inner light. Examine it or leave it alone?",
+    eventImage: SKJOLD,
+    rightChoice: {
+      text: "Examine the object",
+      consequence: { mental: 20, health: -15 },
+    },
+    leftChoice: {
+      text: "Leave it alone",
+      consequence: { mental: -5 },
+    },
+  },
+  {
+    eventName: "Cavern Echoes",
+    dialog:
+      "Echoes from a deep cavern suggest the presence of life. Could be friend or foe...",
+    eventImage: SKJOLD,
+    rightChoice: {
+      text: "Investigate the cavern",
+      consequence: { mental: 15, health: -10 },
+    },
+    leftChoice: {
+      text: "Ignore the cavern",
+      consequence: { mental: -5 },
+    },
+  },
+  {
+    eventName: "Phantom Lights",
+    dialog:
+      "Ghostly lights dance across the horizon. Is it a natural phenomenon or something more?",
+    eventImage: SKJOLD,
+    rightChoice: {
+      text: "Investigate the lights",
+      consequence: { mental: 10, health: -10, energy: 10 },
+    },
+    leftChoice: {
+      text: "Ignore the lights",
+      consequence: { mental: -5 },
+    },
+  },
+  {
+    eventName: "Crashed Probe",
+    dialog:
+      "A crashed Federation probe lies in the snow. It might have valuable data, but extracting it could be risky.",
+    eventImage: SKJOLD,
+    rightChoice: {
+      text: "Attempt to retrieve the probe's data",
+      consequence: { mental: 15, health: -10 },
+    },
+    leftChoice: {
+      text: "Leave the probe",
+      consequence: { mental: 5 },
+    },
+  },
+  {
+    eventName: "Time Disturbance",
+    dialog:
+      "A ripple in the fabric of space-time appears. A chance to save time, but at what cost?",
+    eventImage: SKJOLD,
+    rightChoice: {
+      text: "Navigate through the disturbance",
+      consequence: { time: 20, health: -15 },
+    },
+    leftChoice: {
+      text: "Avoid the disturbance",
+      consequence: { time: -5 },
+    },
+  },
+  {
+    eventName: "Alien Artifact",
+    dialog:
+      "A strange alien artifact lies half-buried in the ice. Investigate or move on?",
+    eventImage: SKJOLD,
+    rightChoice: {
+      text: "Investigate the artifact",
+      consequence: { mental: 20, health: -10 },
+    },
+    leftChoice: {
+      text: "Ignore the artifact",
+      consequence: { mental: -5 },
+    },
+  },
 ]

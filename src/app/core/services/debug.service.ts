@@ -4,6 +4,7 @@ import { EventService } from "./events.service"
 import { EventModel } from "src/app/models/event.model"
 import { basicEventsCollection } from "./event-collections/basic-events"
 import { extosopiaEventsCollection } from "./event-collections/extosopia-events"
+import { skjoldEventsCollection } from "./event-collections/skjold-events"
 
 @Injectable({
   providedIn: "root",
@@ -40,6 +41,8 @@ export class DebugService {
     console.log(this._eventService.eventDiscard)
     console.log("Exto events : ")
     console.log(extosopiaEventsCollection)
+    console.log("Skjold events : ")
+    console.log(skjoldEventsCollection)
   }
 
   getEventsData(): void {
