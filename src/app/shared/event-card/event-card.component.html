@@ -5,7 +5,7 @@
   <div #eventCard class="event-box__image flex--ctr">
     <ng-container *ngIf="animateCard">
       <div class="card">
-        <div class="card__face">
+        <div *ngIf="isDeckVisible$ | async" class="card__face">
           <img
             class="event-image"
             (dragstart)="(false)"
@@ -24,7 +24,7 @@
   <div #rightChoice class="card__face__text card__face__text--right">
     {{ event.rightChoice.text }}
   </div>
-  <div class="event-card-back">
+  <div *ngIf="isDeckVisible$ | async" class="event-card-back">
     <img src="../../../assets/images/backgrounds/card-back.webp" />
   </div>
   <h1 class="event-box__name">{{ event.eventName }}</h1>

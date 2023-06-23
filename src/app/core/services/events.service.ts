@@ -165,6 +165,8 @@ export class EventService {
         break
       case "ASTEROID_FIRST":
         this.specialEvents = []
+        this._gameService.setGameBackground("asteroidEvent")
+        this._gameService.setDeckVisible(false)
         break
       case "ASTEROID_LAST":
         if (checkArraysMatch(this.specialEvents, asteroidSequence)) {
@@ -181,6 +183,9 @@ export class EventService {
           this.injectFollowedEvent(skjoldAsteroidEvents, 15)
           this.basicEvents.unshift(asteroidEventFail)
         }
+        this._gameService.setGameBackground("classicShip")
+        this._gameService.setDeckVisible(true)
+
         break
       default:
         break

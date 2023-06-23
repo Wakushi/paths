@@ -5,6 +5,7 @@ import {
   Renderer2,
   ViewChild,
   Input,
+  OnInit,
 } from "@angular/core"
 import { Observable, first, map } from "rxjs"
 import { EventService } from "src/app/core/services/events.service"
@@ -17,7 +18,7 @@ import { EventModel } from "src/app/models/event.model"
   templateUrl: "./event-card.component.html",
   styleUrls: ["./event-card.component.scss"],
 })
-export class EventCardComponent implements AfterViewInit {
+export class EventCardComponent implements OnInit, AfterViewInit {
   @Input() event$!: Observable<EventModel>
   @ViewChild("eventCard") eventCard!: ElementRef
   @ViewChild("leftChoice") leftChoice!: ElementRef
@@ -26,6 +27,7 @@ export class EventCardComponent implements AfterViewInit {
   currentX: number = 0
   isDraggingCard: boolean = false
   animateCard: boolean = true
+  isDeckVisible$!: Observable<boolean>
 
   constructor(
     private _eventService: EventService,
@@ -33,6 +35,10 @@ export class EventCardComponent implements AfterViewInit {
     private _gameService: GameService,
     private renderer: Renderer2
   ) {}
+
+  ngOnInit(): void {
+    this.isDeckVisible$ = this._gameService.isDeckVisible$
+  }
 
   ngAfterViewInit() {
     this.eventCard.nativeElement.addEventListener("mousedown", (e: any) =>

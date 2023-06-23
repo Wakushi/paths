@@ -6,6 +6,7 @@ import { MusicService } from "src/app/core/services/music.service"
 import { QuestService } from "src/app/core/services/quest.service"
 import { UserService } from "src/app/core/services/user-service"
 import { EventModel } from "src/app/models/event.model"
+import { backgroundCollection } from "src/assets/background-collection"
 
 @Component({
   selector: "app-choice",
@@ -25,11 +26,10 @@ export class ChoiceComponent implements OnInit, OnDestroy {
   isGameOver$!: Observable<boolean>
   isMusicPlaying$!: BehaviorSubject<boolean>
   snackbarMessage$!: BehaviorSubject<string>
+  gameBackground$!: BehaviorSubject<string>
   playSubscription: Subscription = new Subscription()
   pauseSubscription: Subscription = new Subscription()
   mainTheme = new Audio("../../assets/sounds/music/nova.mp3")
-  gameBackground: string =
-    "url('../../../assets/images/backgrounds/spaceship.webp') no-repeat center center fixed"
   gameOverBackground: string =
     "url('../../../assets/images/backgrounds/game-over.webp') no-repeat center center fixed"
 
@@ -41,6 +41,7 @@ export class ChoiceComponent implements OnInit, OnDestroy {
     this._questService.initializeQuestPool()
     this._eventService.initializeEventArray()
     this.currentEvent$ = this._eventService.currentEvent$
+    this.gameBackground$ = this._gameService.gameBackground$
     this.isGameOver$ = this._gameService.isGameOver$
     this.snackbarMessage$ = this._eventService.snackbarMessage$
     this.initializeAudio()

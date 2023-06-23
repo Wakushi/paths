@@ -5,6 +5,7 @@ import { ItemService } from "src/app/core/services/items.service"
 import { QuestService } from "src/app/core/services/quest.service"
 import { UserService } from "src/app/core/services/user-service"
 import { Quest } from "src/app/models/quest.model"
+import { backgroundCollection } from "src/assets/background-collection"
 
 @Component({
   selector: "app-game-bar",

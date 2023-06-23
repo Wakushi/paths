@@ -6,7 +6,8 @@
   <div
     class="game-content flex--col"
     [ngStyle]="{
-      background: (isGameOver$ | async) ? gameOverBackground : gameBackground
+      background:
+        (isGameOver$ | async) ? gameOverBackground : (gameBackground$ | async)
     }"
   >
     <app-gauge *ngIf="(isGameOver$ | async) === false"></app-gauge>

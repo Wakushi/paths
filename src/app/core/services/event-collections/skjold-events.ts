@@ -5,6 +5,7 @@ const ASTEROID_FIELD_FAIL: string =
   "../../assets/images/pnj/asteroid-field-fail.webp"
 const SKJOLD: string = "../../assets/images/pnj/skjold.webp"
 const SKJOLD_INTRO: string = "../../assets/images/pnj/skjold-intro.webp"
+const SHIP_ASSET:string = "../../assets/images/pnj/ship-rear.webp"
 
 export const asteroidSequence: string[] = [
   "left",
@@ -33,7 +34,7 @@ export const skjoldAsteroidEvents: EventModel[] = [
   {
     eventName: "Asteroid field",
     dialog: "",
-    eventImage: ASTEROID_FIELD,
+    eventImage: SHIP_ASSET,
     rightChoice: {
       text: "Go right",
       consequence: { special: "right" },
@@ -46,7 +47,7 @@ export const skjoldAsteroidEvents: EventModel[] = [
   {
     eventName: "Asteroid field",
     dialog: "",
-    eventImage: ASTEROID_FIELD,
+    eventImage: SHIP_ASSET,
     rightChoice: {
       text: "Go right",
       consequence: { special: "right" },
@@ -59,7 +60,7 @@ export const skjoldAsteroidEvents: EventModel[] = [
   {
     eventName: "Asteroid field",
     dialog: "",
-    eventImage: ASTEROID_FIELD,
+    eventImage: SHIP_ASSET,
     rightChoice: {
       text: "Go right",
       consequence: { special: "right" },
@@ -72,7 +73,7 @@ export const skjoldAsteroidEvents: EventModel[] = [
   {
     eventName: "Asteroid field",
     dialog: "",
-    eventImage: ASTEROID_FIELD,
+    eventImage: SHIP_ASSET,
     rightChoice: {
       text: "Go right",
       consequence: { special: "right" },
@@ -85,7 +86,7 @@ export const skjoldAsteroidEvents: EventModel[] = [
   {
     eventName: "Asteroid field",
     dialog: "",
-    eventImage: ASTEROID_FIELD,
+    eventImage: SHIP_ASSET,
     rightChoice: {
       text: "Go right",
       consequence: { special: "right" },
