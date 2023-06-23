@@ -4,7 +4,10 @@
   </p>
   <div #eventCard class="event-box__image flex--ctr">
     <ng-container *ngIf="animateCard">
-      <div class="card">
+      <div
+        class="card"
+        [ngClass]="{ 'no-shadows': (isDeckVisible$ | async) === false }"
+      >
         <div *ngIf="isDeckVisible$ | async" class="card__face">
           <img
             class="event-image"

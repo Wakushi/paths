@@ -127,6 +127,7 @@ export class GaugesService {
 
   onGameOver(reason: Gauge, reach: Reach): void {
     this._gameService.isGameOver$.next(true)
+    this._gameService.isBackgroundMoving$.next(true)
     this._gameService.deathMessage$.next(
       this.getRandomDeathMessage(reason, reach)
     )

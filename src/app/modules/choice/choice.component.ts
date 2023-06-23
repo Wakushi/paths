@@ -27,11 +27,12 @@ export class ChoiceComponent implements OnInit, OnDestroy {
   isMusicPlaying$!: BehaviorSubject<boolean>
   snackbarMessage$!: BehaviorSubject<string>
   gameBackground$!: BehaviorSubject<string>
+  shipDoorTransition$!: BehaviorSubject<boolean>
+  isBackgroundMoving$!: Observable<boolean>
   playSubscription: Subscription = new Subscription()
   pauseSubscription: Subscription = new Subscription()
   mainTheme = new Audio("../../assets/sounds/music/nova.mp3")
-  gameOverBackground: string =
-    "url('../../../assets/images/backgrounds/game-over.webp') no-repeat center center fixed"
+  gameOverBackground: string = backgroundCollection["gameOverBackground"]
 
   ngOnInit(): void {
     if (this._userService.checkHasSeenIntro()) {
@@ -40,11 +41,15 @@ export class ChoiceComponent implements OnInit, OnDestroy {
     this._userService.syncSavedInventory()
     this._questService.initializeQuestPool()
     this._eventService.initializeEventArray()
+    this._userService.getBestScore()
     this.currentEvent$ = this._eventService.currentEvent$
     this.gameBackground$ = this._gameService.gameBackground$
+    this.isBackgroundMoving$ = this._gameService.isBackgroundMoving$
+    this.shipDoorTransition$ = this._gameService.shipDoorTransition$
     this.isGameOver$ = this._gameService.isGameOver$
     this.snackbarMessage$ = this._eventService.snackbarMessage$
     this.initializeAudio()
+    this._gameService.isBackgroundMoving$.next(false)
   }
 
   initializeAudio(): void {

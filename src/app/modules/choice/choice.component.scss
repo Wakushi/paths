@@ -29,3 +29,45 @@
   background-size: cover;
   box-shadow: 1px 1px 21px #1111119a;
 }
+
+.door-transition {
+  height: 100vh;
+  z-index: 9;
+  position: absolute;
+  top: -100%;
+  background-color: rgba(0, 0, 0, 0.452);
+  width: 100%;
+  box-shadow: 1px 1px 8px #111111b4;
+  animation: sas-door 3s ease-in-out;
+}
+
+.moving-background {
+  animation: moving-background 250s ease-in-out infinite;
+}
+
+@keyframes sas-door {
+  0% {
+    top: -100%;
+  }
+  40% {
+    top: 0;
+  }
+  60% {
+    top: 0;
+  }
+  100% {
+    top: -100%;
+  }
+}
+
+@keyframes moving-background {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 40%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}

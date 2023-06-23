@@ -14,6 +14,12 @@ export class GameService {
     backgroundCollection["classicShip"]
   )
   isDeckVisible$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true)
+  shipDoorTransition$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(
+    false
+  )
+  isBackgroundMoving$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(
+    false
+  )
 
   setGameBackground(backgroundContext: string): void {
     this.gameBackground$.next(backgroundCollection[backgroundContext])
@@ -21,5 +27,12 @@ export class GameService {
 
   setDeckVisible(visible: boolean): void {
     this.isDeckVisible$.next(visible)
+  }
+
+  launchShipDoorAnimation(): void {
+    this.shipDoorTransition$.next(true)
+    setTimeout(() => {
+      this.shipDoorTransition$.next(false)
+    }, 4000)
   }
 }

@@ -165,10 +165,17 @@ export class EventService {
         break
       case "ASTEROID_FIRST":
         this.specialEvents = []
+        this.isTimeSuspended$.next(true)
+        this._gameService.launchShipDoorAnimation()
+        setTimeout(() => {
+          this._gameService.isBackgroundMoving$.next(true)
         this._gameService.setGameBackground("asteroidEvent")
-        this._gameService.setDeckVisible(false)
+          this._gameService.setDeckVisible(false)
+        }, 1000)
         break
       case "ASTEROID_LAST":
+        this.isTimeSuspended$.next(false)
+        this._gameService.isBackgroundMoving$.next(false)
         if (checkArraysMatch(this.specialEvents, asteroidSequence)) {
           this.specialEvents = []
           this._itemService.cartographerMap$.next(false)

@@ -5,6 +5,7 @@
   />
   <div
     class="game-content flex--col"
+    [ngClass]="{ 'moving-background' : isBackgroundMoving$ | async }"
     [ngStyle]="{
       background:
         (isGameOver$ | async) ? gameOverBackground : (gameBackground$ | async)
@@ -17,7 +18,9 @@
     ></app-event-card>
     <app-game-over *ngIf="isGameOver$ | async"></app-game-over>
     <app-game-bar *ngIf="(isGameOver$ | async) === false"></app-game-bar>
+    <div *ngIf="shipDoorTransition$ | async" class="door-transition">
+      <img src="../../../assets/images/backgrounds/ship-door.webp" />
+    </div>
   </div>
 </div>
-
 <app-snackbar [snackEvent]="snackbarMessage$"></app-snackbar>
