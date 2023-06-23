@@ -5,6 +5,7 @@ import { EventService } from "./events.service"
 import { ItemService } from "./items.service"
 import { deathMessages, Gauge, Reach } from "./death-message-collection"
 import { getRandomIndex } from "../utils/utils"
+import { UserService } from "./user-service"
 
 @Injectable({
   providedIn: "root",
@@ -38,7 +39,8 @@ export class GaugesService {
   constructor(
     private _gameService: GameService,
     private _eventService: EventService,
-    private _itemService: ItemService
+    private _itemService: ItemService,
+    private _userService: UserService
   ) {}
 
   updateGauge(gauge: string, value: number): void {
@@ -128,6 +130,7 @@ export class GaugesService {
     this._gameService.deathMessage$.next(
       this.getRandomDeathMessage(reason, reach)
     )
+    this._userService.setBestScore(this._eventService.eventCounter)
   }
 
   getRandomDeathMessage(gauge: Gauge, reach: Reach) {

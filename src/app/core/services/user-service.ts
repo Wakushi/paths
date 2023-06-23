@@ -9,6 +9,7 @@ import { Quest } from "src/app/models/quest.model"
 export class UserService {
   hasSeenIntro$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false)
   userInventory$: BehaviorSubject<string[]> = new BehaviorSubject<string[]>([])
+  userBestScore$: BehaviorSubject<number> = new BehaviorSubject<number>(0)
 
   constructor(private _itemService: ItemService) {}
 
@@ -87,5 +88,15 @@ export class UserService {
 
   resetQuestList(): void {
     localStorage.removeItem("quests")
+  }
+
+  setBestScore(score: number): void {
+    if (score > this.userBestScore$.value) {
+      localStorage.setItem("score", score.toString())
+    }
+  }
+  getBestScore(): void {
+    const score = localStorage.getItem("score")
+    if (score) this.userBestScore$.next(+score)
   }
 }

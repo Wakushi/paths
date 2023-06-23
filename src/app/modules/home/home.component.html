@@ -5,6 +5,7 @@
     <p>Experience on mobile recommanded.</p>
     <p>Thanks for playing !</p>
   </div>
+  <p>Best score : {{ userBestScore$ | async }}</p>
   <button class="button--text" (click)="startGame()">Start</button>
   <button class="button--text" (click)="toggleRulesModal()">Rules</button>
   <!-- RULES MODAL -->

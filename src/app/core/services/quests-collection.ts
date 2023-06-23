@@ -26,7 +26,7 @@ export const questsCollection: Quest[] = [
     questText: "Discover the Kie Nebula (60 LY)",
   },
   {
-    questId: "KIE_NEBULA",
-    questText: "Discover the Kie Nebula",
+    questId: "KLOMA_BOY",
+    questText: "Find the Kloma boy",
   },
 ]
