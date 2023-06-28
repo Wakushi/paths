@@ -11,6 +11,7 @@ import { Observable, first, map } from "rxjs"
 import { EventService } from "src/app/core/services/events.service"
 import { GameService } from "src/app/core/services/game.service"
 import { GaugesService } from "src/app/core/services/gauges.service"
+import { ImagePreloadService } from "src/app/core/services/image-preload.service"
 import { EventModel } from "src/app/models/event.model"
 
 @Component({
@@ -28,16 +29,28 @@ export class EventCardComponent implements OnInit, AfterViewInit {
   isDraggingCard: boolean = false
   animateCard: boolean = true
   isDeckVisible$!: Observable<boolean>
+  eventImage: HTMLImageElement | undefined
 
   constructor(
     private _eventService: EventService,
     private _gaugesService: GaugesService,
     private _gameService: GameService,
-    private renderer: Renderer2
+    private renderer: Renderer2,
+    private imagePreloadService: ImagePreloadService
   ) {}
 
   ngOnInit(): void {
     this.isDeckVisible$ = this._gameService.isDeckVisible$
+    this.event$.subscribe((event) => {
+      this.imagePreloadService
+        .load(event.eventImage)
+        .then(
+          () =>
+            (this.eventImage = this.imagePreloadService.getImage(
+              event.eventImage
+            ))
+        )
+    })
   }
 
   ngAfterViewInit() {

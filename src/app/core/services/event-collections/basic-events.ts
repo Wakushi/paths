@@ -1157,7 +1157,7 @@ export const basicEventsCollection: EventModel[] = [
     eventImage: ARCHITECTE_STELLAIRE_ORION_IMAGE,
     rightChoice: {
       text: "Harness the solar flare.",
-      consequence: { energy: 30, health: -20 },
+      consequence: { energy: 20, health: -20 },
     },
     leftChoice: {
       text: "Take evasive action.",
