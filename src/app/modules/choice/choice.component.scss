@@ -23,7 +23,7 @@
   z-index: 1;
   max-width: 430px;
   margin: 0 auto;
-  height: 100vh;
+  height: 100dvh;
   min-height: 650px;
   background-color: rgb(174, 155, 216);
   background-size: cover;
@@ -31,7 +31,7 @@
 }
 
 .door-transition {
-  height: 100vh;
+  height: 100dvh;
   z-index: 9;
   position: absolute;
   top: -100%;

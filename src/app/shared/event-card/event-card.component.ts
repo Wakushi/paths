@@ -64,12 +64,12 @@ export class EventCardComponent implements OnInit, AfterViewInit {
 
   onChoice(direction: number): void {
     // Checks on which side the card was dropped and converts (map) the Subject into its consequence
-    const consequence =
+    const consequence$ =
       direction === 1
         ? this.event$.pipe(map((event) => event.rightChoice.consequence))
         : this.event$.pipe(map((event) => event.leftChoice.consequence))
     // We iterate on the value of the Subject to update the gauge accordingly
-    consequence.pipe(first()).subscribe((consequenceObj) => {
+    consequence$.pipe(first()).subscribe((consequenceObj) => {
       Object.entries(consequenceObj).forEach(([key, value]) => {
         if (key !== "special") {
           this._gaugesService.updateGauge(key, +value)
